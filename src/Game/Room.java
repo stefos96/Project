@@ -3,7 +3,7 @@ import static Game.FileReader.roomList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
+//test
 public class Room {
     // Μεταβλητές για το αν μπορεί να πάει δεξιά η αριστερά.
 //    private boolean left;
