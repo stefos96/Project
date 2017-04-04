@@ -141,5 +141,37 @@ public class FileReader {
     
 }
    
+
+
+/*
+ * Diavazei terata apo arxeio
+ * TODO: some work here pls;
+ */
+   public void monsterdReader(){
+        Room temp = new Room();
+        try{
+            File x = new File(".\\src\\Map\\pass.txt");
+            Scanner sc = new Scanner(x);  
+            int index = 0;
+            mapText1 = "";
+            while(sc.hasNext()){
+                if (sc.hasNextInt()){
+                    index = sc.nextInt();
+                }
+                  mapText1 = sc.next().toLowerCase();
+                  if (mapText1.equals("code")){
+                      mapText1 = sc.next();
+                      temp.setDoorLock(index, mapText1);
+                  }
+            }
+            sc.close();
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File error");
+    }
+    
+}
      
+
+
 }
