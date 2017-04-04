@@ -1,0 +1,7 @@
+0 key1
+1 antidote
+2 flashlight
+3 knife
+3 key7
+4 screwdriver
+6 machete

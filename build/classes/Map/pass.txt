@@ -1,0 +1,5 @@
+1 code clk8
+3 code bathroom
+4 code kitchen
+6 code bedroom
+8 code master

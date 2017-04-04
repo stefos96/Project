@@ -5,12 +5,6 @@ import java.util.Scanner;
 
 //test
 public class Room {
-    // Μεταβλητές για το αν μπορεί να πάει δεξιά η αριστερά.
-//    private boolean left;
-//    private boolean right;
-//    private boolean up;
-//    private boolean down;
-    
     private boolean isLocked;
     private String doorLock;
     
@@ -24,7 +18,7 @@ public class Room {
     public HashMap<String, Item> itemMap = new HashMap<>();
     
 
-    
+    //test
     
     public Integer getNextDoorIndex(String orientation){
         orientation = orientation.toLowerCase();
@@ -45,8 +39,6 @@ public class Room {
     * Sets room items
     */
     public void setItem(Item item, String hashcode){
-//        if (hashcode.contains("key"))
-//            hashcode = "key";
         this.itemMap.put(hashcode, item);        
     }
     
@@ -213,110 +205,12 @@ public class Room {
         
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
- 
-    // VERSION 1.0
-    
-    /*
-    * An einai efikto mpes sto domatio pou to kateuthiname episis vlepei an to domatio einai kleidomeno
-    * Updates: Static activeRoom
-    * Returns: true an uparxei tetoia kateuthinsi
-    */
-//    public static boolean enterRoom(String orientation){
-//        switch(orientation){
-//            case "GO LEFT":
-//                if(roomList.get(activeRoom).left){
-//                    if(roomList.get(roomList.get(activeRoom).leftRoom).isLocked){
-//                        roomList.get(roomList.get(activeRoom).leftRoom).unlock(roomList.get(activeRoom).leftRoom);
-//                        if(!roomList.get(roomList.get(activeRoom).leftRoom).isLocked){
-//                            activeRoom = roomList.get(activeRoom).leftRoom;
-//                            return true;
-//                        }
-//                        else
-//                            return false;
-//                    }
-//                    else{
-//                        activeRoom = roomList.get(activeRoom).leftRoom;
-//                        return true;
-//                    }
-//                }
-//                break;
-//            case "GO RIGHT":
-//                if(roomList.get(activeRoom).right){
-//                    if(roomList.get(roomList.get(activeRoom).rightRoom).isLocked){
-//                        roomList.get(roomList.get(activeRoom).rightRoom).unlock(roomList.get(activeRoom).rightRoom);
-//                        if(!roomList.get(roomList.get(activeRoom).rightRoom).isLocked){
-//                            activeRoom = roomList.get(activeRoom).rightRoom;
-//                            return true;
-//                        }
-//                        else
-//                            return false;
-//                    }
-//                    else{
-//                        activeRoom = roomList.get(activeRoom).rightRoom;
-//                        return true;
-//                    }
-//                }
-//                break;
-//            case "GO UP":
-//                if(roomList.get(activeRoom).up){
-//                    if(roomList.get(roomList.get(activeRoom).upRoom).isLocked){
-//                        roomList.get(roomList.get(activeRoom).upRoom).unlock(roomList.get(activeRoom).upRoom);
-//                        if(!roomList.get(roomList.get(activeRoom).upRoom).isLocked){
-//                            activeRoom = roomList.get(activeRoom).upRoom;
-//                            return true;
-//                        }
-//                        else
-//                            return false;
-//                    }
-//                    else{
-//                        activeRoom = roomList.get(activeRoom).upRoom;
-//                        return true;
-//                    }
-//                }
-//                break;
-//            case "GO DOWN":
-//                if(roomList.get(activeRoom).down){
-//                    if(roomList.get(roomList.get(activeRoom).downRoom).isLocked){
-//                        roomList.get(roomList.get(activeRoom).downRoom).unlock(roomList.get(activeRoom).downRoom);
-//                        if(!roomList.get(roomList.get(activeRoom).downRoom).isLocked){
-//                            activeRoom = roomList.get(activeRoom).downRoom;
-//                            return true;
-//                        }
-//                        else
-//                            return false;
-//                    }
-//                    else{
-//                        activeRoom = roomList.get(activeRoom).downRoom;
-//                        return true;
-//                    }
-//                }
-//                break;    
-//        }
-//        return false;
-//    }
-    
-    
-    
     /*
     * Sundeei orizontia 2 domatia
     * Ousiastika leei se poia thesi sto Array einai to kontino domatio orizontia
     */
     public void createHorizontalDoor(Room a, int position){
-//        this.right = true;
         this.rightRoom = position;
-//        a.left = true;
         a.leftRoom = position - 1;
     }
     
@@ -327,9 +221,7 @@ public class Room {
     * Ousiastika leei se poia thesi sto Array einai to kontino domatio katheta
     */
     public void createVerticalDoor(Room a, int position, int count){
-//        this.down = true;
         this.downRoom = position + count;
-//        a.up = true;
         a.upRoom = position;
     }
     
