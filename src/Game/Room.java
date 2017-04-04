@@ -19,10 +19,10 @@ public class Room {
     
     public HashMap<String, Item> itemMap = new HashMap<>();
     public ArrayList<Monster> monsterList = new ArrayList<>();
-
+    // anti gia hashmap mporoume na exoume to arrayList kai gia na pairnoume to onoma
+    // tou teratos na kanoume showClass(); auto omos otan tha kanoume ta enums
     // public HashMap<String, Monster> monsterMap = new HashMap<>();
     
-
 
 
     public void setMonsters(Monster monster){
