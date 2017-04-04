@@ -1,4 +1,5 @@
 package Game;
+import Monster.Monster;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -117,7 +118,6 @@ public class FileReader {
      * Diavazei kodikous gia to kathe domatio apo arxeio
      */
      public void passwordReader(){
-        Room temp = new Room();
         try{
             File x = new File(".\\src\\Map\\pass.txt");
             Scanner sc = new Scanner(x);  
@@ -130,7 +130,7 @@ public class FileReader {
                   mapText1 = sc.next().toLowerCase();
                   if (mapText1.equals("code")){
                       mapText1 = sc.next();
-                      temp.setDoorLock(index, mapText1);
+                      roomList.get(index).setDoorLock(mapText1);
                   }
             }
             sc.close();
@@ -143,34 +143,33 @@ public class FileReader {
    
 
 
+
 /*
  * Diavazei terata apo arxeio
  * TODO: some work here pls;
+ * Na valoume enum kai sta terata!!!
  */
-   public void monsterdReader(){
-        Room temp = new Room();
+  public void monsterReader(){
         try{
-            File x = new File(".\\src\\Map\\pass.txt");
+            File x = new File(".\\src\\Map\\monstersitems.txt");
             Scanner sc = new Scanner(x);  
             int index = 0;
-            mapText1 = "";
             while(sc.hasNext()){
                 if (sc.hasNextInt()){
                     index = sc.nextInt();
                 }
-                  mapText1 = sc.next().toLowerCase();
-                  if (mapText1.equals("code")){
-                      mapText1 = sc.next();
-                      temp.setDoorLock(index, mapText1);
-                  }
+                mapText1 = sc.next().toLowerCase();
+                roomList.get(index).setMonsters(new Monster()); //error stin grammi auti
             }
             sc.close();
         }
         catch(FileNotFoundException e){
             System.out.println("File error");
+        }
+        catch(Exception e){
+            System.out.println("Generic error");
+        }
     }
-    
-}
      
 
 

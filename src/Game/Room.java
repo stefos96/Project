@@ -1,5 +1,7 @@
 package Game;
 import static Game.FileReader.roomList;
+import Monster.Monster;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -16,7 +18,16 @@ public class Room {
     public static int activeRoom = 0;
     
     public HashMap<String, Item> itemMap = new HashMap<>();
+    public ArrayList<Monster> monsterList = new ArrayList<>();
+
+    // public HashMap<String, Monster> monsterMap = new HashMap<>();
     
+
+
+
+    public void setMonsters(Monster monster){
+            this.monsterList.add(monster);
+    }
 
     //test
     
@@ -82,9 +93,9 @@ public class Room {
    /*
     * Vazei kodiko gia to domatio index
     */ 
-    public void setDoorLock(int index, String password){
-        roomList.get(index).doorLock = password;
-        roomList.get(index).isLocked = true;
+    public void setDoorLock(String password){
+        this.doorLock = password;
+        this.isLocked = true;
     }
     
     

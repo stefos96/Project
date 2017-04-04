@@ -1,6 +1,11 @@
 package Monster;
 
-public abstract Monster(){
+public abstract class Monster(){
     
+    private int hp;
+    private int xp;
+    private int dmg;
+
+
 }
 
