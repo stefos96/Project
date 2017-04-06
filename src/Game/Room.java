@@ -1,7 +1,6 @@
 package Game;
 import static Game.FileReader.roomList;
-import Monster.Monster;
-import java.util.ArrayList;
+import Monsters.Monster;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -18,18 +17,24 @@ public class Room {
     public static int activeRoom = 0;
     
     public HashMap<String, Item> itemMap = new HashMap<>();
-    public ArrayList<Monster> monsterList = new ArrayList<>();
-    // anti gia hashmap mporoume na exoume to arrayList kai gia na pairnoume to onoma
-    // tou teratos na kanoume showClass(); auto omos otan tha kanoume ta enums
+    private Monster roomMonster;
+    // public ArrayList<Monster> monsterList = new ArrayList<>();    
     // public HashMap<String, Monster> monsterMap = new HashMap<>();
     
-
-
-    public void setMonsters(Monster monster){
-            this.monsterList.add(monster);
+    
+    public void printMonsters(){
+        if (roomList.get(activeRoom).roomMonster != null)
+            System.out.println("There's a monster in the room");
     }
 
-    //test
+    public Monster getMonster(){
+        return roomMonster;
+    }
+
+    public void setMonsters(Monster monster){
+            this.roomMonster = monster;
+    }
+
     
     public Integer getNextDoorIndex(String orientation){
         orientation = orientation.toLowerCase();
@@ -41,34 +46,20 @@ public class Room {
             default: return roomList.get(activeRoom).upRoom;
         }
     }
-    
-    
-    
-    
-    
+        
     /*
     * Sets room items
     */
     public void setItem(Item item, String hashcode){
         this.itemMap.put(hashcode, item);        
-    }
-    
-    
-    
-    
-    
+    }    
     
     /*
     * Removes item from room
     */
     public void removeItem(String hashcode){
         roomList.get(activeRoom).itemMap.remove(hashcode);
-    }
-
-    
-    
-    
-    
+    }    
     
     /*
     * Prints room items

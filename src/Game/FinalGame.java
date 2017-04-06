@@ -10,6 +10,7 @@ public class FinalGame {
         a.mapReader();
         a.passwordReader();
         a.itemReader();
+        a.monsterReader();
         UserInput test = new UserInput();
         test.Input();
        

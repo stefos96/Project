@@ -1,5 +1,5 @@
 package Game;
-import Monster.Monster;
+import Monsters.Monster;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -151,7 +151,7 @@ public class FileReader {
  */
   public void monsterReader(){
         try{
-            File x = new File(".\\src\\Map\\monstersitems.txt");
+            File x = new File(".\\src\\Map\\monsters.txt");
             Scanner sc = new Scanner(x);  
             int index = 0;
             while(sc.hasNext()){

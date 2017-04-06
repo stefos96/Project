@@ -1,4 +1,4 @@
-package Monster;
+package Monsters;
 
 
 public class Zombie extends Monster{

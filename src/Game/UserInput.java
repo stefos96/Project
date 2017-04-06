@@ -40,6 +40,9 @@ public class UserInput{
                 case "VIEW INV":
                     Player1.viewInventory();
                     break;     
+                case "ATTACK":
+                      Map1.printMonsters();
+//                    Player1.attack(Map1.getMonster());
                 case "LOAD":
                     break;   
                 case "SAVE":
