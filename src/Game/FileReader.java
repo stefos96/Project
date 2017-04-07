@@ -4,7 +4,9 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
+import MonsterEnum.MonsterEnum;
+import Monsters.Spider;
+import Monsters.Zombie;
 
 
 public class FileReader {
@@ -146,8 +148,6 @@ public class FileReader {
 
 /*
  * Diavazei terata apo arxeio
- * TODO: some work here pls;
- * Na valoume enum kai sta terata!!!
  */
   public void monsterReader(){
         try{
@@ -158,8 +158,19 @@ public class FileReader {
                 if (sc.hasNextInt()){
                     index = sc.nextInt();
                 }
-                mapText1 = sc.next().toLowerCase();
-                roomList.get(index).setMonsters(new Monster()); //error stin grammi auti
+                mapText1 = sc.next().toUpperCase();
+                MonsterEnum monster = MonsterEnum.valueOf(mapText1);
+                switch (monster){
+                    case ZOMBIE:
+                        roomList.get(index).setMonster(new Zombie());
+                        break;
+                    case SPIDER:
+                        roomList.get(index).setMonster(new Spider());
+                        break;
+                    default:
+                        roomList.get(index).setMonster(new Monster());
+                        break;
+                }
             }
             sc.close();
         }

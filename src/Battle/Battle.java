@@ -18,20 +18,22 @@ public class Battle{
         int monsterDmg = monster.getDmg();
         // long currentTime = currentTimeMillis() * 1000; //se seconds
 
-        while (charLife > 0 || monsterLife > 0){
+        while ((charLife > 0) && (monsterLife > 0)){
             monsterLife -= attack(charDmg);
-            charLife -= attack(monsterDmg);
+            charLife -= monsterDmg;
+        } 
+        if (monsterLife <= 0){
+            character.refreshHealth(charLife);
+            return monster.getXp();            
         }
-        if (monsterLife == 0)
-            return monster.getXp();
         return 0;
     }
 
   
   
      public int attack(int dmg){
-        int extraDmg = (int) Math.random() * 3; // random timi apo 0 - 3
-        if (((int) Math.random() * 4) == 1) // 0.25% pithanotita gia 5 dmg 
+        int extraDmg = (int) (Math.random() * 3); // random timi apo 0 - 3
+        if (((int) (Math.random() * 4)) == 1) // 0.25% pithanotita gia 5 dmg 
             extraDmg = 5;
         dmg += extraDmg;
         return dmg;

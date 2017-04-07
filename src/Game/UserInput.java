@@ -14,6 +14,7 @@ public class UserInput{
         Map1 = new Room();
         System.out.println("Καλωσήρθες,\nΒρίσκεσαι σε ένα σκοτεινό δωμάτιο, το κεφάλι σου κουδουνίζει και η μνήμη σου είναι θολή.\n" + Map1.getDoorNumber());
         Map1.getRoomItems();
+        Map1.printMonster();
     }
        
     public void Input(){
@@ -22,8 +23,9 @@ public class UserInput{
             UserCommand = myVar.nextLine().toUpperCase();
             if(UserCommand.contains("GO")){
                 if (Map1.enterRoomVer2(UserCommand)){
-                    System.out.println(Map1.getDoorNumber());
+                    System.out.println(Map1.getDoorNumber());                    
                     Map1.getRoomItems();
+                    Map1.printMonster();
                 }
             }       
             if(UserCommand.contains("UNLOCK"))
@@ -41,8 +43,12 @@ public class UserInput{
                     Player1.viewInventory();
                     break;     
                 case "ATTACK":
-                      Map1.printMonsters();
-//                    Player1.attack(Map1.getMonster());
+                    if(!Map1.checkIfNullMonster())
+                        Player1.attack(Map1.getMonster());
+                      break;
+                case "STATS":
+                    Player1.printStats();
+                    break;
                 case "LOAD":
                     break;   
                 case "SAVE":

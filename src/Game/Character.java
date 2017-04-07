@@ -8,12 +8,12 @@ import Monsters.Monster;
 public class Character{
  
     private int life = 10;
-    private int currentLife;
+    private int currentLife = 10;
     private int dmg = 5;
     private int level = 1;
     private int xp = 0;
     private int xpToNextLvl = 30;
-    private boolean infected = false;
+    // private boolean infected = false;
     private HashMap<String, Item> inventory = new HashMap<>();
     
     
@@ -62,18 +62,26 @@ public class Character{
     public void attack(Monster monster){
         Battle fight = new Battle();
         int result = fight.enterBattle(this, monster);
-        if (result == 0)
+        if (currentLife <= 0)
             System.out.println("You died!");
-        addXp(result);
+        else{
+            System.out.print("You killed the " + monster.getClass().getSimpleName());
+            System.out.println(" and gained " + monster.getXp() + " xp");
+            addXp(result);
+        }
     }
 
     public void addXp(int experience){
         xp += experience;
-        if (xp >= xpToNextLvl){}
+        if (xp >= xpToNextLvl){
             int exp = xp - xpToNextLvl;
             levelUp(exp);
+        }
     }
 
+    public void refreshHealth(int health){
+        this.currentLife = health;        
+    }
 
     public void levelUp(int exp){
         level++;
@@ -90,6 +98,13 @@ public class Character{
 
     public int getDmg(){
         return dmg;
+    }
+    
+    public void printStats(){
+        System.out.println("Current Health: " + this.currentLife);
+        System.out.println("Current Level: " + this.level);
+        System.out.println("Current experience: " + this.xp);
+        System.out.println("Experience to next Level: " + (this.xpToNextLvl - this.xp));
     }
 
 

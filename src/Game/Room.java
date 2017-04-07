@@ -4,7 +4,7 @@ import Monsters.Monster;
 import java.util.HashMap;
 import java.util.Scanner;
 
-//test
+
 public class Room {
     private boolean isLocked;
     private String doorLock;
@@ -22,20 +22,38 @@ public class Room {
     // public HashMap<String, Monster> monsterMap = new HashMap<>();
     
     
-    public void printMonsters(){
-        if (roomList.get(activeRoom).roomMonster != null)
-            System.out.println("There's a monster in the room");
+    public boolean checkIfNullMonster(){
+        if(roomList.get(activeRoom).roomMonster == null)
+            return true;
+        return false;
     }
-
+    
+   /*
+    * Ektuponei AN uparxei teras sto domatio
+    */
+    public void printMonster(){
+            if(!checkIfNullMonster())
+                System.out.println("There's a "+ roomList.get(activeRoom).roomMonster.getClass().getSimpleName() +" in the room");
+    }
+    
+   /*
+    * epistrefei to teras stin UserInput
+    */
     public Monster getMonster(){
-        return roomMonster;
+            checkIfNullMonster();
+            return roomList.get(activeRoom).roomMonster;
     }
 
-    public void setMonsters(Monster monster){
+   /*
+    * Vazei ena teras sto domatio (kaleitai ap tin FileReader)
+    */
+    public void setMonster(Monster monster){
             this.roomMonster = monster;
     }
 
-    
+   /*
+    * Epistrefei to index tou epomenou domatio sto ArrayList analoga me tin kateuthinsi pou tou dothike
+    */
     public Integer getNextDoorIndex(String orientation){
         orientation = orientation.toLowerCase();
         switch(orientation){
@@ -47,21 +65,21 @@ public class Room {
         }
     }
         
-    /*
+   /*
     * Sets room items
     */
     public void setItem(Item item, String hashcode){
         this.itemMap.put(hashcode, item);        
     }    
     
-    /*
+   /*
     * Removes item from room
     */
     public void removeItem(String hashcode){
         roomList.get(activeRoom).itemMap.remove(hashcode);
     }    
     
-    /*
+   /*
     * Prints room items
     */
     public void getRoomItems(){
