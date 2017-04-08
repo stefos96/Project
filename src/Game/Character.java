@@ -4,7 +4,7 @@ import java.util.HashMap;
 import static Game.FileReader.roomList;
 import Monsters.Monster;
 
-
+//TEST
 public class Character{
  
     private int life = 10;
