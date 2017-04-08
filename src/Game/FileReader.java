@@ -167,6 +167,15 @@ public class FileReader {
                     case SPIDER:
                         roomList.get(index).setMonster(new Spider());
                         break;
+                    case VAMPIRE:
+                        roomList.get(index).setMonster(new Vampire());
+                        break;
+                    case TROLL:
+                        roomList.get(index).setMonster(new Troll());
+                        break;
+                    case SNAKE:
+                        roomList.get(index).setMonster(new Snake());
+                        break;
                     default:
                         roomList.get(index).setMonster(new Monster());
                         break;
