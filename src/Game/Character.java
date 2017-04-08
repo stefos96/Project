@@ -14,6 +14,7 @@ public class Character{
     private int xp = 0;
     private int xpToNextLvl = 30;
     // private boolean infected = false;
+    private HashMap<String, Item> equipment = new HashMap<>();
     private HashMap<String, Item> inventory = new HashMap<>();
     
     
