@@ -1,12 +1,18 @@
 package Game;
+import EquipmentItems.WeaponEnum;
+import Items.Equipment;
 import Monsters.Monster;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import MonsterEnum.MonsterEnum;
+import Monsters.Snake;
 import Monsters.Spider;
+import Monsters.Troll;
+import Monsters.Vampire;
 import Monsters.Zombie;
+import Items.Item;
 
 
 public class FileReader {
@@ -25,7 +31,7 @@ public class FileReader {
     public void mapReader(){
          int[][] roomArray = new int[100][100];
     try{
-            File x = new File(".\\src\\Map\\map.txt");
+            File x = new File("./src/Map/map.txt");  // ubuntu change to backslashes
             Scanner sc = new Scanner(x);  
                         
             while(sc.hasNext()){
@@ -89,11 +95,10 @@ public class FileReader {
     
    /*
     *Diavazei ta items apo arxeio kai to vazei se HashMap
-    */
-    
+    */    
     public void itemReader(){
         try{
-            File x = new File(".\\src\\Map\\items.txt");
+            File x = new File("./src/Map/items.txt"); //ubuntu change to backslashes
             Scanner sc = new Scanner(x);  
             int index = 0;
             while(sc.hasNext()){
@@ -101,7 +106,12 @@ public class FileReader {
                     index = sc.nextInt();
                 }
                 mapText1 = sc.next().toLowerCase();
-                roomList.get(index).setItem(new Item(mapText1), mapText1);
+                if (mapText1.contains("_")){
+                    WeaponEnum weapon = WeaponEnum.valueOf(mapText1.toUpperCase());
+                    roomList.get(index).setItem(new Equipment(weapon.damage, weapon.armor), mapText1);
+                }
+                else
+                    roomList.get(index).setItem(new Item(mapText1), mapText1);
             }
             sc.close();
         }
@@ -121,7 +131,7 @@ public class FileReader {
      */
      public void passwordReader(){
         try{
-            File x = new File(".\\src\\Map\\pass.txt");
+            File x = new File("./src/Map/pass.txt"); //ubuntu change to backslashes
             Scanner sc = new Scanner(x);  
             int index = 0;
             mapText1 = "";
@@ -151,7 +161,7 @@ public class FileReader {
  */
   public void monsterReader(){
         try{
-            File x = new File(".\\src\\Map\\monsters.txt");
+            File x = new File("./src/Map/monsters.txt"); // ubuntu change to backslashes
             Scanner sc = new Scanner(x);  
             int index = 0;
             while(sc.hasNext()){

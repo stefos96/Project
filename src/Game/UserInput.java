@@ -1,4 +1,6 @@
 package Game;
+import EquipmentItems.WeaponEnum;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -32,9 +34,12 @@ public class UserInput{
                 Player1.unlockDoor(UserCommand);    
             if(UserCommand.contains("PICK"))
                 Player1.storeItem(UserCommand);
+            if(UserCommand.contains("EQUIP"))
+                Player1.equip(UserCommand);
             switch (UserCommand){  
                 case "LOOK":
                     Map1.getRoomItems();
+                    Map1.printMonster();
                     break;
                 case "VIEW INVENTORY":
                     Player1.viewInventory();
@@ -52,6 +57,8 @@ public class UserInput{
                     Player1.printStats();
                     break;
                 case "LOAD":
+                    System.out.println("Working Directory = " + System.getProperty("user.dir"));
+                    System.out.println(Arrays.toString(WeaponEnum.values()));
                     break;   
                 case "SAVE":
                     break;

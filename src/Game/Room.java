@@ -1,5 +1,6 @@
 package Game;
 import static Game.FileReader.roomList;
+import Items.Item;
 import Monsters.Monster;
 import java.util.HashMap;
 import java.util.Scanner;
