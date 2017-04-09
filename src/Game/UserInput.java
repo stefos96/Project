@@ -43,8 +43,10 @@ public class UserInput{
                     Player1.viewInventory();
                     break;     
                 case "ATTACK":
-                    if(!Map1.checkIfNullMonster())
+                    if(!Map1.checkIfNullMonster()){
                         Player1.attack(Map1.getMonster());
+                        Map1.removeMonster();
+                    }
                       break;
                 case "STATS":
                     Player1.printStats();

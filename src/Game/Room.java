@@ -40,8 +40,11 @@ public class Room {
     * epistrefei to teras stin UserInput
     */
     public Monster getMonster(){
-            checkIfNullMonster();
             return roomList.get(activeRoom).roomMonster;
+    }
+
+    public void removeMonster(){
+        roomList.get(activeRoom).roomMonster = null;
     }
 
    /*
