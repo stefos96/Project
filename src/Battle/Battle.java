@@ -12,10 +12,11 @@ public class Battle{
      * o paiktis exei ena xroniko diastima gia na kanei epithesi allios ksanavaraei to teras
      */
     public int enterBattle(Character character, Monster monster){
-        int charLife = character.getCurrentLife();
-        int monsterLife = monster.getHp();
-        int charDmg = character.getDmg();                
-        int monsterDmg = monster.getDmg();
+        double charLife = character.getCurrentLife();
+        double monsterLife = monster.getHp();
+        double charDmg = character.getDmg();     
+        double charArmor = character.getArmor();
+        double monsterDmg = monster.getDmg() * (2 - (100 / (100 - charArmor)));
         // long currentTime = currentTimeMillis() * 1000; //se seconds
 
         while ((charLife > 0) && (monsterLife > 0)){
@@ -23,7 +24,7 @@ public class Battle{
             charLife -= monsterDmg;
         } 
         if (monsterLife <= 0){
-            character.refreshHealth(charLife);
+            character.refreshHealth((int) charLife);
             return monster.getXp();            
         }
         return 0;
@@ -31,7 +32,7 @@ public class Battle{
 
   
   
-     public int attack(int dmg){
+     public double attack(double dmg){
         int extraDmg = (int) (Math.random() * 3); // random timi apo 0 - 3
         if (((int) (Math.random() * 4)) == 1) // 0.25% pithanotita gia 5 dmg 
             extraDmg = 5;
