@@ -3,7 +3,8 @@ package EquipmentEnum;
 public enum EquipmentEnum{
     HELMET,
     ARMOR,
-    WEAPON,
+    SWORD,
+    DAGGER,
     SHIELD,
     GLOVES,
     BOOTS

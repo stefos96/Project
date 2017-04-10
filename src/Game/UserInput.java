@@ -36,6 +36,8 @@ public class UserInput{
                 Player1.storeItem(UserCommand);
             if(UserCommand.contains("EQUIP"))
                 Player1.equip(UserCommand);
+            if(UserCommand.contains("DROP"))
+                Player1.dropItem(UserCommand);
             switch (UserCommand){  
                 case "LOOK":
                     Map1.getRoomItems();
@@ -55,6 +57,9 @@ public class UserInput{
                       break;
                 case "STATS":
                     Player1.printStats();
+                    break;
+                case "PREVIEW SET":
+                    Player1.printEquipment();
                     break;
                 case "LOAD":
                     System.out.println("Working Directory = " + System.getProperty("user.dir"));

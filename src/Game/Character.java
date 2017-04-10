@@ -21,6 +21,22 @@ public class Character{
     
     
     
+   /*
+    *  Prints equipment
+    */
+    public void printEquipment(){
+        String equiped = "";
+        try{
+            for(String key : equipment.keySet()){
+               if(!key.equals(""))
+                equiped += key + " ";
+            }
+            if(!equiped.equals(""))
+                System.out.println("Φοράς: " + equiped + ".");          
+        }
+        catch(Exception e){}
+    }
+    
     /*
      * Apothikeuei Items sto Inventory
      */
