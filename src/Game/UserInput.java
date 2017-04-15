@@ -2,6 +2,7 @@ package Game;
 import EquipmentItems.WeaponEnum;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Formatter;
 
 
 public class UserInput{
@@ -10,6 +11,7 @@ public class UserInput{
     private String UserCommand = "";
     private Character Player1;
     private Room Map1;
+    private String allInput;
     
     UserInput(){
         Player1 = new Character();
@@ -23,6 +25,7 @@ public class UserInput{
                 
         while(!UserCommand.equals("EXIT")){
             UserCommand = myVar.nextLine().toUpperCase();
+            allInput += UserCommand + "\n";
             if(UserCommand.contains("GO")){
                 if (Map1.enterRoomVer2(UserCommand)){
                     System.out.println(Map1.getDoorNumber());                    
@@ -38,7 +41,7 @@ public class UserInput{
                 Player1.equip(UserCommand);
             if(UserCommand.contains("DROP"))
                 Player1.dropItem(UserCommand);
-            switch (UserCommand){  
+            switch (UserCommand){
                 case "LOOK":
                     Map1.getRoomItems();
                     Map1.printMonster();
@@ -62,10 +65,20 @@ public class UserInput{
                     Player1.printEquipment();
                     break;
                 case "LOAD":
-                    System.out.println("Working Directory = " + System.getProperty("user.dir"));
-                    System.out.println(Arrays.toString(WeaponEnum.values()));
+                    System.out.println("wtf");
                     break;   
                 case "SAVE":
+                    System.out.println("Save game as:");
+                    UserCommand = myVar.nextLine().toUpperCase();
+                    try{
+                        Formatter f = new Formatter("./src/SavedGames/" + UserCommand + ".txt");
+                        System.out.println("Game saved successfully as " + UserCommand + ".txt");
+                        f.format("%s",allInput);
+                        f.close();
+                    }
+                    catch(Exception e){
+                    System.out.println("Failed to save game.");
+                }
                     break;
                 case "HELP":
                     getHelp();
