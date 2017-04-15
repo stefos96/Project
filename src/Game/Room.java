@@ -1,5 +1,5 @@
 package Game;
-import static Game.FileReader.roomList;
+import static Game.MapCreation.roomList;
 import Items.Item;
 import Monsters.Monster;
 import java.util.HashMap;
@@ -49,7 +49,7 @@ public class Room {
     }
 
    /*
-    * Vazei ena teras sto domatio (kaleitai ap tin FileReader)
+    * Vazei ena teras sto domatio (kaleitai ap tin MapCreation)
     */
     public void setMonster(Monster monster){
             this.roomMonster = monster;

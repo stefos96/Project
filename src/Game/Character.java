@@ -1,7 +1,7 @@
 package Game;
 import Battle.Battle;
 import java.util.HashMap;
-import static Game.FileReader.roomList;
+import static Game.MapCreation.roomList;
 import Items.Equipment;
 import Items.Item;
 import Monsters.Monster;

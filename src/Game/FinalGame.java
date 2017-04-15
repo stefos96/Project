@@ -5,7 +5,7 @@ public class FinalGame {
     
     
     public static void main(String[] args){        
-        FileReader a = new FileReader();
+        MapCreation a = new MapCreation();
         a.mapReader();
 //        a.passwordReader();
         a.itemReader();

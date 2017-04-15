@@ -1,6 +1,7 @@
 package Game;
-import EquipmentItems.WeaponEnum;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Scanner;
 import java.util.Formatter;
 
@@ -11,7 +12,8 @@ public class UserInput{
     private String UserCommand = "";
     private Character Player1;
     private Room Map1;
-    private String allInput;
+    private String allInput = "";
+    private boolean load = false;
     
     UserInput(){
         Player1 = new Character();
@@ -24,8 +26,10 @@ public class UserInput{
     public void Input(){
                 
         while(!UserCommand.equals("EXIT")){
-            UserCommand = myVar.nextLine().toUpperCase();
-            allInput += UserCommand + "\n";
+            if(!load)
+                UserCommand = myVar.nextLine().toUpperCase();
+            if ((!(UserCommand.equals("LOAD"))) && (!(UserCommand.equals("SAVE"))))
+                allInput += UserCommand + "\n";
             if(UserCommand.contains("GO")){
                 if (Map1.enterRoomVer2(UserCommand)){
                     System.out.println(Map1.getDoorNumber());                    
@@ -65,20 +69,44 @@ public class UserInput{
                     Player1.printEquipment();
                     break;
                 case "LOAD":
-                    System.out.println("wtf");
+                    System.out.println("Give name of your saved game.");
+                    try{
+                        BufferedReader br = new BufferedReader(new FileReader("./src/SavedGames/"+ myVar.nextLine().toUpperCase() + ".txt"));
+                        String line;
+                        load = true;
+                        while ((line = br.readLine()) != null){
+                            UserCommand = line;
+                            this.Input();
+                        }
+                        UserCommand = "";
+                        load = false;
+                    }
+                    catch (Exception e){
+                        System.out.println("File not found.");
+                    }
                     break;   
                 case "SAVE":
                     System.out.println("Save game as:");
-                    UserCommand = myVar.nextLine().toUpperCase();
+                    String fileName = myVar.nextLine().toUpperCase();
                     try{
-                        Formatter f = new Formatter("./src/SavedGames/" + UserCommand + ".txt");
-                        System.out.println("Game saved successfully as " + UserCommand + ".txt");
+                        File x = new File("./src/SavedGames/" + fileName + ".txt");
+                        if (x.exists()){
+                            System.out.println("There's already a file with that name\nDo you want to overwrite?");
+                            if (!myVar.nextLine().toUpperCase().equals("YES")) {
+                                System.out.println("Failed to save game.");
+                                break;
+                            }
+                        }
+                        fileName = fileName.trim();
+//                        fileName = fileName.replaceAll(fileName.substring(fileName.length() - 5),"");
+                        Formatter f = new Formatter("./src/SavedGames/" + fileName + ".txt");
+                        System.out.println("Game saved successfully as " + fileName + ".txt");
                         f.format("%s",allInput);
                         f.close();
                     }
                     catch(Exception e){
-                    System.out.println("Failed to save game.");
-                }
+                        System.out.println("Failed to save game.");
+                    }
                     break;
                 case "HELP":
                     getHelp();
@@ -86,8 +114,8 @@ public class UserInput{
                 default:
                     break;
             }
-            
-            
+            if(load)
+                UserCommand = "EXIT";
       }
 }
     
