@@ -1,10 +1,12 @@
-package Monster;
+package Monsters;
 
 
 public class Zombie extends Monster{
 
-    private int hp = 10;
-    private int xp = 8;
-    private int dmg = 3;
-
+    public Zombie(){
+        this.hp = 10;        
+        this.dmg = 3;
+        this.xp = 8;
+    }
+    
 }

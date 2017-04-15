@@ -1,18 +1,25 @@
-package Monster;
+package Monsters;
+
 
 
 // gia tora vgazo to abstract
-public class Monster(){
+public class Monster {
     
-    private int hp;
-    private int xp;
-    private int dmg;
+    protected int hp;    
+    protected int dmg;
+    protected int xp;
     
 
+    public int getHp(){
+        return this.hp;
+    }
 
-    // mexri na ginoun ta enums tha valo ena String me to onoma tou monster
-    public void getMonsterName(){
+    public int getDmg(){
+        return this.dmg;
+    }
 
+    public int getXp(){
+        return this.xp;
     }
 
 }

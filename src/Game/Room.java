@@ -1,11 +1,11 @@
 package Game;
-import static Game.FileReader.roomList;
-import Monster.Monster;
-import java.util.ArrayList;
+import static Game.MapCreation.roomList;
+import Items.Item;
+import Monsters.Monster;
 import java.util.HashMap;
 import java.util.Scanner;
 
-//test
+
 public class Room {
     private boolean isLocked;
     private String doorLock;
@@ -18,19 +18,46 @@ public class Room {
     public static int activeRoom = 0;
     
     public HashMap<String, Item> itemMap = new HashMap<>();
-    public ArrayList<Monster> monsterList = new ArrayList<>();
-    // anti gia hashmap mporoume na exoume to arrayList kai gia na pairnoume to onoma
-    // tou teratos na kanoume showClass(); auto omos otan tha kanoume ta enums
+    private Monster roomMonster;
+    // public ArrayList<Monster> monsterList = new ArrayList<>();    
     // public HashMap<String, Monster> monsterMap = new HashMap<>();
     
-
-
-    public void setMonsters(Monster monster){
-            this.monsterList.add(monster);
+    
+    public boolean checkIfNullMonster(){
+        if(roomList.get(activeRoom).roomMonster == null)
+            return true;
+        return false;
+    }
+    
+   /*
+    * Ektuponei AN uparxei teras sto domatio
+    */
+    public void printMonster(){
+            if(!checkIfNullMonster())
+                System.out.println("There's a "+ roomList.get(activeRoom).roomMonster.getClass().getSimpleName() +" in the room");
+    }
+    
+   /*
+    * epistrefei to teras stin UserInput
+    */
+    public Monster getMonster(){
+            return roomList.get(activeRoom).roomMonster;
     }
 
-    //test
-    
+    public void removeMonster(){
+        roomList.get(activeRoom).roomMonster = null;
+    }
+
+   /*
+    * Vazei ena teras sto domatio (kaleitai ap tin MapCreation)
+    */
+    public void setMonster(Monster monster){
+            this.roomMonster = monster;
+    }
+
+   /*
+    * Epistrefei to index tou epomenou domatio sto ArrayList analoga me tin kateuthinsi pou tou dothike
+    */
     public Integer getNextDoorIndex(String orientation){
         orientation = orientation.toLowerCase();
         switch(orientation){
@@ -41,36 +68,22 @@ public class Room {
             default: return roomList.get(activeRoom).upRoom;
         }
     }
-    
-    
-    
-    
-    
-    /*
+        
+   /*
     * Sets room items
     */
     public void setItem(Item item, String hashcode){
         this.itemMap.put(hashcode, item);        
-    }
+    }    
     
-    
-    
-    
-    
-    
-    /*
+   /*
     * Removes item from room
     */
     public void removeItem(String hashcode){
         roomList.get(activeRoom).itemMap.remove(hashcode);
-    }
-
+    }    
     
-    
-    
-    
-    
-    /*
+   /*
     * Prints room items
     */
     public void getRoomItems(){

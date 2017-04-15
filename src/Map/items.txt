@@ -1,4 +1,6 @@
 0 key1
+0 bronze_dagger
+0 leather_armor
 1 antidote
 2 flashlight
 3 knife

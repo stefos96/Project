@@ -1,10 +1,12 @@
-package Monster;
+package Monsters;
 
 
 public class Spider extends Monster{
-
-    private int hp = 20;
-    private int xp = 12;
-    private int dmg = 5;
+    
+    public Spider(){
+        this.hp = 20;
+        this.dmg = 5;
+        this.xp = 12;        
+    }
 
 }

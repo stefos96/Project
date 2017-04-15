@@ -4,12 +4,12 @@ package Game;
 public class FinalGame {
     
     
-    
     public static void main(String[] args){        
-        FileReader a = new FileReader();
+        MapCreation a = new MapCreation();
         a.mapReader();
-        a.passwordReader();
+//        a.passwordReader();
         a.itemReader();
+        a.monsterReader();
         UserInput test = new UserInput();
         test.Input();
        
