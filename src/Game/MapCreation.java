@@ -1,5 +1,7 @@
 package Game;
 import EquipmentItems.WeaponEnum;
+import Items.Consumable;
+import Items.ConsumablesEnum;
 import Items.Equipment;
 import Monsters.Monster;
 import java.util.Scanner;
@@ -106,9 +108,15 @@ public class MapCreation {
                     index = sc.nextInt();
                 }
                 mapText1 = sc.next().toLowerCase();
-                if (mapText1.contains("_")){
+                if (mapText1.contains("weap")){
+                    mapText1 = mapText1.replaceAll("weap","");
                     WeaponEnum weapon = WeaponEnum.valueOf(mapText1.toUpperCase());
                     roomList.get(index).setItem(new Equipment(weapon.damage, weapon.armor), mapText1);
+                }
+                else if(mapText1.contains("cons")){
+                    mapText1 = mapText1.replaceAll("cons","");
+                    ConsumablesEnum cons = ConsumablesEnum.valueOf(mapText1.toUpperCase());
+                    roomList.get(index).setItem(new Consumable(cons.restoreHealth), mapText1);
                 }
                 else
                     roomList.get(index).setItem(new Item(mapText1), mapText1);

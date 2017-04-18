@@ -38,13 +38,15 @@ public class UserInput{
                 }
             }       
             if(UserCommand.contains("UNLOCK"))
-                Player1.unlockDoor(UserCommand);    
+                Player1.unlockDoor(UserCommand);
             if(UserCommand.contains("PICK"))
                 Player1.storeItem(UserCommand);
             if(UserCommand.contains("EQUIP"))
                 Player1.equip(UserCommand);
             if(UserCommand.contains("DROP"))
                 Player1.dropItem(UserCommand);
+            if(UserCommand.contains("CONSUME"))
+                Player1.consumeItem(UserCommand);
             switch (UserCommand){
                 case "LOOK":
                     Map1.getRoomItems();
@@ -98,7 +100,6 @@ public class UserInput{
                             }
                         }
                         fileName = fileName.trim();
-//                        fileName = fileName.replaceAll(fileName.substring(fileName.length() - 5),"");
                         Formatter f = new Formatter("./src/SavedGames/" + fileName + ".txt");
                         System.out.println("Game saved successfully as " + fileName + ".txt");
                         f.format("%s",allInput);
@@ -121,7 +122,7 @@ public class UserInput{
     
     
     public void getHelp(){
-         System.out.println("GO [ORIENTATION]\nPICK [ITEM]\nLOOK\nVIEW INVENTORY\nLOAD\nSAVE\nEXIT" );
+         System.out.println("GO [ORIENTATION]\nPICK [ITEM]\nLOOK\nDROP [ITEM]\nEQUIP [ITEM]\nVIEW INVENTORY\nLOAD\nSAVE\nEXIT" );
     }
     
     

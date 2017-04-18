@@ -34,8 +34,9 @@ public class Item {
     public Integer getIndexToUnlock(){
         return indexToUnlock;
     }
-    
-    
+
+
+
     public boolean isStorable(){
         return storable;
     }

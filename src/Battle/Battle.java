@@ -35,7 +35,7 @@ public class Battle{
      public double attack(double dmg){
         int extraDmg = (int) (Math.random() * 3); // random timi apo 0 - 3
         if (((int) (Math.random() * 4)) == 1) // 0.25% pithanotita gia 5 dmg 
-            extraDmg = 5;
+            extraDmg = (int) (dmg * 1.5);
         dmg += extraDmg;
         return dmg;
     }

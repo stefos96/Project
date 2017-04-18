@@ -2,6 +2,8 @@ package Game;
 import Battle.Battle;
 import java.util.HashMap;
 import static Game.MapCreation.roomList;
+
+import Items.Consumable;
 import Items.Equipment;
 import Items.Item;
 import Monsters.Monster;
@@ -16,12 +18,13 @@ public class Character{
     private int level = 1;
     private int xp = 0;
     private int xpToNextLvl = 30;
-    private HashMap<String, Equipment> equipment = new HashMap<>();
+    private HashMap<String, Equipment> equipment = new HashMap<>();//remove it
     private HashMap<String, Item> inventory = new HashMap<>();
-    
-    
-    
-   /*
+
+
+
+
+    /*
     *  Prints equipment
     */
     public void printEquipment(){
@@ -38,23 +41,69 @@ public class Character{
     }
     
     /*
-     * Apothikeuei Items sto Inventory
+     * Foraei opla kai panoplies pou uparxoun sto domatio i sto inventory
      */
     public void equip(String itemName){
         itemName = itemName.toLowerCase();
         itemName = itemName.replace("equip ", "");
-        if(roomList.get(Room.activeRoom).itemMap.containsKey(itemName)){
-            equipment.put(itemName, (Equipment) roomList.get(Room.activeRoom).itemMap.get(itemName));
-            this.armor += equipment.get(itemName).getExtraArmor();
-            this.dmg += equipment.get(itemName).getExtraDmg();
-            roomList.get(Room.activeRoom).itemMap.remove(itemName);
-            System.out.println(itemName + " equiped");
+
+
+        //algorithm trying to equip with keyword armor
+        // ***_armor
+        String b = roomList.get(Room.activeRoom).itemMap.toString();
+        int a = b.indexOf(itemName);
+        while(true){
+            if(b.charAt(--a) == ' ')
+                break;
         }
+        a++;
+        b = b.substring(a,b.indexOf(itemName));
+        b = b.concat(itemName);
+
+        if(roomList.get(Room.activeRoom).itemMap.containsKey(b)){
+            if(roomList.get(Room.activeRoom).itemMap.get(b).getClass().getSimpleName().equals("Equipment")) {
+                equipment.put(b, (Equipment) roomList.get(Room.activeRoom).itemMap.get(b));
+                this.armor += equipment.get(b).getExtraArmor();
+                this.dmg += equipment.get(b).getExtraDmg();
+                roomList.get(Room.activeRoom).itemMap.remove(b);
+                System.out.println(itemName + " equiped");
+            }
+            else
+                System.out.println("Item can't be equiped");
+        }
+        else if(this.inventory.containsKey(b)){
+            if(inventory.get(b).getClass().getSimpleName().equals("Equipment")) {
+                this.equipment.put(b, (Equipment) inventory.get(b));
+                this.armor += equipment.get(b).getExtraArmor();
+                this.dmg += equipment.get(b).getExtraDmg();
+                this.inventory.remove(b);
+                System.out.println(itemName + " equiped");
+            }
+            else
+                System.out.println("Item can't be equiped.");
+        }
+
+
+
         else
             System.out.println(itemName + " not found");
     }
-    
-    
+
+    /*
+     * Drinks potion and restores health
+     */
+    public void consumeItem(String potionName){
+        potionName = potionName.toLowerCase();
+        potionName = potionName.replaceAll("consume ", "");
+        if(inventory.containsKey(potionName)){
+            if(inventory.get(potionName).getClass().getSimpleName().equals("Consumable")){
+                int restoredHealth = ((Consumable) inventory.get(potionName)).getRestoreHealth();
+                this.currentLife += restoredHealth;
+                inventory.remove(potionName);
+                System.out.println("You restored " + restoredHealth + " health");
+            }
+        }
+    }
     
     /*
      * Apothikeuei Items sto Inventory
@@ -70,7 +119,10 @@ public class Character{
         else
             System.out.println(itemName + " not found");
     }
-    
+
+    /*
+     * Rixnei items ap to inventory
+     */
     public void dropItem(String itemName){
         itemName = itemName.toLowerCase();
         itemName = itemName.replace("drop ", "");
@@ -93,7 +145,10 @@ public class Character{
     
            
     
-        
+    /*
+     * Ksekleidonei tin porta an exeis to katallilo kleidi,
+     * (H porta einai kleidomeni me kodiko)
+     */
     public void unlockDoor(String orientation){
         orientation = orientation.replace("UNLOCK ", "");
         Integer index = roomList.get(Room.activeRoom).getNextDoorIndex(orientation);
@@ -106,6 +161,10 @@ public class Character{
         }
     }
 
+    /*
+     * Kanei epithesi se teras an uparxei sto domatio kai mpainei stin klasi battle
+     * TODO: na epilegei poio teras tha epitethei
+     */
     public void attack(Monster monster){
         Battle fight = new Battle();
         int result = fight.enterBattle(this, monster);
@@ -118,6 +177,9 @@ public class Character{
         }
     }
 
+    /*
+     * Prosthetei xp ston paikti
+     */
     public void addXp(int experience){
         xp += experience;
         if (xp >= xpToNextLvl){
@@ -126,10 +188,16 @@ public class Character{
         }
     }
 
+    /*
+     * Pairnei tin ananeomeni zoi tou paikti ap tin maxi pou egine
+     */
     public void refreshHealth(int health){
         this.currentLife = health;        
     }
 
+    /*
+     * Pernaei sto epomeno epipedo kai allazei stats tou paikti
+     */
     public void levelUp(int exp){
         level++;
         dmg++;
@@ -153,7 +221,10 @@ public class Character{
     public int getArmor(){
         return armor;
     }
-    
+
+    /*
+     * Ektiponei ta stats tou paikti
+     */
     public void printStats(){
         System.out.println("Current Health: " + this.currentLife);
         System.out.println("Damage: " + this.dmg);
