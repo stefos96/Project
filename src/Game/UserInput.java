@@ -41,12 +41,17 @@ public class UserInput{
                 Player1.unlockDoor(UserCommand);
             if(UserCommand.contains("PICK"))
                 Player1.storeItem(UserCommand);
+            if(UserCommand.contains("UNEQUIP")) {
+                Player1.unequipItem(UserCommand);
+                UserCommand = "";
+            }
             if(UserCommand.contains("EQUIP"))
                 Player1.equip(UserCommand);
             if(UserCommand.contains("DROP"))
                 Player1.dropItem(UserCommand);
             if(UserCommand.contains("CONSUME"))
                 Player1.consumeItem(UserCommand);
+
             switch (UserCommand){
                 case "LOOK":
                     Map1.getRoomItems();

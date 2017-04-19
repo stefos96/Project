@@ -1,6 +1,8 @@
 package Game;
 import Battle.Battle;
 import java.util.HashMap;
+import java.util.Scanner;
+
 import static Game.MapCreation.roomList;
 
 import Items.Consumable;
@@ -9,85 +11,150 @@ import Items.Item;
 import Monsters.Monster;
 
 
-public class Character{
- 
+public class Character {
+
     private int health = 10;
-    private int armor = 1;
     private int currentLife = 10;
+    private int armor = 1;
     private int dmg = 5;
     private int level = 1;
     private int xp = 0;
     private int xpToNextLvl = 30;
-    private HashMap<String, Equipment> equipment = new HashMap<>();//remove it
+    private HashMap<String, Equipment> equipment = new HashMap<>();
     private HashMap<String, Item> inventory = new HashMap<>();
-
-
 
 
     /*
     *  Prints equipment
     */
-    public void printEquipment(){
+    public void printEquipment() {
         String equiped = "";
-        try{
-            for(String key : equipment.keySet()){
-               if(!key.equals(""))
-                equiped += key + " ";
+        try {
+            for (String key : equipment.keySet()) {
+                if (!key.equals(""))
+                    equiped += key + "(armor:" + equipment.get(key).getExtraArmor() +
+                                     ",dmg:" + equipment.get(key).getExtraDmg() + ") ";
             }
-            if(!equiped.equals(""))
-                System.out.println("Φοράς: " + equiped + ".");          
+            if (!equiped.equals("")) {
+                equiped = equiped.replace("_"," ");
+                System.out.println("Φοράς: " + equiped + ".");
+            }
+        } catch (Exception e) {
         }
-        catch(Exception e){}
     }
-    
+
+    /*
+     * Removes equipment from player
+     */
+    public void unequipItem(String itemToUnequip){
+        itemToUnequip = itemToUnequip.replaceAll("UNEQUIP ", "");
+        if (!itemToUnequip.equals(""))
+            itemToUnequip = findItemName(itemToUnequip, equipment.toString());
+
+        Scanner myVar = new Scanner(System.in);
+        if (!itemToUnequip.equals("")) {
+            this.armor -= equipment.get(itemToUnequip).getExtraArmor();
+            this.dmg -= equipment.get(itemToUnequip).getExtraDmg();
+
+            System.out.println("You want to STORE it in your inventory or you want to drop it on the floor?");
+            System.out.println("You can also DISCARD it.");
+            String answer = myVar.nextLine().toUpperCase();
+            // valto sto inventory
+            if (answer.equals("STORE")) {
+                inventory.put(itemToUnequip, equipment.get(itemToUnequip));
+                equipment.remove(itemToUnequip);
+                System.out.println("Unequiped and stored in inventory.");
+            } else if (answer.equals("DISCARD")) {
+                equipment.remove(itemToUnequip);
+                System.out.println("Unequiped and destroyed.");
+            }
+            // allios tha to petakseis sto edafos
+            else {
+                roomList.get(Room.activeRoom).itemMap.put(itemToUnequip, equipment.get(itemToUnequip));
+                equipment.remove(itemToUnequip);
+                System.out.println("Unequiped and dropped on the floor.");
+            }
+        }
+    }
+
     /*
      * Foraei opla kai panoplies pou uparxoun sto domatio i sto inventory
      */
-    public void equip(String itemName){
+    public void equip(String itemName) {
         itemName = itemName.toLowerCase();
         itemName = itemName.replace("equip ", "");
+        String fullName = findItemName(itemName, roomList.get(Room.activeRoom).itemMap.toString());
 
-
-        //algorithm trying to equip with keyword armor
-        // ***_armor
-        String b = roomList.get(Room.activeRoom).itemMap.toString();
-        int a = b.indexOf(itemName);
-        while(true){
-            if(b.charAt(--a) == ' ')
-                break;
-        }
-        a++;
-        b = b.substring(a,b.indexOf(itemName));
-        b = b.concat(itemName);
-
-        if(roomList.get(Room.activeRoom).itemMap.containsKey(b)){
-            if(roomList.get(Room.activeRoom).itemMap.get(b).getClass().getSimpleName().equals("Equipment")) {
-                equipment.put(b, (Equipment) roomList.get(Room.activeRoom).itemMap.get(b));
-                this.armor += equipment.get(b).getExtraArmor();
-                this.dmg += equipment.get(b).getExtraDmg();
-                roomList.get(Room.activeRoom).itemMap.remove(b);
-                System.out.println(itemName + " equiped");
-            }
+        if (fullName.equals("")) {
+            fullName = findItemName(itemName, inventory.toString());
+            if(!fullName.equals(""))
+                equipOperation(itemName, fullName, inventory);
             else
+                System.out.println(itemName + " not found");
+        }
+        else
+            equipOperation(itemName, fullName, roomList.get(Room.activeRoom).itemMap);
+    }
+
+
+    /*
+     * gia na min kanei 2 fores elegxous kai idies diadikasies gia to inventory kai gia ta items pou
+     * uparxoun sto domatio ekana autin tin methodo
+     */
+    public void equipOperation(String itemName, String fullName, HashMap<String, Item> eMap){
+        try {
+            // an to item einai tupou equipment
+            if (eMap.get(fullName).getClass().getSimpleName().equals("Equipment")) {
+                // an den foras idi eksoplismo idiou tupoy p.x. armor forese ton
+                if (!equipment.keySet().toString().contains(itemName)) {
+                    equipment.put(fullName, (Equipment) eMap.get(fullName));
+                    this.armor += equipment.get(fullName).getExtraArmor();
+                    this.dmg += equipment.get(fullName).getExtraDmg();
+                    eMap.remove(fullName);
+                    System.out.println(fullName + " equiped");
+                }
+                // an foras idi eksoplismo
+                else {
+                    System.out.println("You already wear " + itemName);
+                    System.out.println("You want to replace it?");
+                    Scanner myVar = new Scanner(System.in);
+                    // an thes na to antikatastiseis
+                    if (myVar.nextLine().toUpperCase().equals("YES")) {
+                        unequipItem(itemName);
+                        equipOperation(itemName, fullName, eMap);
+                    }
+                }
+            } else
                 System.out.println("Item can't be equiped");
         }
-        else if(this.inventory.containsKey(b)){
-            if(inventory.get(b).getClass().getSimpleName().equals("Equipment")) {
-                this.equipment.put(b, (Equipment) inventory.get(b));
-                this.armor += equipment.get(b).getExtraArmor();
-                this.dmg += equipment.get(b).getExtraDmg();
-                this.inventory.remove(b);
-                System.out.println(itemName + " equiped");
-            }
-            else
-                System.out.println("Item can't be equiped.");
-        }
-
-
-
-        else
-            System.out.println(itemName + " not found");
+        catch (Exception e){}
     }
+
+
+    /*
+     * @param shortened String of Equipment and returns complete name of Equipment
+     * vriskei to String "***_armor"
+     */
+    public String findItemName(String itemName, String mapString) {
+        itemName = itemName.toLowerCase();
+        mapString = mapString.toLowerCase();
+        try {
+            int a = mapString.indexOf(itemName);
+            while (true) {
+                a--;
+                if (mapString.charAt(a) == ' ' || mapString.charAt(a) == '{')
+                    break;
+            }
+            a++;
+            mapString = mapString.substring(a, mapString.indexOf(itemName));
+            mapString = mapString.concat(itemName);
+            return mapString;
+        }
+        catch(Exception e){
+            return "";
+        }
+    }
+
 
     /*
      * Drinks potion and restores health
@@ -99,6 +166,8 @@ public class Character{
             if(inventory.get(potionName).getClass().getSimpleName().equals("Consumable")){
                 int restoredHealth = ((Consumable) inventory.get(potionName)).getRestoreHealth();
                 this.currentLife += restoredHealth;
+                if(currentLife>health)
+                    currentLife = health;
                 inventory.remove(potionName);
                 System.out.println("You restored " + restoredHealth + " health");
             }
