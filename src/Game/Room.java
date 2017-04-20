@@ -34,7 +34,7 @@ public class Room {
     */
     public void printMonster(){
             if(!checkIfNullMonster())
-                System.out.println("There's a "+ roomList.get(activeRoom).roomMonster.getClass().getSimpleName() +" in the room");
+                System.out.println("There's a "+ roomList.get(activeRoom).roomMonster.getName() +" in the room");
     }
     
    /*

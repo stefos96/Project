@@ -1,6 +1,7 @@
 0 key1
-0 bronze_dagger
-0 leather_armor
+0 bronze_daggerWeap
+0 bronze_armorWeap
+0 appleCons
 1 antidote
 2 flashlight
 3 knife

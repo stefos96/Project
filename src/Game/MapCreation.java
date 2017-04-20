@@ -8,12 +8,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import MonsterEnum.MonsterEnum;
-import Monsters.Snake;
-import Monsters.Spider;
-import Monsters.Troll;
-import Monsters.Vampire;
-import Monsters.Zombie;
+import Monsters.MonsterEnum;
 import Items.Item;
 
 
@@ -101,7 +96,7 @@ public class MapCreation {
     public void itemReader(){
         try{
             File x = new File("./src/Map/items.txt"); //ubuntu change to backslashes
-            Scanner sc = new Scanner(x);  
+            Scanner sc = new Scanner(x);
             int index = 0;
             while(sc.hasNext()){
                 if (sc.hasNextInt()){
@@ -176,28 +171,9 @@ public class MapCreation {
                 if (sc.hasNextInt()){
                     index = sc.nextInt();
                 }
-                mapText1 = sc.next().toUpperCase();
-                MonsterEnum monster = MonsterEnum.valueOf(mapText1);
-                switch (monster){
-                    case ZOMBIE:
-                        roomList.get(index).setMonster(new Zombie());
-                        break;
-                    case SPIDER:
-                        roomList.get(index).setMonster(new Spider());
-                        break;
-                    case VAMPIRE:
-                        roomList.get(index).setMonster(new Vampire());
-                        break;
-                    case TROLL:
-                        roomList.get(index).setMonster(new Troll());
-                        break;
-                    case SNAKE:
-                        roomList.get(index).setMonster(new Snake());
-                        break;
-                    default:
-                        roomList.get(index).setMonster(new Monster());
-                        break;
-                }
+                mapText1 = sc.next();
+                MonsterEnum monster = MonsterEnum.valueOf(mapText1.toUpperCase());
+                roomList.get(index).setMonster(new Monster(monster.health, monster.damage, monster.xp, monster.name().toLowerCase()));
             }
             sc.close();
         }
