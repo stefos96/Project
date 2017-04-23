@@ -1,1 +1,1 @@
-Not even close but still  way to do something
+A text based game for our semester project in Technological Educational Institution of Central Macedonia.
