@@ -4,7 +4,9 @@ package Game;
 public class FinalGame {
     
     
-    public static void main(String[] args){        
+    public static void main(String[] args){
+        Timer timeToLose = new Timer("EASY");
+        new Thread(timeToLose).start();
         MapCreation a = new MapCreation();
         a.mapReader();
 //        a.passwordReader();
