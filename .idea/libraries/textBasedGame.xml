@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="textBasedGame">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/textBasedGame.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

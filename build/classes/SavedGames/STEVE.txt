@@ -1,0 +1,1 @@
+activeRoom=0 equipment={bronze_dagger bronze_armor } inventory={apple } armor=18 currentLife=10 damage=10
