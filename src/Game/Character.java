@@ -20,6 +20,16 @@ public class Character {
     private int level = 1;
     private int xp = 0;
     private int xpToNextLvl = 30;
+
+    private int strength;
+    private int dexterity;
+    private int constitution;
+    private int intelligence;
+    private int wisdom;
+    private int charisma;
+    private int hitPoints;
+    private int armorClass;
+
     private HashMap<String, Equipment> equipment = new HashMap<>();
     private HashMap<String, Item> inventory = new HashMap<>();
 
@@ -173,7 +183,7 @@ public class Character {
             }
         }
     }
-    
+
     /*
      * Apothikeuei Items sto Inventory
      */
@@ -181,7 +191,7 @@ public class Character {
         itemName = itemName.toLowerCase();
         itemName = itemName.replace("pick ", "");
         if(roomList.get(Room.activeRoom).itemMap.containsKey(itemName)){
-            inventory.put(itemName,roomList.get(Room.activeRoom).itemMap.get(itemName));            
+            inventory.put(itemName,roomList.get(Room.activeRoom).itemMap.get(itemName));
             roomList.get(Room.activeRoom).itemMap.remove(itemName);
             System.out.println(itemName + " stored in inventory");
         }
@@ -201,7 +211,7 @@ public class Character {
             System.out.println("You droped " + itemName);
         }
     }
-    
+
     /*
      * Prints Items in Inventory
      */
@@ -211,9 +221,9 @@ public class Character {
                inventoryItems += key + " ";
         System.out.println("Έχεις στο σάκο σου: " + inventoryItems);
     }
-    
-           
-    
+
+
+
     /*
      * Ksekleidonei tin porta an exeis to katallilo kleidi,
      * (H porta einai kleidomeni me kodiko)
@@ -261,7 +271,7 @@ public class Character {
      * Pairnei tin ananeomeni zoi tou paikti ap tin maxi pou egine
      */
     public void refreshHealth(int health){
-        this.currentLife = health;        
+        this.currentLife = health;
     }
 
     /*
@@ -286,7 +296,7 @@ public class Character {
     public int getDmg(){
         return dmg;
     }
-    
+
     public int getArmor(){
         return armor;
     }

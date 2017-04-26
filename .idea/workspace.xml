@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="951185e5-246e-46ee-8b14-88bd938d2269" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Game/Timer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game/FinalGame.java" afterPath="$PROJECT_DIR$/src/Game/FinalGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +23,8 @@
       <file leaf-file-name="FinalGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game/FinalGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+            <state relative-caret-position="580">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -435,7 +433,21 @@
       <option name="project" value="LOCAL" />
       <updated>1492968427455</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Antistrofi metrisi gia na teleiosei to paixnidi o xristis">
+      <created>1492991635118</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1492991635118</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Antistrofi metrisi gia na teleiosei to paixnidi o xristis">
+      <created>1492991711301</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1492991711301</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -477,7 +489,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="monsterEnum changed" />
     <MESSAGE value="println simple change" />
-    <option name="LAST_COMMIT_MESSAGE" value="println simple change" />
+    <MESSAGE value="Antistrofi metrisi gia na teleiosei to paixnidi o xristis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Antistrofi metrisi gia na teleiosei to paixnidi o xristis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -690,8 +703,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/FinalGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        <state relative-caret-position="580">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
