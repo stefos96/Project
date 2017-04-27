@@ -18,7 +18,9 @@ public class UserInput{
     UserInput(){
         Player1 = new Character();
         Map1 = new Room();
-        System.out.println("Καλωσήρθες,\nΒρίσκεσαι σε ένα σκοτεινό δωμάτιο, το κεφάλι σου κουδουνίζει και η μνήμη σου είναι θολή.\n" + Map1.getDoorNumber());
+        System.out.println("Καλωσήρθες,");
+        System.out.println("Βρίσκεσαι σε ένα σκοτεινό δωμάτιο, το κεφάλι σου κουδουνίζει και η μνήμη σου είναι θολή.");
+        System.out.println(Map1.getDoorNumber());
         Map1.getRoomItems();
         Map1.printMonster();
     }
@@ -54,6 +56,7 @@ public class UserInput{
 
             switch (UserCommand){
                 case "LOOK":
+                    System.out.println(Map1.getDoorNumber());
                     Map1.getRoomItems();
                     Map1.printMonster();
                     break;
@@ -127,7 +130,15 @@ public class UserInput{
     
     
     public void getHelp(){
-         System.out.println("GO [ORIENTATION]\nPICK [ITEM]\nLOOK\nDROP [ITEM]\nEQUIP [ITEM]\nVIEW INVENTORY\nLOAD\nSAVE\nEXIT" );
+         System.out.println("GO [ORIENTATION]");
+         System.out.println("PICK [ITEM]");
+         System.out.println("LOOK");
+         System.out.println("DROP [ITEM]");
+         System.out.println("EQUIP [ITEM]");
+         System.out.println("VIEW INVENTORY");
+         System.out.println("nSAVE");
+         System.out.println("LOAD");
+         System.out.println("EXIT");
     }
     
     

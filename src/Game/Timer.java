@@ -1,16 +1,13 @@
 package Game;
 
-import com.sun.javaws.Main;
-import com.sun.javaws.exceptions.ExitException;
 
 public class Timer implements Runnable{
     int time;
 
-    public Timer(String diffuculty){
-        try {
-            diffuculty = diffuculty.toUpperCase();
-            DIFF a = DIFF.valueOf(diffuculty);
-            this.time = a.time;
+    public Timer(DIFF difficulty){
+        try {            
+            this.time = difficulty.time;
+            System.out.println("You have " + this.time / 60000 + " minutes remaining!");
         }
         catch (Exception e){
             System.out.println("Error");
