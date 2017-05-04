@@ -32,9 +32,14 @@ public class Room {
    /*
     * Ektuponei AN uparxei teras sto domatio
     */
-    public void printMonster(){
-            if(!checkIfNullMonster())
-                System.out.println("There's a "+ roomList.get(activeRoom).roomMonster.getName() +" in the room");
+    public String printMonster(){
+            if(!checkIfNullMonster()) {
+                String printedName = roomList.get(activeRoom).roomMonster.getName();
+                if (printedName.contains("_"))
+                    printedName = printedName.replace("_"," ");
+                return ("There's a " + printedName + " in the room");
+            }
+            return null;
     }
     
    /*
@@ -86,7 +91,7 @@ public class Room {
    /*
     * Prints room items
     */
-    public void getRoomItems(){
+    public String getRoomItems(){
         String roomItems = "";
         try{
             for(String key : roomList.get(activeRoom).itemMap.keySet()){
@@ -94,9 +99,11 @@ public class Room {
                 roomItems += key + " ";
             }
             if(!roomItems.equals(""))
-                System.out.println("Βλέπεις: " + roomItems + ".");
+                return ("Βλέπεις: " + roomItems + ".");
         }
-        catch(Exception e){}
+        catch(Exception e){
+        }
+        return null;
     }
     
     
@@ -134,45 +141,45 @@ public class Room {
         Integer count = 0;
         if(roomList.get(activeRoom).leftRoom != null){
             if (count != 0)
-                orientation += "+αριστερά";
+                orientation += "+left";
             else
-                orientation += "αριστερά";
+                orientation += "left";
             count++;
         }
         if(roomList.get(activeRoom).rightRoom != null){
             if (count != 0)
-                orientation += "+δεξιά"; 
+                orientation += "+right";
             else
-                orientation += "δεξιά";
+                orientation += "right";
             count++;
         }
         if(roomList.get(activeRoom).upRoom != null){
             if (count != 0)
-                orientation += "+πάνω";
+                orientation += "+up";
             else
-                orientation += "πάνω";
+                orientation += "up";
             count++;
         }
         if(roomList.get(activeRoom).downRoom != null){
             if (count != 0)
-                orientation += "+κάτω";
+                orientation += "+down";
             else
-                orientation += "κάτω";
+                orientation += "down";
             count++;
         }
         if (count == 2){
             orientation = orientation.replace("+", " και ");
-            return "Υπάρχουν " + count.toString() + " πόρτες στο δωμάτιο, " + orientation + ".";
+            return "There are " + count.toString() + " doors in the room, " + orientation + ".";
         }
         else if (count > 2){ 
             int t;
             for(t=0;t<count-1;t++){
                 orientation = orientation.replace("+", ", ");
             }
-            return "Υπάρχουν " + count.toString() + " πόρτες στο δωμάτιο, " + orientation + ".";
+            return "There are " + count.toString() + " doors in the room, " + orientation + ".";
         }
         else
-            return "Υπάρχει μια πόρτα στο δωμάτιο από " + orientation + " σου.";
+            return "There is only one way possible: " + orientation;
     }
     
     

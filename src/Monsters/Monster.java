@@ -17,6 +17,10 @@ public class Monster {
         this.name = name;
     }
 
+    public void setHp(int health){
+        this.hp = health;
+    }
+
     public int getHp(){
         return this.hp;
     }

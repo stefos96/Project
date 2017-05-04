@@ -1,4 +1,4 @@
-0 spider
+0 fluffy_bunny
 1 snake
 2 spider
 3 zombie

@@ -5,7 +5,8 @@ public enum MonsterEnum{
     ZOMBIE(3,10,8),
     TROLL(15,50,20),
     SNAKE(1,5,3),
-    VAMPIRE(10,30,16);
+    VAMPIRE(10,30,16),
+    FLUFFY_BUNNY(1,1,4);
 
 
 

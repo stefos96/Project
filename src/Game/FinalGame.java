@@ -1,9 +1,9 @@
 package Game;
 
 
-public class FinalGame {
-    
-    
+
+public class FinalGame{
+
     public static void main(String[] args){
         Timer timeToLose = new Timer(DIFF.EASY);
         new Thread(timeToLose).start();
@@ -13,8 +13,6 @@ public class FinalGame {
         a.itemReader();
         a.monsterReader();
         UserInput test = new UserInput();
-        test.Input();
-       
-    
+        test.getCommand();
     }
 }

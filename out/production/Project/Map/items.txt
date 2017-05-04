@@ -8,3 +8,4 @@
 3 key7
 4 screwdriver
 6 machete
+6 shit
