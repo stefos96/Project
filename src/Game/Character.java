@@ -243,7 +243,8 @@ public class Character {
         }
         if (monster.getHp() <= 0) {
             addXp(monster.getXp());
-            return ("You killed the " + monster.getName());
+            String name = monster.getName();
+            return ("You killed the " + name);
         }
         return ("You attacked the " + monster.getName() + " and dealt " + (a - monster.getHp()) + " damage.");
     }
