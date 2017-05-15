@@ -202,7 +202,7 @@ public class Character {
      */
     public String viewInventory(){
         String inventoryItems = "";
-        if (inventoryItems.isEmpty())
+        if (inventory.isEmpty())
             return "Your inventory is empty";
         for(String key : this.inventory.keySet())
                inventoryItems += key + " ";
