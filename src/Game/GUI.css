@@ -1,0 +1,15 @@
+#scenetitle {
+   -fx-font-size: 24px;
+   -fx-font-family: "Sans Serif";
+   -fx-fill: #818181;
+}
+
+#commandTextField {
+   -fx-font-size: 24px;
+   -fx-font-family: "Sans Serif";
+   -fx-fill: #818181;
+}
+
+.root {
+    -fx-background-color: #000000;
+}

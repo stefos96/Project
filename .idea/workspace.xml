@@ -9,13 +9,10 @@
     <list default="true" id="951185e5-246e-46ee-8b14-88bd938d2269" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Game/GUI.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Game/GUI.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Game/Start.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Game/Start.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Project_jar/Project.jar" afterPath="$PROJECT_DIR$/out/artifacts/Project_jar/Project.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Project/Game/Character.class" afterPath="$PROJECT_DIR$/out/production/Project/Game/Character.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Project/Game/MapCreation.class" afterPath="$PROJECT_DIR$/out/production/Project/Game/MapCreation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Project/Game/Room.class" afterPath="$PROJECT_DIR$/out/production/Project/Game/Room.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game/Start.form" afterPath="$PROJECT_DIR$/src/Game/Start.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game/Start.java" afterPath="$PROJECT_DIR$/src/Game/Start.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -703,7 +700,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494813566637</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Test">
+      <created>1494813591610</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1494813591610</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -717,7 +721,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -734,7 +737,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494759" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -762,7 +765,8 @@
     <MESSAGE value="Command pattern, returning string instead of println and gui" />
     <MESSAGE value="Monster bug fix" />
     <MESSAGE value="Minor string changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor string changes" />
+    <MESSAGE value="Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
