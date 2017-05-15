@@ -1,6 +1,5 @@
 package Game;
 import java.util.HashMap;
-import java.util.Scanner;
 
 import static Game.MapCreation.roomList;
 
@@ -208,7 +207,7 @@ public class Character {
         for(String key : this.inventory.keySet())
                inventoryItems += key + " ";
 
-        return ("Έχεις στο σάκο σου: " + inventoryItems);
+        return ("You have in your inventory: " + inventoryItems);
     }
 
 
@@ -231,7 +230,7 @@ public class Character {
     }
 
     /*
-     *
+     * Strikes a monster and it strikes back
      */
     public String attack(Monster monster){
         int a = monster.getHp();
@@ -242,8 +241,10 @@ public class Character {
             return ("You died!");
         }
         if (monster.getHp() <= 0) {
+            Room tempRoom = new Room();
             addXp(monster.getXp());
             String name = monster.getName();
+            tempRoom.removeMonster();
             return ("You killed the " + name);
         }
         return ("You attacked the " + monster.getName() + " and dealt " + (a - monster.getHp()) + " damage.");
@@ -279,7 +280,7 @@ public class Character {
      * Pernaei sto epomeno epipedo kai allazei stats tou paikti
      */
     public void levelUp(int exp){
-        level++;
+        level++;  
         dmg++;
         health += 5;
         xp = exp;
