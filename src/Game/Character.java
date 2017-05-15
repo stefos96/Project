@@ -40,18 +40,18 @@ public class Character {
             for (String key : equipment.keySet()) {
                 if (!key.equals(""))
                     equiped += key + "(armor:" + equipment.get(key).getExtraArmor() +
-                                     ",dmg:" + equipment.get(key).getExtraDmg() + ") ";
+                                     ",dmg:" + equipment.get(key).getExtraDmg() + ")\n";
             }
             if (!equiped.equals("")) {
                 equiped = equiped.replace("_"," ");
                 return ("You have equiped: " + equiped + ".");
             }
             else{
-                return null;
+                return "You have no equipment";
             }
         }
         catch (Exception e) {
-            return null;
+            return "";
         }
     }
 

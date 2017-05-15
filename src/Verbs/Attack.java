@@ -9,6 +9,6 @@ public class Attack implements Verbs{
 		if(!map.checkIfNullMonster()){
             return player.attack(map.getMonster());
 		}
-		return null;
+		return "There is nothing to attack";
 	}
 }

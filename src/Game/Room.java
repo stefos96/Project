@@ -39,7 +39,7 @@ public class Room {
                     printedName = printedName.replace("_"," ");
                 return ("There's a " + printedName + " in the room");
             }
-            return null;
+            return "";
     }
     
    /*
@@ -103,7 +103,7 @@ public class Room {
         }
         catch(Exception e){
         }
-        return null;
+        return "";
     }
     
     
@@ -168,7 +168,7 @@ public class Room {
             count++;
         }
         if (count == 2){
-            orientation = orientation.replace("+", " και ");
+            orientation = orientation.replace("+", " and ");
             return "There are " + count.toString() + " doors in the room, " + orientation + ".";
         }
         else if (count > 2){ 

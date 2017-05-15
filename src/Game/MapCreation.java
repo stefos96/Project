@@ -18,7 +18,12 @@ public class MapCreation {
     private int rows = 0;
     private int cols = 0;
     private int i,j;
-    
+
+    public MapCreation(){
+        mapReader();
+        itemReader();
+        monsterReader();
+    }
     
    /*
     *Diavazei to map apo arxeio kai to vazei se ArrayList.
