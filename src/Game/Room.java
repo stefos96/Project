@@ -99,7 +99,7 @@ public class Room {
                 roomItems += key + " ";
             }
             if(!roomItems.equals(""))
-                return ("You see: " + roomItems + ".");
+                return ("You see: " + roomItems);
         }
         catch(Exception e){
         }

@@ -15,7 +15,7 @@ public class Load implements Verbs{
     @Override
     public String checkVerb(Room map, Character player, String noun) {
         new MapCreation();
-        player = new Character();
+        player.clearAll();
         Layout.allCommands.remove(Layout.allCommands.size() - 1);
         noun = noun.toLowerCase();
         enterNewCommand();

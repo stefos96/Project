@@ -13,10 +13,12 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Verbs.*;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
-public class GUI extends Application implements EventHandler<KeyEvent> {
-
+public class Layout extends Application implements EventHandler<KeyEvent> {
+    public static ArrayList<String> allCommands = new ArrayList<>();
     Text scenetitle;
     TextField commandTextField;
     Scene scene;
@@ -71,7 +73,7 @@ public class GUI extends Application implements EventHandler<KeyEvent> {
 
         scene = new Scene(grid, 700, 450);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add(GUI.class.getResource("GUI.css").toExternalForm());
+        scene.getStylesheets().add(Layout.class.getResource("Layout.css").toExternalForm());
         primaryStage.setResizable(false);
         primaryStage.show();
 
@@ -87,6 +89,7 @@ public class GUI extends Application implements EventHandler<KeyEvent> {
     public void handle(KeyEvent event) {
         if(event.getCode().equals(KeyCode.ENTER)){
             try {
+                allCommands.add(commandTextField.getText().toUpperCase());
                 splitWords(commandTextField.getText().toUpperCase());
                 scenetitle.setText(scenetitle.getText() + "-------------\n > ");
                 scenetitle.setText(scenetitle.getText() + commandTextField.getText() + "\n");
@@ -113,6 +116,8 @@ public class GUI extends Application implements EventHandler<KeyEvent> {
         verbCommand.put("VIEW", new View());
         verbCommand.put("HELP", new Help());
         verbCommand.put("STATS", new Stats());
+        verbCommand.put("SAVE", new Save());
+        verbCommand.put("LOAD", new Load());
         verbCommand.put("EXIT", new Exit());
     }
 

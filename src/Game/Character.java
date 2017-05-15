@@ -38,13 +38,16 @@ public class Character {
         String equiped = "";
         try {
             for (String key : equipment.keySet()) {
-                if (!key.equals(""))
-                    equiped += key + "(armor:" + equipment.get(key).getExtraArmor() +
-                                     ",dmg:" + equipment.get(key).getExtraDmg() + ")\n";
+                if (!key.equals("")) {
+                    if (equipment.get(key).getExtraArmor() == 0)
+                        equiped += key + "(+" + equipment.get(key).getExtraDmg() + " damage)\n";
+                    else
+                        equiped += key + "(+" + equipment.get(key).getExtraArmor() + " armor)\n";
+                }
             }
             if (!equiped.equals("")) {
                 equiped = equiped.replace("_"," ");
-                return ("You have equiped: " + equiped + ".");
+                return ("You have equiped: " + equiped);
             }
             else{
                 return "You have no equipment";
@@ -315,5 +318,16 @@ public class Character {
                 + "Experience to next Level: " + (this.xpToNextLvl - this.xp);
     }
 
+    public void clearAll(){
+        inventory.clear();
+        equipment.clear();
+        health = 10;
+        currentLife = 10;
+        armor = 1;
+        dmg = 5;
+        level = 1;
+        xp = 0;
+        xpToNextLvl = 30;
+    }
 
 }
