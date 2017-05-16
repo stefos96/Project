@@ -20,16 +20,12 @@ import java.util.HashMap;
 
 public class Layout extends Application implements EventHandler<KeyEvent> {
     public static ArrayList<String> allCommands = new ArrayList<>();
-    Text scenetitle;
-    TextField commandTextField;
-    javafx.scene.Scene scene;
-    ScrollPane scrollPane;
-    private String firstWord = "";
-    private String secondWord = "";
+    private Text scenetitle;
+    private TextField commandTextField;
+    private javafx.scene.Scene scene;
+    private ScrollPane scrollPane;
     private Character Player1;
     private Scene Map1;
-    private HashMap<String, Verbs> verbCommand = new HashMap<>();
-
     private Commands parser = new Commands();
 
     public static void main(String[] args) {
@@ -38,7 +34,6 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
 
     @Override
     public void start(Stage primaryStage) {
-        enterNewCommand();
         new MapCreation();
         // New Map and New player
         Player1 = new Character();
@@ -95,47 +90,16 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
         if(event.getCode().equals(KeyCode.ENTER)){
             try {
                 String sentence = commandTextField.getText();
+                // Adds the user's sentence in a string array
                 allCommands.add(sentence);
                 scenetitle.setText(scenetitle.getText() + "-------------\n > ");
                 scenetitle.setText(scenetitle.getText() + sentence + "\n");
-                String result = parser.commandParser(Map1, Player1, sentence);
-
-                scenetitle.setText(scenetitle.getText() + result + "\n");
+                scenetitle.setText(scenetitle.getText() + parser.commandParser(Map1, Player1, sentence) + "\n");
             } catch (Exception e) {
                 scenetitle.setText(scenetitle.getText() + "Not an available command\n");
             }
             scrollPane.setVvalue(1.0);
             commandTextField.clear();
-        }
-    }
-    // All available commands
-    public void enterNewCommand() {
-        verbCommand.put("ATTACK", new Attack());
-        verbCommand.put("CONSUME", new Consume());
-        verbCommand.put("DROP", new Drop());
-        verbCommand.put("EQUIP", new Equip());
-        verbCommand.put("GO", new Go());
-        verbCommand.put("LOOK", new Look());
-        verbCommand.put("PICK", new Pick());
-        verbCommand.put("UNEQUIP", new Unequip());
-        verbCommand.put("UNLOCK", new Unlock());
-        verbCommand.put("VIEW", new View());
-        verbCommand.put("HELP", new Help());
-        verbCommand.put("SAVE", new Save());
-        verbCommand.put("LOAD", new Load());
-        verbCommand.put("EXIT", new Exit());
-    }
-
-    // Split string into two words, firstWord and secondWord
-    public void splitWords(String UserCommand) {
-        UserCommand = UserCommand.trim();
-
-        if (UserCommand.contains(" ")) {
-            int i = UserCommand.indexOf(" ");
-            firstWord = UserCommand.substring(0, i);
-            secondWord = UserCommand.substring(i + 1, UserCommand.length());
-        } else {
-            firstWord = UserCommand;
         }
     }
 }

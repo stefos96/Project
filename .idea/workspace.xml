@@ -7,19 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="951185e5-246e-46ee-8b14-88bd938d2269" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Commands/Commands.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Verbs/Preview.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Verbs/Stats.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Project/Game/Character.class" afterPath="$PROJECT_DIR$/out/production/Project/Game/Character.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Project/Monsters/Monster.class" afterPath="$PROJECT_DIR$/out/production/Project/Monsters/Monster.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Project/Map/items.txt" afterPath="$PROJECT_DIR$/out/production/Project/Map/items.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game/Character.java" afterPath="$PROJECT_DIR$/src/Game/Character.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game/Layout.java" afterPath="$PROJECT_DIR$/src/Game/Layout.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Verbs/Help.java" afterPath="$PROJECT_DIR$/src/Verbs/Help.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Verbs/Load.java" afterPath="$PROJECT_DIR$/src/Verbs/Load.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Verbs/Look.java" afterPath="$PROJECT_DIR$/src/Verbs/Look.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Verbs/View.java" afterPath="$PROJECT_DIR$/src/Verbs/View.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,20 +24,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Layout.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Layout.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game/Layout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="102" column="73" lean-forward="true" selection-start-line="102" selection-start-column="73" selection-end-line="102" selection-end-column="73" />
-              <folding />
+            <state relative-caret-position="111">
+              <caret line="27" column="23" lean-forward="false" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+              <folding>
+                <element signature="method#start#0;class#Layout#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Verbs/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
+            <state relative-caret-position="203">
               <caret line="8" column="71" lean-forward="true" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
               <folding />
             </state>
@@ -71,19 +62,6 @@
             <state relative-caret-position="261">
               <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Game/Character.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1356">
-              <caret line="299" column="28" lean-forward="false" selection-start-line="299" selection-start-column="28" selection-end-line="299" selection-end-column="28" />
-              <folding>
-                <element signature="e#9750#9751#0" expanded="true" />
-                <element signature="e#9815#9816#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -167,11 +145,11 @@
         <option value="$PROJECT_DIR$/src/Monsters/Monster.java" />
         <option value="$PROJECT_DIR$/src/Verbs/View.java" />
         <option value="$PROJECT_DIR$/src/Verbs/Help.java" />
-        <option value="$PROJECT_DIR$/src/Game/Layout.java" />
         <option value="$PROJECT_DIR$/src/Game/Character.java" />
         <option value="$PROJECT_DIR$/src/Commands/Commands.java" />
         <option value="$PROJECT_DIR$/src/Verbs/Load.java" />
         <option value="$PROJECT_DIR$/src/Verbs/Look.java" />
+        <option value="$PROJECT_DIR$/src/Game/Layout.java" />
       </list>
     </option>
   </component>
@@ -696,7 +674,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494917955300</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Create command class">
+      <created>1494921635249</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1494921635249</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -721,7 +706,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16490486" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34460887" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34460887" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -761,7 +746,8 @@
     <MESSAGE value="Rename Room to Scene that now contains a description of the scenery, up rename to north etc, small changes" />
     <MESSAGE value="Fix bug where the monster's life is it's damage" />
     <MESSAGE value="Battle improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Battle improvement" />
+    <MESSAGE value="Create command class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create command class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1053,14 +1039,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/Layout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="102" column="73" lean-forward="true" selection-start-line="102" selection-start-column="73" selection-end-line="102" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Commands/Commands.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -1068,6 +1046,22 @@
           <folding>
             <element signature="method#Commands#0;class#Commands#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Verbs/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="8" column="71" lean-forward="true" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Verbs/Load.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1090,19 +1084,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Verbs/Load.java">
+    <entry file="file://$PROJECT_DIR$/src/Game/Layout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Verbs/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="8" column="71" lean-forward="true" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
-          <folding />
+        <state relative-caret-position="111">
+          <caret line="27" column="23" lean-forward="false" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding>
+            <element signature="method#start#0;class#Layout#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
