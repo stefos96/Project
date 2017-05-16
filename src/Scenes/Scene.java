@@ -20,9 +20,7 @@ public class Scene {
     
     
     public boolean checkIfNullMonster(){
-        if(sceneList.get(activeRoom).roomMonster == null)
-            return true;
-        return false;
+        return sceneList.get(activeRoom).roomMonster == null;
     }
     
    /*
@@ -62,7 +60,7 @@ public class Scene {
    /*
     * @Returns the index of the next room depending on the orientation parameter
     */
-    public Integer getNextDoorIndex(String orientation){
+    private Integer getNextDoorIndex(String orientation){
         switch(orientation){
             case "WEST": return sceneList.get(activeRoom).leftRoom;
             case "EAST": return sceneList.get(activeRoom).rightRoom;
