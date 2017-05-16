@@ -190,9 +190,10 @@ public class Scene {
     }
     
     public String getDescription(){
-        if (description.equals(""))
+        String descr = sceneList.get(activeRoom).description;
+        if (descr.equals(""))
             return "";
-        return sceneList.get(activeRoom).description + "\n";
+        return descr + "\n";
     }
     
     
