@@ -1,4 +1,5 @@
 package Game;
+import Commands.Commands;
 import Scenes.Scene;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -29,6 +30,8 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
     private Scene Map1;
     private HashMap<String, Verbs> verbCommand = new HashMap<>();
 
+    private Commands parser = new Commands();
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -36,7 +39,7 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
     @Override
     public void start(Stage primaryStage) {
         enterNewCommand();
-        MapCreation loadMap = new MapCreation();
+        new MapCreation();
         // New Map and New player
         Player1 = new Character();
         Map1 = new Scene();
@@ -91,11 +94,13 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
     public void handle(KeyEvent event) {
         if(event.getCode().equals(KeyCode.ENTER)){
             try {
-                allCommands.add(commandTextField.getText().toUpperCase());
-                splitWords(commandTextField.getText().toUpperCase());
+                String sentence = commandTextField.getText();
+                allCommands.add(sentence);
                 scenetitle.setText(scenetitle.getText() + "-------------\n > ");
-                scenetitle.setText(scenetitle.getText() + commandTextField.getText() + "\n");
-                scenetitle.setText(scenetitle.getText() + verbCommand.get(firstWord).checkVerb(Map1, Player1, secondWord) + "\n");
+                scenetitle.setText(scenetitle.getText() + sentence + "\n");
+                String result = parser.commandParser(Map1, Player1, sentence);
+
+                scenetitle.setText(scenetitle.getText() + result + "\n");
             } catch (Exception e) {
                 scenetitle.setText(scenetitle.getText() + "Not an available command\n");
             }
@@ -112,12 +117,10 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
         verbCommand.put("GO", new Go());
         verbCommand.put("LOOK", new Look());
         verbCommand.put("PICK", new Pick());
-        verbCommand.put("PREVIEW", new Preview());
         verbCommand.put("UNEQUIP", new Unequip());
         verbCommand.put("UNLOCK", new Unlock());
         verbCommand.put("VIEW", new View());
         verbCommand.put("HELP", new Help());
-        verbCommand.put("STATS", new Stats());
         verbCommand.put("SAVE", new Save());
         verbCommand.put("LOAD", new Load());
         verbCommand.put("EXIT", new Exit());

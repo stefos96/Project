@@ -1,4 +1,3 @@
-0 key1
 0 bronze_daggerWeap
 0 bronze_armorWeap
 0 appleCons

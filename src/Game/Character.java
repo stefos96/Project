@@ -171,7 +171,7 @@ public class Character {
                 return ("You restored " + restoredHealth + " health");
             }
         }
-        return null;
+        return "You really shouldn't try to consume anything";
     }
 
     /*
@@ -292,8 +292,12 @@ public class Character {
         xpToNextLvl += 15;
     }
 
+    public String getGold(){
+        return "You look at your pouch " + gold + " gold";
+    }
+
     /*
-     * Ektiponei ta stats tou paikti
+     * Prints player's stats
      */
     public String printStats(){
         return "Current Health: " + this.currentHealth + "\n"
