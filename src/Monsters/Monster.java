@@ -5,8 +5,8 @@ package Monsters;
 // gia tora vgazo to abstract
 public class Monster {
     
-    private int hp;
     private int dmg;
+    private int hp;
     private int xp;
     private String name;
 

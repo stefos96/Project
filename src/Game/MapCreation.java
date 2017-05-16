@@ -178,7 +178,7 @@ public class MapCreation {
                 }
                 mapText = sc.next();
                 MonsterEnum monster = MonsterEnum.valueOf(mapText.toUpperCase());
-                sceneList.get(index).setMonster(new Monster(monster.health, monster.damage, monster.xp, monster.name().toLowerCase()));
+                sceneList.get(index).setMonster(new Monster(monster.damage, monster.health, monster.xp, monster.name().toLowerCase()));
             }
             sc.close();
         }

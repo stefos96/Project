@@ -13,12 +13,16 @@ import Scenes.Scene;
 public class Character {
 
     private int health = 10;
-    private int currentLife = 10;
+    private int currentHealth = 10;
     private int armor = 1;
     private int dmg = 5;
     private int level = 1;
     private int xp = 0;
     private int xpToNextLvl = 30;
+    private int gold = 0;
+
+    private HashMap<String, Equipment> equipment = new HashMap<>();
+    private HashMap<String, Item> inventory = new HashMap<>();
 
     private int strength;
     private int dexterity;
@@ -29,10 +33,9 @@ public class Character {
     private int hitPoints;
     private int armorClass;
 
-    private HashMap<String, Equipment> equipment = new HashMap<>();
-    private HashMap<String, Item> inventory = new HashMap<>();
 
-    /*
+
+   /*
     *  Prints equipment
     */
     public String printEquipment() {
@@ -65,8 +68,6 @@ public class Character {
     public String unequipItem(String itemToUnequip){
         if (!itemToUnequip.equals(""))
             itemToUnequip = findItemName(itemToUnequip, equipment.toString());
-
-//        Scanner myVar = new Scanner(System.in);
         if (!itemToUnequip.equals("")) {
             this.armor -= equipment.get(itemToUnequip).getExtraArmor();
             this.dmg -= equipment.get(itemToUnequip).getExtraDmg();
@@ -78,7 +79,7 @@ public class Character {
     }
 
     /*
-     * Foraei opla kai panoplies pou uparxoun sto domatio i sto inventory
+     * Wears equipment that may be in inventory or in the current scene
      */
     public String equip(String itemName) {
         itemName = itemName.toLowerCase();
@@ -131,7 +132,7 @@ public class Character {
 
     /*
      * @param shortened String of Equipment and returns complete name of Equipment
-     * vriskei to String "***_armor"
+     * @returns String "***_armor"
      */
     public String findItemName(String itemName, String mapString) {
         itemName = itemName.toLowerCase();
@@ -163,9 +164,9 @@ public class Character {
         if(inventory.containsKey(potionName)){
             if(inventory.get(potionName).getClass().getSimpleName().equals("Consumable")){
                 int restoredHealth = ((Consumable) inventory.get(potionName)).getRestoreHealth();
-                this.currentLife += restoredHealth;
-                if(currentLife>health)
-                    currentLife = health;
+                this.currentHealth += restoredHealth;
+                if(currentHealth >health)
+                    currentHealth = health;
                 inventory.remove(potionName);
                 return ("You restored " + restoredHealth + " health");
             }
@@ -174,7 +175,7 @@ public class Character {
     }
 
     /*
-     * Apothikeuei Items sto Inventory
+     * Stores Items to Inventory
      */
     public String storeItem(String itemName){
         itemName = itemName.toLowerCase();
@@ -188,7 +189,7 @@ public class Character {
     }
 
     /*
-     * Rixnei items ap to inventory
+     * Drops items from inventory to the floor
      */
     public String dropItem(String itemName){
         itemName = itemName.toLowerCase();
@@ -237,17 +238,21 @@ public class Character {
     public String attack(Monster monster){
         int a = monster.getHp();
         monster.setHp( - (int) criticalHit(this.getDmg()));
-        refreshHealth( - (monster.getDmg() * (2 - (100 / (100 - this.getArmor())))) );
+        refreshHealth( - monster.getDmg() );
+//        refreshHealth( - (monster.getDmg() * (2 - (100 / (100 - this.getArmor())))) );
 
-        if (getCurrentLife() <= 0) {
+        if (getCurrentHealth() <= 0) {
             return ("You died!");
         }
         if (monster.getHp() <= 0) {
             Scene tempScene = new Scene();
-            addXp(monster.getXp());
+            int xp = monster.getXp();
+            addXp(xp);
             String name = monster.getName();
             tempScene.removeMonster();
-            return ("You killed the " + name);
+            // depending on current level gains gold
+            gold += level * ( (int) Math.random() * 10 + 1);
+            return "You killed the " + name + " and gained " + xp + "xp and " + gold + "gold";
         }
         return ("You attacked the " + monster.getName() + " and dealt " + (a - monster.getHp()) + " damage.");
     }
@@ -261,7 +266,7 @@ public class Character {
     }
 
     /*
-     * Prosthetei xp ston paikti
+     * Player gains xp and levels up if he reaches his xp cap
      */
     public void addXp(int experience){
         xp += experience;
@@ -272,29 +277,29 @@ public class Character {
     }
 
     /*
-     * Pairnei tin ananeomeni zoi tou paikti ap tin maxi pou egine
+     * Sets his current life
      */
     public void refreshHealth(int health){
-        this.currentLife += health;
+        this.currentHealth += health;
     }
 
     /*
-     * Pernaei sto epomeno epipedo kai allazei stats tou paikti
+     * Levels up the player, his stats are increased and his life restored
      */
     public void levelUp(int exp){
         level++;  
         dmg++;
         health += 5;
         xp = exp;
-        currentLife = health;
+        currentHealth = health;
         xpToNextLvl += 15;
     }
 
    /*
     * Get methods
     */
-    public int getCurrentLife(){
-        return currentLife;
+    public int getCurrentHealth(){
+        return currentHealth;
     }
 
     public int getDmg(){
@@ -309,7 +314,7 @@ public class Character {
      * Ektiponei ta stats tou paikti
      */
     public String printStats(){
-        return "Current Health: " + this.currentLife + "\n"
+        return "Current Health: " + this.currentHealth + "\n"
                 + "Damage: " + this.dmg + "\n"
                 + "Armor: " + this.armor + "\n"
                 + "Current Level: " + this.level + "\n"
@@ -321,7 +326,7 @@ public class Character {
         inventory.clear();
         equipment.clear();
         health = 10;
-        currentLife = 10;
+        currentHealth = 10;
         armor = 1;
         dmg = 5;
         level = 1;

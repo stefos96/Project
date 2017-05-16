@@ -1,6 +1,6 @@
 0 fluffy_bunny
 1 snake
-2 spider
+2 huge_spider
 3 zombie
 4 troll
 5 vampire
