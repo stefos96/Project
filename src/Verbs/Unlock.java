@@ -1,12 +1,13 @@
 package Verbs;
 
 import Game.Character;
-import Game.Room;
+import Scenes.Scene;
 
 public class Unlock implements Verbs{
 
 	@Override
-	public String checkVerb(Room map, Character player, String noun) {
-		return player.unlockDoor(noun);
+	public String checkVerb(Scene map, Character player, String noun) {
+		return "";
+//		return player.unlockDoor(noun);
 	}
 }

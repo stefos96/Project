@@ -1,7 +1,7 @@
 package Verbs;
 import Game.Character;
-import Game.Room;
+import Scenes.Scene;
 
 public interface Verbs{
-	public String checkVerb(Room map, Character player, String noun);
+	public String checkVerb(Scene map, Character player, String noun);
 }

@@ -1,8 +1,8 @@
 package Game;
+import Scenes.Scene;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -21,12 +21,12 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
     public static ArrayList<String> allCommands = new ArrayList<>();
     Text scenetitle;
     TextField commandTextField;
-    Scene scene;
+    javafx.scene.Scene scene;
     ScrollPane scrollPane;
     private String firstWord = "";
     private String secondWord = "";
     private Character Player1;
-    private Room Map1;
+    private Scene Map1;
     private HashMap<String, Verbs> verbCommand = new HashMap<>();
 
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
         MapCreation loadMap = new MapCreation();
         // New Map and New player
         Player1 = new Character();
-        Map1 = new Room();
+        Map1 = new Scene();
         // Main Grid Panel
         GridPane grid = new GridPane();
         grid.setHgap(5);
@@ -71,7 +71,7 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
         commandTextField.setMinSize(686,45);
         grid.add(commandTextField, 0, 37,1,1);
 
-        scene = new Scene(grid, 700, 450);
+        scene = new javafx.scene.Scene(grid, 700, 450);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(Layout.class.getResource("Layout.css").toExternalForm());
         primaryStage.setResizable(false);

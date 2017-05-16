@@ -2,7 +2,7 @@ package Verbs;
 import Game.Character;
 import Game.Layout;
 import Game.MapCreation;
-import Game.Room;
+import Scenes.Scene;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ public class Load implements Verbs{
     String secondWord;
 
     @Override
-    public String checkVerb(Room map, Character player, String noun) {
+    public String checkVerb(Scene map, Character player, String noun) {
         new MapCreation();
         player.clearAll();
         Layout.allCommands.remove(Layout.allCommands.size() - 1);

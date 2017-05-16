@@ -1,12 +1,13 @@
 package Game;
 import java.util.HashMap;
 
-import static Game.MapCreation.roomList;
+import static Game.MapCreation.sceneList;
 
 import Items.Consumable;
 import Items.Equipment;
 import Items.Item;
 import Monsters.Monster;
+import Scenes.Scene;
 
 
 public class Character {
@@ -82,7 +83,7 @@ public class Character {
     public String equip(String itemName) {
         itemName = itemName.toLowerCase();
         itemName = itemName.replace("equip ", "");
-        String fullName = findItemName(itemName, roomList.get(Room.activeRoom).itemMap.toString());
+        String fullName = findItemName(itemName, sceneList.get(Scene.activeRoom).itemMap.toString());
 
         if (fullName.equals("")) {
             fullName = findItemName(itemName, inventory.toString());
@@ -92,7 +93,7 @@ public class Character {
                 return (itemName + " not found");
         }
         else
-            return equipOperation(itemName, fullName, roomList.get(Room.activeRoom).itemMap);
+            return equipOperation(itemName, fullName, sceneList.get(Scene.activeRoom).itemMap);
     }
 
 
@@ -177,9 +178,9 @@ public class Character {
      */
     public String storeItem(String itemName){
         itemName = itemName.toLowerCase();
-        if(roomList.get(Room.activeRoom).itemMap.containsKey(itemName)){
-            inventory.put(itemName,roomList.get(Room.activeRoom).itemMap.get(itemName));
-            roomList.get(Room.activeRoom).itemMap.remove(itemName);
+        if(sceneList.get(Scene.activeRoom).itemMap.containsKey(itemName)){
+            inventory.put(itemName, sceneList.get(Scene.activeRoom).itemMap.get(itemName));
+            sceneList.get(Scene.activeRoom).itemMap.remove(itemName);
             return (itemName + " stored in inventory");
         }
         else
@@ -193,7 +194,7 @@ public class Character {
         itemName = itemName.toLowerCase();
         itemName = itemName.replace("drop ", "");
         if(inventory.containsKey(itemName)){
-            roomList.get(Room.activeRoom).itemMap.put(itemName, inventory.get(itemName));
+            sceneList.get(Scene.activeRoom).itemMap.put(itemName, inventory.get(itemName));
             inventory.remove(itemName);
             return ("You droped " + itemName);
         }
@@ -214,11 +215,7 @@ public class Character {
     }
 
 
-
-    /*
-     * Ksekleidonei tin porta an exeis to katallilo kleidi,
-     * (H porta einai kleidomeni me kodiko)
-     */
+/*
     public String unlockDoor(String orientation){
         orientation = orientation.replace("UNLOCK ", "");
         Integer index = roomList.get(Room.activeRoom).getNextDoorIndex(orientation);
@@ -231,6 +228,8 @@ public class Character {
         }
         return null;
     }
+*/
+
 
     /*
      * Strikes a monster and it strikes back
@@ -244,10 +243,10 @@ public class Character {
             return ("You died!");
         }
         if (monster.getHp() <= 0) {
-            Room tempRoom = new Room();
+            Scene tempScene = new Scene();
             addXp(monster.getXp());
             String name = monster.getName();
-            tempRoom.removeMonster();
+            tempScene.removeMonster();
             return ("You killed the " + name);
         }
         return ("You attacked the " + monster.getName() + " and dealt " + (a - monster.getHp()) + " damage.");

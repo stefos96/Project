@@ -10,11 +10,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import Monsters.MonsterEnum;
 import Items.Item;
+import Scenes.Scene;
 
 
 public class MapCreation {
-    private String mapText1;
-    protected static ArrayList<Room> roomList = new ArrayList<>();
+    private String mapText;
+    public static ArrayList<Scene> sceneList = new ArrayList<>();
     private int rows = 0;
     private int cols = 0;
     private int i,j;
@@ -37,18 +38,18 @@ public class MapCreation {
             Scanner sc = new Scanner(x);  
                         
             while(sc.hasNext()){
-                mapText1 = sc.next().toUpperCase();
-                if(mapText1.equals("END")){
+                mapText = sc.next().toUpperCase();
+                if(mapText.equals("END")){
                     cols = 0;
                     rows++;          
                 }
-                if(mapText1.contains("ROOM")){
+                if(mapText.contains("ROOM")){
                     roomArray[rows][cols] = 1;
-                    if(mapText1.equals("ROOMV"))
+                    if(mapText.equals("ROOMV"))
                         roomArray[rows][cols] = 2;
                     cols++;
                 }
-                if(mapText1.equals("EMPTY")){
+                if(mapText.equals("EMPTY")){
                     roomArray[rows][cols] = 0;
                     cols++;
                 }
@@ -57,7 +58,7 @@ public class MapCreation {
                 for(i=0;i<rows;i++){
                     for (j=0;j<cols;j++){
                         if(roomArray[i][j] != 0 )
-                            roomList.add(new Room());              
+                            sceneList.add(new Scene());
                     }
                 }
                 
@@ -67,7 +68,7 @@ public class MapCreation {
                         if(roomArray[i][j] != 0)
                             position++;
                         if((roomArray[i][j] != 0) && (roomArray[i][j+1] != 0))
-                            roomList.get(position - 1).createHorizontalDoor(roomList.get(position), position);
+                            sceneList.get(position - 1).createHorizontalDoor(sceneList.get(position), position);
                         if((roomArray[i][j] == 2) && (roomArray[i+1][j] != 0)){
                             int b = j;
                             int count = 0;
@@ -79,7 +80,7 @@ public class MapCreation {
                                 if(roomArray[i+1][b] != 0)
                                     count++;
                             }   
-                            roomList.get(position - 1).createVerticalDoor(roomList.get(position - 1 + count), position - 1, count);
+                            sceneList.get(position - 1).createVerticalDoor(sceneList.get(position - 1 + count), position - 1, count);
                         }
                     }
                  }
@@ -107,19 +108,19 @@ public class MapCreation {
                 if (sc.hasNextInt()){
                     index = sc.nextInt();
                 }
-                mapText1 = sc.next().toLowerCase();
-                if (mapText1.contains("weap")){
-                    mapText1 = mapText1.replaceAll("weap","");
-                    WeaponEnum weapon = WeaponEnum.valueOf(mapText1.toUpperCase());
-                    roomList.get(index).setItem(new Equipment(weapon.damage, weapon.armor), mapText1);
+                mapText = sc.next().toLowerCase();
+                if (mapText.contains("weap")){
+                    mapText = mapText.replaceAll("weap","");
+                    WeaponEnum weapon = WeaponEnum.valueOf(mapText.toUpperCase());
+                    sceneList.get(index).setItem(new Equipment(weapon.damage, weapon.armor), mapText);
                 }
-                else if(mapText1.contains("cons")){
-                    mapText1 = mapText1.replaceAll("cons","");
-                    ConsumablesEnum cons = ConsumablesEnum.valueOf(mapText1.toUpperCase());
-                    roomList.get(index).setItem(new Consumable(cons.restoreHealth), mapText1);
+                else if(mapText.contains("cons")){
+                    mapText = mapText.replaceAll("cons","");
+                    ConsumablesEnum cons = ConsumablesEnum.valueOf(mapText.toUpperCase());
+                    sceneList.get(index).setItem(new Consumable(cons.restoreHealth), mapText);
                 }
                 else
-                    roomList.get(index).setItem(new Item(mapText1), mapText1);
+                    sceneList.get(index).setItem(new Item(mapText), mapText);
             }
             sc.close();
         }
@@ -133,24 +134,23 @@ public class MapCreation {
     
     
     
-    
+    /*
     /*
      * Diavazei kodikous gia to kathe domatio apo arxeio
-     */
      public void passwordReader(){
         try{
             File x = new File("./src/Map/pass.txt"); //ubuntu change to backslashes
             Scanner sc = new Scanner(x);  
             int index = 0;
-            mapText1 = "";
+            mapText = "";
             while(sc.hasNext()){
                 if (sc.hasNextInt()){
                     index = sc.nextInt();
                 }
-                  mapText1 = sc.next().toLowerCase();
-                  if (mapText1.equals("code")){
-                      mapText1 = sc.next();
-                      roomList.get(index).setDoorLock(mapText1);
+                  mapText = sc.next().toLowerCase();
+                  if (mapText.equals("code")){
+                      mapText = sc.next();
+                      roomList.get(index).setDoorLock(mapText);
                   }
             }
             sc.close();
@@ -160,8 +160,8 @@ public class MapCreation {
     }
     
 }
-   
 
+*/
 
 
 /*
@@ -176,9 +176,9 @@ public class MapCreation {
                 if (sc.hasNextInt()){
                     index = sc.nextInt();
                 }
-                mapText1 = sc.next();
-                MonsterEnum monster = MonsterEnum.valueOf(mapText1.toUpperCase());
-                roomList.get(index).setMonster(new Monster(monster.health, monster.damage, monster.xp, monster.name().toLowerCase()));
+                mapText = sc.next();
+                MonsterEnum monster = MonsterEnum.valueOf(mapText.toUpperCase());
+                sceneList.get(index).setMonster(new Monster(monster.health, monster.damage, monster.xp, monster.name().toLowerCase()));
             }
             sc.close();
         }

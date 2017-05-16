@@ -1,11 +1,11 @@
 package Verbs;
 import Game.Character;
-import Game.Room;
+import Scenes.Scene;
 
 public class Attack implements Verbs{
 
 	@Override
-	public String checkVerb(Room map, Character player, String noun) {
+	public String checkVerb(Scene map, Character player, String noun) {
 		if(!map.checkIfNullMonster()){
             return player.attack(map.getMonster());
 		}

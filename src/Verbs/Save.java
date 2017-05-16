@@ -1,13 +1,13 @@
 package Verbs;
 import Game.Character;
 import Game.Layout;
-import Game.Room;
+import Scenes.Scene;
 import java.util.Formatter;
 
 
 public class Save implements Verbs {
     @Override
-    public String checkVerb(Room map, Character player, String noun) {
+    public String checkVerb(Scene map, Character player, String noun) {
         noun = noun.toLowerCase();
         Layout.allCommands.remove(Layout.allCommands.size() - 1);
         if (noun.isEmpty())

@@ -1,17 +1,18 @@
 package Verbs;
 
 import Game.Character;
-import Game.Room;
+import Scenes.Scene;
 
 public class Go implements Verbs {
 
 	@Override
-	public String checkVerb(Room map, Character player, String noun) {
-		if (map.enterRoomVer2(noun)){
-            return map.getDoorNumber() + "\n"
+	public String checkVerb(Scene map, Character player, String noun) {
+		if (map.enterRoom(noun)){
+            return map.getDescription() + "\n"
+					+ map.getDoorNumber() + "\n"
                     + map.getRoomItems() + "\n"
                     + map.printMonster();
 		}
-		return null;
+		return "Not a valid direction";
 	}
 }
