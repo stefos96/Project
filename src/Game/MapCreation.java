@@ -22,6 +22,7 @@ public class MapCreation {
 
     public MapCreation(){
         mapReader();
+        descriptionReader();
         itemReader();
         monsterReader();
     }
@@ -34,7 +35,7 @@ public class MapCreation {
     public void mapReader(){
          int[][] roomArray = new int[100][100];
     try{
-            File x = new File("./src/Map/map.txt");  // ubuntu change to backslashes
+            File x = new File("./src/Map/map.txt");
             Scanner sc = new Scanner(x);  
                         
             while(sc.hasNext()){
@@ -101,7 +102,7 @@ public class MapCreation {
     */    
     public void itemReader(){
         try{
-            File x = new File("./src/Map/items.txt"); //ubuntu change to backslashes
+            File x = new File("./src/Map/items.txt");
             Scanner sc = new Scanner(x);
             int index = 0;
             while(sc.hasNext()){
@@ -169,7 +170,7 @@ public class MapCreation {
  */
   public void monsterReader(){
         try{
-            File x = new File("./src/Map/monsters.txt"); // ubuntu change to backslashes
+            File x = new File("./src/Map/monsters.txt");
             Scanner sc = new Scanner(x);  
             int index = 0;
             while(sc.hasNext()){
@@ -180,6 +181,33 @@ public class MapCreation {
                 MonsterEnum monster = MonsterEnum.valueOf(mapText.toUpperCase());
                 sceneList.get(index).setMonster(new Monster(monster.damage, monster.health, monster.xp, monster.name().toLowerCase()));
             }
+            sc.close();
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File error");
+        }
+        catch(Exception e){
+            System.out.println("Generic error");
+        }
+    }
+
+    public void descriptionReader(){
+        try{
+            File x = new File("./src/Map/description.txt");
+            Scanner sc = new Scanner(x);
+            int index = 0;
+            mapText = "";
+            if (sc.hasNextInt())
+                index = sc.nextInt();
+            while(sc.hasNext()){
+                if (sc.hasNextInt()){
+                    sceneList.get(index).setDescription(mapText);
+                    mapText = "";
+                    index = sc.nextInt();
+                }
+                mapText += sc.next() + " ";
+            }
+            sceneList.get(index).setDescription(mapText);
             sc.close();
         }
         catch(FileNotFoundException e){

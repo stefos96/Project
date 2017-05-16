@@ -1,32 +1,29 @@
 package Monsters;
 
-
-
-// gia tora vgazo to abstract
 public class Monster {
     
-    private int dmg;
-    private int hp;
+    private int damage;
+    private int health;
     private int xp;
     private String name;
 
-    public Monster(int dmg, int hp, int xp, String name){
-        this.dmg = dmg;
-        this.hp = hp;
+    public Monster(int dmg, int health, int xp, String name){
+        this.damage = dmg;
+        this.health = health;
         this.xp = xp;
         this.name = name;
     }
 
-    public void setHp(int health){
-        this.hp = health;
+    public void painInflicted(int damageTaken){
+        this.health -= damageTaken;
     }
 
-    public int getHp(){
-        return this.hp;
+    public int getHealth(){
+        return this.health;
     }
 
-    public int getDmg(){
-        return this.dmg;
+    public int getDamage(){
+        return this.damage;
     }
 
     public int getXp(){

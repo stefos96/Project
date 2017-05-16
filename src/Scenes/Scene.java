@@ -33,7 +33,7 @@ public class Scene {
                 String printedName = sceneList.get(activeRoom).roomMonster.getName();
                 if (printedName.contains("_"))
                     printedName = printedName.replace("_"," ");
-                return ("You see a " + printedName);
+                return ("You see a " + printedName + "\n");
             }
             return "";
     }
@@ -97,7 +97,7 @@ public class Scene {
                 roomItems += key + " ";
             }
             if(!roomItems.equals(""))
-                return ("You see: " + roomItems);
+                return ("You see: " + roomItems + "\n");
         }
         catch(Exception e){
         }
@@ -184,9 +184,15 @@ public class Scene {
         this.downRoom = position + count;
         a.upRoom = position;
     }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
     
     public String getDescription(){
-        return description;
+        if (description.equals(""))
+            return "";
+        return sceneList.get(activeRoom).description + "\n";
     }
     
     

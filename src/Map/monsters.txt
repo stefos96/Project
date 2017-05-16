@@ -5,4 +5,4 @@
 4 troll
 5 vampire
 6 troll
-7 spider
+7 huge_spider

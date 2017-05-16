@@ -54,6 +54,7 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
         // Results Text
         scenetitle = new Text("Welcome to our game\n");
         scenetitle.setId("scenetitle");
+        scenetitle.setWrappingWidth(650);
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         textGrid.add(scenetitle, 0, 2, 25, 5);
 
@@ -78,9 +79,10 @@ public class Layout extends Application implements EventHandler<KeyEvent> {
         primaryStage.show();
 
         // Welcome message
+        scenetitle.setText(scenetitle.getText() + Map1.getDescription());
         scenetitle.setText(scenetitle.getText() + Map1.getDoorNumber() + "\n");
-        scenetitle.setText(scenetitle.getText() + Map1.getRoomItems() + "\n");
-        scenetitle.setText(scenetitle.getText() + Map1.printMonster() + "\n");
+        scenetitle.setText(scenetitle.getText() + Map1.getRoomItems());
+        scenetitle.setText(scenetitle.getText() + Map1.printMonster());
     }
 
 

@@ -236,28 +236,32 @@ public class Character {
      * Strikes a monster and it strikes back
      */
     public String attack(Monster monster){
-        int a = monster.getHp();
-        monster.setHp( - (int) criticalHit(this.getDmg()));
-        refreshHealth( - monster.getDmg() );
-//        refreshHealth( - (monster.getDmg() * (2 - (100 / (100 - this.getArmor())))) );
+        int initialMonsterHealth = monster.getHealth();
 
-        if (getCurrentHealth() <= 0) {
+        monster.painInflicted(criticalHit());
+        health -= armorReducedDamage(monster.getDamage());
+
+        if (currentHealth <= 0) {
             return ("You died!");
         }
-        if (monster.getHp() <= 0) {
+        if (monster.getHealth() <= 0) {
             Scene tempScene = new Scene();
             int xp = monster.getXp();
             addXp(xp);
             String name = monster.getName();
             tempScene.removeMonster();
             // depending on current level gains gold
-            gold += level * ( (int) Math.random() * 10 + 1);
+            gold += level * (int)(  Math.random() * 10 + 1);
             return "You killed the " + name + " and gained " + xp + "xp and " + gold + "gold";
         }
-        return ("You attacked the " + monster.getName() + " and dealt " + (a - monster.getHp()) + " damage.");
+        return ("You attacked the " + monster.getName() + " and dealt " + (initialMonsterHealth - monster.getHealth()) + " damage.");
     }
 
-    private double criticalHit(double dmg){
+    private int armorReducedDamage(int monsterDamage){
+        return monsterDamage * (2 - (100 / (100 - armor)));
+    }
+
+    private int criticalHit(){
         int extraDmg = (int) (Math.random() * 3); // random timi apo 0 - 3
         if (((int) (Math.random() * 4)) == 1) // 0.25% pithanotita gia 5 dmg
             extraDmg = (int) (dmg * 1.5);
@@ -268,7 +272,7 @@ public class Character {
     /*
      * Player gains xp and levels up if he reaches his xp cap
      */
-    public void addXp(int experience){
+    private void addXp(int experience){
         xp += experience;
         if (xp >= xpToNextLvl){
             int exp = xp - xpToNextLvl;
@@ -277,37 +281,15 @@ public class Character {
     }
 
     /*
-     * Sets his current life
-     */
-    public void refreshHealth(int health){
-        this.currentHealth += health;
-    }
-
-    /*
      * Levels up the player, his stats are increased and his life restored
      */
-    public void levelUp(int exp){
+    private void levelUp(int exp){
         level++;  
         dmg++;
         health += 5;
         xp = exp;
         currentHealth = health;
         xpToNextLvl += 15;
-    }
-
-   /*
-    * Get methods
-    */
-    public int getCurrentHealth(){
-        return currentHealth;
-    }
-
-    public int getDmg(){
-        return dmg;
-    }
-
-    public int getArmor(){
-        return armor;
     }
 
     /*
