@@ -2,6 +2,7 @@ package Layouts.MainGame;
 import Commands.Commands;
 import Game.Character;
 import Game.MapCreation;
+import Layouts.TextPrinter;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,7 +28,7 @@ public class MainGame extends VBox implements EventHandler<MouseEvent> {
     private Scenes.Scene Map1;
     private Commands parser = new Commands();
 
-    public MainGame() throws IOException {
+    public MainGame(String name, String race) throws IOException {
         new MapCreation();
         // New Map and New player
         Player1 = new Character();
@@ -48,16 +49,19 @@ public class MainGame extends VBox implements EventHandler<MouseEvent> {
         commandParser.setOnKeyPressed(new EnterPressed());
         resultTextArea = (TextArea) scene.lookup("#resultTextArea");
         // Welcome message
-        resultTextArea.setText(resultTextArea.getText() + Map1.getDescription());
-        resultTextArea.setText(resultTextArea.getText() + Map1.getDoorNumber() + "\n");
-        resultTextArea.setText(resultTextArea.getText() + Map1.getRoomItems());
-        resultTextArea.setText(resultTextArea.getText() + Map1.printMonster());
+
+        String show = "Hello " + name + "\n" + Map1.getDescription();
+        show += Map1.getDoorNumber() + "\n";
+        show += Map1.getRoomItems();
+        show += Map1.printMonster();
+        Runnable a = new TextPrinter(resultTextArea, show);
+        new Thread(a).start();
     }
 
     // click in a bubble button
     @Override
     public void handle(MouseEvent event) {
-        resultTextArea.setText(resultTextArea.getText() + " nope\n");
+        resultTextArea.appendText("nope\n");
         resultTextArea.selectPositionCaret(resultTextArea.getLength() - 1);
         resultTextArea.deselect();
     }
