@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="mainMenuPane" prefHeight="598.0" prefWidth="448.0" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+         <children>
+            <SVGPath id="enterGameButton" content="M437.6,390H174.4c-10.3,0-18.6-8.3-18.6-18.6v-2.8c0-10.3,8.3-18.6,18.6-18.6h263.3c10.3,0,18.6,8.3,18.6,18.6v2.8C456.3,381.7,447.9,390,437.6,390z" fill="#252525" layoutX="-85.0" layoutY="-188.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></SVGPath>
+            <SVGPath id="loadButton" content="M437.6,390H174.4c-10.3,0-18.6-8.3-18.6-18.6v-2.8c0-10.3,8.3-18.6,18.6-18.6h263.3c10.3,0,18.6,8.3,18.6,18.6v2.8C456.3,381.7,447.9,390,437.6,390z" fill="#252525" layoutX="-83.0" layoutY="5.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></SVGPath>
+            <Label id="enterGameLabel" layoutX="160.0" layoutY="165.0" mouseTransparent="true" prefHeight="34.0" prefWidth="127.0" text="Enter Game" textFill="#f8f8f8">
+               <font>
+                  <Font size="23.0" />
+               </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+            </Label>
+            <Label id="loadGameLabel" layoutX="164.0" layoutY="358.0" mouseTransparent="true" prefHeight="34.0" prefWidth="118.0" text="Load Game" textFill="#f8f8f8">
+               <font>
+                  <Font size="23.0" />
+               </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+            </Label>
+            <TextField id="nameTextField" layoutX="71.0" layoutY="55.0" prefHeight="40.0" prefWidth="301.0" promptText="name">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </TextField>
+            <Pane layoutY="502.0" prefHeight="96.0" prefWidth="448.0" style="-fx-background-color: B7B7B7;" />
+      <ComboBox id="raceComboBox" layoutX="222.0" layoutY="118.0" prefWidth="150.0" promptText="ex. Elf" />
+      <Label layoutX="73.0" layoutY="113.0" prefHeight="25.0" prefWidth="110.0" text="Pick Race" textFill="#fcfcfc">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <SVGPath id="exitButton" content="M437.6,390H174.4c-10.3,0-18.6-8.3-18.6-18.6v-2.8c0-10.3,8.3-18.6,18.6-18.6h263.3c10.3,0,18.6,8.3,18.6,18.6v2.8C456.3,381.7,447.9,390,437.6,390z" fill="#252525" layoutX="-81.0" layoutY="60.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </SVGPath>
+      <Label id="exitLabel" layoutX="202.0" layoutY="413.0" mouseTransparent="true" prefHeight="34.0" prefWidth="39.0" text="Exit" textFill="#f8f8f8">
+         <font>
+            <Font size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+         </children>
+      </Pane>

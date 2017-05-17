@@ -1,0 +1,15 @@
+#mainMenuPane {
+    -fx-background-color: #302567;
+}
+
+#enterGameButton:hover {
+    -fx-fill: #F15A29;
+}
+
+#loadButton:hover {
+    -fx-fill: #F15A29;
+}
+
+#exitButton:hover {
+    -fx-fill: #F15A29;
+}

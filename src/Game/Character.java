@@ -239,7 +239,9 @@ public class Character {
         int initialMonsterHealth = monster.getHealth();
 
         monster.painInflicted(criticalHit());
-        health -= armorReducedDamage(monster.getDamage());
+        currentHealth -= armorReducedDamage(monster.getDamage());
+
+        String monsterName = monster.getName().replace("_"," ");
 
         if (currentHealth <= 0) {
             return ("You died!");
@@ -248,13 +250,12 @@ public class Character {
             Scene tempScene = new Scene();
             int xp = monster.getXp();
             addXp(xp);
-            String name = monster.getName();
             tempScene.removeMonster();
             // depending on current level gains gold
             gold += level * (int)(  Math.random() * 10 + 1);
-            return "You killed the " + name + " and gained " + xp + "xp and " + gold + "gold";
+            return "You killed the " + monsterName + " and gained " + xp + "xp and " + gold + "gold";
         }
-        return ("You attacked the " + monster.getName() + " and dealt " + (initialMonsterHealth - monster.getHealth()) + " damage.");
+        return ("You attacked the " + monsterName + " and dealt " + (initialMonsterHealth - monster.getHealth()) + " damage.");
     }
 
     private int armorReducedDamage(int monsterDamage){

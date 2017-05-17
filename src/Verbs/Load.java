@@ -1,12 +1,11 @@
 package Verbs;
 import Commands.Commands;
 import Game.Character;
-import Game.Layout;
+import Layouts.MainGame.MainGame;
 import Game.MapCreation;
 import Scenes.Scene;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.HashMap;
 
 public class Load implements Verbs{
 
@@ -16,14 +15,14 @@ public class Load implements Verbs{
 
         new MapCreation();
         player.clearAll();
-        Layout.allCommands.remove(Layout.allCommands.size() - 1);
+//        MainGame.allCommands.remove(MainGame.allCommands.size() - 1);
         noun = noun.toLowerCase();
         try{
             BufferedReader br = new BufferedReader(new FileReader("./src/SavedGames/"+ noun + ".txt"));
             String line;
             while ((line = br.readLine()) != null){
                 try {
-                    Layout.allCommands.add(line);
+                    MainGame.allCommands.add(line);
                     parser.commandParser(map, player,line);
                 }
                 catch (Exception e){}
