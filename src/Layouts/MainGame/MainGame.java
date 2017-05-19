@@ -18,6 +18,7 @@ import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainGame extends VBox implements EventHandler<MouseEvent> {
     private Scene scene;
@@ -29,10 +30,10 @@ public class MainGame extends VBox implements EventHandler<MouseEvent> {
     private Scenes.Scene Map1;
     private Commands parser = new Commands();
 
-    public MainGame(String name, RacesEnum race) throws IOException {
+    public MainGame(String name, HashMap<String, String> classHashMap) throws IOException {
         new MapCreation();
         // New Map and New player
-        Player1 = new Character(race);
+        Player1 = new Character();
         Map1 = new Scenes.Scene();
 
         Parent root = FXMLLoader.load(getClass().getResource("MainGame.fxml"));

@@ -11,15 +11,15 @@ import Scenes.Scene;
 
 public class Character {
 
-    public Character(RacesEnum race){
+    public Character(){
         abilityScores();
-        strength += race.str;
-        dexterity += race.dex;
-        constitution += race.con;
-        intelligence += race.intel;
-        wisdom += race.wis;
-        charisma += race.cha;
-        this.race = race.toString();
+//        strength += race.str;
+//        dexterity += race.dex;
+//        constitution += race.con;
+//        intelligence += race.intel;
+//        wisdom += race.wis;
+//        charisma += race.cha;
+//        this.race = race.toString();
     }
 
     // HP
