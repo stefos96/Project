@@ -3,13 +3,13 @@
 }
 
 #enterGameButton:hover {
-    -fx-fill: #F15A29;
+    -fx-fill: #e92633;
 }
 
 #loadButton:hover {
-    -fx-fill: #F15A29;
+    -fx-fill: #e92633;
 }
 
 #exitButton:hover {
-    -fx-fill: #F15A29;
+    -fx-fill: #e92633;
 }

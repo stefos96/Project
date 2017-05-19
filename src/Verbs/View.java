@@ -24,6 +24,8 @@ public class View implements Verbs{
 				return player.getGold();
 			case "S":
 				return player.printStats();
+			case "A":
+				return player.getAbilityScores();
 			default:
 				return "Clarify what to view";
 		}

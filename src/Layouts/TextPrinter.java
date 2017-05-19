@@ -1,6 +1,4 @@
 package Layouts;
-
-
 import javafx.scene.control.TextArea;
 
 public class TextPrinter implements Runnable{
@@ -17,7 +15,7 @@ public class TextPrinter implements Runnable{
         for (int i = 0; i < sentence.length(); i++) {
             try {
                 textArea.appendText(String.valueOf(sentence.charAt(i)));
-                Thread.sleep(50);
+                Thread.sleep(20);
             }
             catch (InterruptedException e) {
                 e.printStackTrace();

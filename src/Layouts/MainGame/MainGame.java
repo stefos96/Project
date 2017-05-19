@@ -3,6 +3,7 @@ import Commands.Commands;
 import Game.Character;
 import Game.MapCreation;
 import Layouts.TextPrinter;
+import Races.RacesEnum;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,10 +29,10 @@ public class MainGame extends VBox implements EventHandler<MouseEvent> {
     private Scenes.Scene Map1;
     private Commands parser = new Commands();
 
-    public MainGame(String name, String race) throws IOException {
+    public MainGame(String name, RacesEnum race) throws IOException {
         new MapCreation();
         // New Map and New player
-        Player1 = new Character();
+        Player1 = new Character(race);
         Map1 = new Scenes.Scene();
 
         Parent root = FXMLLoader.load(getClass().getResource("MainGame.fxml"));
@@ -50,7 +51,8 @@ public class MainGame extends VBox implements EventHandler<MouseEvent> {
         resultTextArea = (TextArea) scene.lookup("#resultTextArea");
         // Welcome message
 
-        String show = "Hello " + name + "\n" + Map1.getDescription();
+        String show = "Hello " + name + "\n";
+        show += Map1.getDescription();
         show += Map1.getDoorNumber() + "\n";
         show += Map1.getRoomItems();
         show += Map1.printMonster();

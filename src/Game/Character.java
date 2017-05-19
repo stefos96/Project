@@ -1,16 +1,45 @@
 package Game;
 import java.util.HashMap;
-
 import static Game.MapCreation.sceneList;
-
 import Items.Consumable;
 import Items.Equipment;
 import Items.Item;
 import Monsters.Monster;
+import Races.RacesEnum;
 import Scenes.Scene;
 
 
 public class Character {
+
+    public Character(RacesEnum race){
+        abilityScores();
+        strength += race.str;
+        dexterity += race.dex;
+        constitution += race.con;
+        intelligence += race.intel;
+        wisdom += race.wis;
+        charisma += race.cha;
+        this.race = race.toString();
+    }
+
+    // HP
+//    health = class + con
+
+    // overall level
+//    private int effectiveCharacterLevel = classLevel + levelAdjustment + racialHD;
+
+    // lawfull good or lawfull neutral
+    private int ethics;
+    private int justice;
+
+    /*
+     * Base attack bonus
+     * low, medium, high
+     * initial 0,0,1 respectively
+     * 1/3 1/2 1
+     */
+
+    private String race;
 
     private int health = 10;
     private int currentHealth = 10;
@@ -30,6 +59,7 @@ public class Character {
     private int intelligence;
     private int wisdom;
     private int charisma;
+
     private int hitPoints;
     private int armorClass;
 
@@ -102,7 +132,7 @@ public class Character {
      * gia na min kanei 2 fores elegxous kai idies diadikasies gia to inventory kai gia ta items pou
      * uparxoun sto domatio ekana autin tin methodo
      */
-    public String equipOperation(String itemName, String fullName, HashMap<String, Item> eMap){
+    private String equipOperation(String itemName, String fullName, HashMap<String, Item> eMap){
         try {
             // an to item einai tupou equipment
             if (eMap.get(fullName).getClass().getSimpleName().equals("Equipment")) {
@@ -134,7 +164,7 @@ public class Character {
      * @param shortened String of Equipment and returns complete name of Equipment
      * @returns String "***_armor"
      */
-    public String findItemName(String itemName, String mapString) {
+    private String findItemName(String itemName, String mapString) {
         itemName = itemName.toLowerCase();
         mapString = mapString.toLowerCase();
         try {
@@ -285,7 +315,7 @@ public class Character {
      * Levels up the player, his stats are increased and his life restored
      */
     private void levelUp(int exp){
-        level++;  
+        level++;
         dmg++;
         health += 5;
         xp = exp;
@@ -321,4 +351,44 @@ public class Character {
         xpToNextLvl = 30;
     }
 
+    private void abilityScores(){
+        strength = fourThrowsD6();
+        dexterity = fourThrowsD6();
+        constitution = fourThrowsD6();
+        intelligence = fourThrowsD6();
+        wisdom = fourThrowsD6();
+        charisma = fourThrowsD6();
+    }
+
+    private int fourThrowsD6(){
+        int firstThrow = dice(6);
+        int secondThrow = dice(6);
+        int thirdThrow = dice(6);
+        int fourthThrow = dice(6);
+        if (firstThrow <= secondThrow && firstThrow <= thirdThrow && firstThrow <= fourthThrow)
+            return secondThrow + thirdThrow + fourthThrow;
+        else if (secondThrow <= thirdThrow && secondThrow <= fourthThrow)
+            return firstThrow + thirdThrow + fourthThrow;
+        else if (thirdThrow <= fourthThrow)
+            return firstThrow + secondThrow + fourthThrow;
+        return firstThrow + secondThrow + thirdThrow;
+    }
+
+    private int dice(int diceSides){
+        return (int) ((Math.random() * diceSides + 1));
+    }
+
+
+    private int abilityModifier(int ability) {
+        return (ability - 10) / 2;
+    }
+
+    public String getAbilityScores(){
+        return "strength=" + strength + " " +
+                "dexterity=" + dexterity + " " +
+                "constitution=" + constitution + " " +
+                "intelligence=" + intelligence + " " +
+                "wisdom=" + wisdom + " " +
+                "charisma=" + charisma + "\n";
+    }
 }
