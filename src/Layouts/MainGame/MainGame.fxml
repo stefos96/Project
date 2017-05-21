@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="441.0" minWidth="747.0" prefHeight="441.0" prefWidth="747.0" stylesheets="@MainGame.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField id="parser" layoutY="371.0" prefHeight="79.0" prefWidth="757.0" style="-fx-background-color: lightgray;" stylesheets="@MainGame.css">
+         <font>
+            <Font size="23.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TextField>
+      <TextArea id="resultTextArea" editable="false" layoutX="3.0" layoutY="5.0" prefHeight="300.0" prefWidth="732.0" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <effect>
+            <Glow level="0.36" />
+         </effect>
+      </TextArea>
+      <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="293.0" prefWidth="721.0" visible="false" />
+      <ToolBar id="toolBar" layoutX="-1.0" layoutY="314.0" prefHeight="57.0" prefWidth="757.0" style="-fx-background-color: 1E1E1E;">
+        <items>
+            <SVGPath id="bubble1" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+            <SVGPath id="bubble2" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+            <SVGPath id="bubble3" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+            <SVGPath id="bubble4" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+            <SVGPath id="bubble5" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+            <SVGPath id="bubble6" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+            <SVGPath id="bubble7" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+            <SVGPath id="bubble8" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+            <SVGPath id="bubble9" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+            <SVGPath id="bubble10" content="M355.4,408.7h-98.1c-6.6,0-12-5.4-12-12l0,0c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12l0,0C367.4,403.3,362,408.7,355.4,408.7z" fill="#e92633">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </SVGPath>
+        </items>
+      </ToolBar>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</Pane>

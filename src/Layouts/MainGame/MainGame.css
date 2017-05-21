@@ -1,0 +1,62 @@
+#ribbon {
+    -fx-background-color: #1D1D1D;
+}
+
+.text-area, .text-area .viewport, .text-area .content {
+    -fx-text-fill: white;
+    -fx-background-color: transparent ;
+}
+
+.text-area .scroll-bar:vertical {
+    -fx-opacity: 0;
+}
+
+#pane {
+    -fx-background-color: #302567;
+}
+
+#toolBar {
+    -fx-background-color: #1E1E1E;
+}
+
+
+#bubble1:hover {
+    -fx-fill: #B5B5B5;
+}
+
+#bubble2:hover {
+    -fx-fill: #B5B5B5;
+}
+
+#bubble3:hover {
+    -fx-fill: #B5B5B5;
+}
+
+#bubble4:hover {
+    -fx-fill: #B5B5B5;
+}
+
+#bubble5:hover {
+    -fx-fill: #B5B5B5;
+}
+
+#bubble6:hover {
+    -fx-fill: #B5B5B5;
+}
+
+#bubble7:hover {
+    -fx-fill: #B5B5B5;
+}
+
+#bubble8:hover {
+    -fx-fill: #B5B5B5;
+}
+
+#bubble9:hover {
+    -fx-fill: #B5B5B5;
+}
+
+#bubble10:hover {
+    -fx-fill: #B5B5B5;
+}
+
