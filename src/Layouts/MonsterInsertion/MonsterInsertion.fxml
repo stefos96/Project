@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="862.0" style="-fx-background-color: #EAEAEA;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane gridLinesVisible="true" layoutX="34.0" layoutY="63.0" prefHeight="505.0" prefWidth="584.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="101.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="99.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+      <TitledPane collapsible="false" layoutX="660.0" prefHeight="568.0" prefWidth="202.0" text="Monsters">
+         <content>
+            <ListView prefHeight="559.0" prefWidth="200.0" style="-fx-background-color: #EAEAEA;" />
+         </content>
+      </TitledPane>
+      <TextField layoutX="469.0" layoutY="14.0" promptText="monster" />
+      <SVGPath content="M181,320c-0.2,0.2-0.5,0.3-0.7,0.3c-0.3,0-0.5-0.1-0.7-0.3l-4.4-4.4c-0.9,0.7-2.1,1-3.3,1c-3.2,0-5.7-2.6-5.7-5.7c0-3.2,2.6-5.7,5.7-5.7s5.7,2.6,5.7,5.7c0,1.2-0.4,2.4-1,3.3l4.4,4.4C181.4,319,181.4,319.7,181,320z" fill="#797979" layoutX="433.0" layoutY="-288.0" />
+      <SVGPath id="nextButton" content="M249,340.5h-90.4c-12.1,0-22-9.8-22-22v0c0-12.1,9.8-22,22-22H249c12.1,0,22,9.8,22,22v0C271,330.7,261.2,340.5,249,340.5z" fill="#222222" layoutX="568.0" layoutY="315.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </SVGPath>
+      <Label layoutX="752.0" layoutY="619.0" mouseTransparent="true" text="Next" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <SVGPath id="backButton" content="M249,340.5h-90.4c-12.1,0-22-9.8-22-22v0c0-12.1,9.8-22,22-22H249c12.1,0,22,9.8,22,22v0C271,330.7,261.2,340.5,249,340.5z" fill="#222222" layoutX="-116.0" layoutY="314.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </SVGPath>
+      <Label layoutX="68.0" layoutY="618.0" mouseTransparent="true" text="Back" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

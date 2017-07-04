@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField id="characterNameTextField" focusTraversable="false" layoutX="266.0" layoutY="204.0" prefHeight="42.0" prefWidth="150.0" promptText="character">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextField>
+      <SVGPath id="createCharacterButton" content="M437.6,390H174.4c-10.3,0-18.6-8.3-18.6-18.6v-2.8c0-10.3,8.3-18.6,18.6-18.6h263.3c10.3,0,18.6,8.3,18.6,18.6v2.8C456.3,381.7,447.9,390,437.6,390z" fill="#252525" layoutX="-54.0" layoutY="251.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </SVGPath>
+      <ComboBox id="raceComboBox" layoutX="266.0" layoutY="267.0" prefWidth="150.0" promptText="ex. Elf" />
+      <Label layoutX="75.0" layoutY="262.0" prefHeight="25.0" prefWidth="110.0" text="Race" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="311.0" text="Class" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ComboBox id="classComboBox" layoutX="266.0" layoutY="315.0" prefWidth="150.0" promptText="ex. Wizard" />
+      <Label layoutX="75.0" layoutY="360.0" text="Gender" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ComboBox id="genderComboBox" layoutX="266.0" layoutY="364.0" prefWidth="150.0" promptText="Male or Female" />
+      <Label layoutX="167.0" layoutY="604.0" mouseTransparent="true" text="Create Character" textFill="#fcfcfc">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <SVGPath id="cancelButton" content="M437.6,390H174.4c-10.3,0-18.6-8.3-18.6-18.6v-2.8c0-10.3,8.3-18.6,18.6-18.6h263.3c10.3,0,18.6,8.3,18.6,18.6v2.8C456.3,381.7,447.9,390,437.6,390z" fill="#252525" layoutX="-55.0" layoutY="302.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </SVGPath>
+      <Label layoutX="214.0" layoutY="655.0" mouseTransparent="true" text="Cancel" textFill="#fcfcfc">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="411.0" text="Height" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="461.0" text="Weight" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TextField id="heightTextField" layoutX="267.0" layoutY="415.0" promptText="ex. 3ft" />
+      <TextField id="weightTextField" layoutX="267.0" layoutY="465.0" promptText="ex. 120lbs" />
+      <Label layoutX="75.0" layoutY="208.0" prefHeight="34.0" prefWidth="182.0" text="Character's name" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="150.0" prefHeight="34.0" prefWidth="182.0" text="Your name" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TextField id="playerNameTextFIeld" layoutX="266.0" layoutY="146.0" prefHeight="42.0" prefWidth="150.0" promptText="name">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER" layoutX="74.0" layoutY="36.0" prefHeight="60.0" prefWidth="348.0" text="Character Creation" textFill="#3c3c3c">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Group layoutX="439.0" layoutY="279.0">
+         <children>
+            <Circle fill="#d7d7d7" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Circle>
+            <SVGPath content="M210.9,389.4l0-0.5c-0.1-1.1,0.2-2.3,1.3-3.5c0.9-1.1,1.4-1.9,1.4-2.8c0-1-0.7-1.7-1.9-1.8c-0.7,0-1.5,0.2-2.1,0.6l-0.5-1.3c0.7-0.5,1.8-0.8,2.9-0.8c2.3,0,3.4,1.4,3.4,3c0,1.4-0.8,2.4-1.8,3.5c-0.9,1.1-1.2,2-1.2,3l0,0.5H210.9z M210.4,392.2c0-0.8,0.5-1.3,1.2-1.3c0.7,0,1.2,0.5,1.2,1.3c0,0.7-0.5,1.3-1.2,1.3C210.9,393.5,210.4,393,210.4,392.2z" fill="#434343" layoutX="-212.0" layoutY="-387.0" mouseTransparent="true" />
+         </children>
+      </Group>
+      <Label layoutX="76.0" layoutY="512.0" text="Alignment" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ComboBox id="alignmentComboBox" layoutX="266.0" layoutY="517.0" prefWidth="150.0" promptText="ex. lawfull good" />
+   </children>
+   <stylesheets>
+      <URL value="@../Menu/MainMenu.css" />
+      <URL value="@CreateCharacter.css" />
+   </stylesheets>
+</Pane>

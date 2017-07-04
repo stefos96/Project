@@ -1,0 +1,15 @@
+#pane {
+    -fx-background-color: #EAEAEA;
+}
+
+#inventoryList {
+    -fx-background-color: #BFBFBF;
+}
+
+#equipmentList {
+    -fx-background-color: #BFBFBF;
+}
+
+#backButton:hover {
+    -fx-fill: #e92633;
+}

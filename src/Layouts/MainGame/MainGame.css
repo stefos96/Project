@@ -3,7 +3,7 @@
 }
 
 .text-area, .text-area .viewport, .text-area .content {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-background-color: transparent ;
 }
 
@@ -12,51 +12,26 @@
 }
 
 #pane {
-    -fx-background-color: #302567;
+    -fx-background-color: #EAEAEA;
 }
 
 #toolBar {
     -fx-background-color: #1E1E1E;
 }
 
-
-#bubble1:hover {
-    -fx-fill: #B5B5B5;
+#inventoryButton {
+    -fx-fill: #1E1E1E;
 }
 
-#bubble2:hover {
-    -fx-fill: #B5B5B5;
+#characterButton {
+    -fx-fill: #1E1E1E;
 }
 
-#bubble3:hover {
-    -fx-fill: #B5B5B5;
+
+#inventoryButton:hover {
+    -fx-fill: #e92633;
 }
 
-#bubble4:hover {
-    -fx-fill: #B5B5B5;
+#characterButton:hover {
+    -fx-fill: #e92633;
 }
-
-#bubble5:hover {
-    -fx-fill: #B5B5B5;
-}
-
-#bubble6:hover {
-    -fx-fill: #B5B5B5;
-}
-
-#bubble7:hover {
-    -fx-fill: #B5B5B5;
-}
-
-#bubble8:hover {
-    -fx-fill: #B5B5B5;
-}
-
-#bubble9:hover {
-    -fx-fill: #B5B5B5;
-}
-
-#bubble10:hover {
-    -fx-fill: #B5B5B5;
-}
-

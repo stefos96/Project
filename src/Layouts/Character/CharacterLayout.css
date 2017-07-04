@@ -1,0 +1,122 @@
+#pane {
+    -fx-background-color: #EAEAEA;
+}
+
+#characterName {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#player {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#classAndLevel {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#race {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#alignment {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#deity {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#size {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#age {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#gender {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#height {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#weight {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#eyes {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#hair {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#skin {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#fortitude {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#reflex {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#will {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+#speed {
+    -fx-background-color: #302567;
+    -fx-text-fill: white;
+}
+
+
+#strButton:hover {
+    -fx-fill: #292E33;
+}
+
+#dexButton:hover {
+    -fx-fill: #292E33;
+}
+
+#conButton:hover {
+    -fx-fill: #292E33;
+}
+
+#intButton:hover {
+    -fx-fill: #292E33;
+}
+
+#wisButton:hover {
+    -fx-fill: #292E33;
+}
+
+#chaButton:hover {
+    -fx-fill: #292E33;
+}
+
+#backButton:hover {
+    -fx-fill: #e92633;
+}
