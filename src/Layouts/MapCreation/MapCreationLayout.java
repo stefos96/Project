@@ -1,8 +1,12 @@
 package Layouts.MapCreation;
 import Layouts.ViewInterface;
+import com.sun.org.apache.regexp.internal.RE;
+import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -15,6 +19,9 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
+import org.w3c.dom.css.Rect;
+
+import javax.naming.event.ObjectChangeListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,7 +41,7 @@ public class MapCreationLayout implements ViewInterface{
     private SVGPath cancelButton;
     private SVGPath nextButton;
 
-    private Rectangle currentBox;
+//    private Rectangle currentBox;
 
     private TitledPane titledPane;
 
@@ -50,6 +57,11 @@ public class MapCreationLayout implements ViewInterface{
     private int currentRow = 1;
     private int currentCol = 1;
 
+    private int releasedColumn;
+    private int releasedRow;
+
+    private ArrayList<ArrayList<Rectangle>> rectangleArray = new ArrayList<>();
+
     public MapCreationLayout() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MapCreation.fxml"));
         scene = new Scene(root);
@@ -58,6 +70,7 @@ public class MapCreationLayout implements ViewInterface{
         stage.setScene(scene);
 
         gridPane = (GridPane) scene.lookup("#gridPane");
+
         sizeTextField = (TextField) scene.lookup("#sizeTextField");
         viewGridSize();
 
@@ -69,9 +82,6 @@ public class MapCreationLayout implements ViewInterface{
         cancelButton = (SVGPath) scene.lookup("#cancelButton");
         nextButton = (SVGPath) scene.lookup("#nextButton");
 
-        currentBox = (Rectangle) scene.lookup("#currentBox");
-
-
         titledPane = (TitledPane) scene.lookup("#titledPane");
 
         vBox = (VBox) titledPane.getContent();
@@ -82,6 +92,14 @@ public class MapCreationLayout implements ViewInterface{
         hillLabel = (Label) vBox.getChildren().get(3);
         waterLabel = (Label) vBox.getChildren().get(4);
         voidLabel = (Label) vBox.getChildren().get(5);
+
+        for (int i = 0; i < 25; i++){
+            rectangleArray.add(new ArrayList<>());
+            for (int j = 0; j < 25; j++){
+                Rectangle temp = null;
+                rectangleArray.get(i).add(temp);
+            }
+        }
     }
 
     @Override
@@ -126,9 +144,10 @@ public class MapCreationLayout implements ViewInterface{
             case "nextButton":
                 nextButton.setOnMouseClicked(listener);
 
-            case "gridPane":
-                gridPane.setOnMouseClicked(listener);
-
+            case "gridPanePressed":
+                gridPane.setOnMousePressed(listener);
+            case "gridPaneReleased":
+                gridPane.setOnMouseReleased(listener);
 
             case "fieldLabel":
                 fieldLabel.setOnMouseClicked(listener);
@@ -155,81 +174,102 @@ public class MapCreationLayout implements ViewInterface{
         return false;
     }
 
-    public void addColumn(){
-        ColumnConstraints col = new ColumnConstraints(5,100, Region.USE_COMPUTED_SIZE);
-        gridPane.getColumnConstraints().add(col);
-        viewGridSize();
-        currentBox.setWidth(gridPane.getWidth() / gridPane.getColumnConstraints().size() - 5);
-        currentBox.setHeight(gridPane.getHeight() / gridPane.getRowConstraints().size() - 5);
 
+
+    public void addColumn(){
+        if (gridPane.getColumnConstraints().size() < 15) {
+            ColumnConstraints col = new ColumnConstraints(5, 100, Region.USE_COMPUTED_SIZE);
+            gridPane.getColumnConstraints().add(col);
+            viewGridSize();
+            refreshBoxes();
+        }
     }
 
     public void addRow(){
-        RowConstraints row = new RowConstraints(5,100, Region.USE_COMPUTED_SIZE);
-        gridPane.getRowConstraints().add(row);
-        viewGridSize();
-        currentBox.setWidth(gridPane.getWidth() / gridPane.getColumnConstraints().size() - 5);
-        currentBox.setHeight(gridPane.getHeight() / gridPane.getRowConstraints().size() - 5);
+        if (gridPane.getRowConstraints().size() < 15) {
+            RowConstraints row = new RowConstraints(5, 100, Region.USE_COMPUTED_SIZE);
+            gridPane.getRowConstraints().add(row);
+            viewGridSize();
+            refreshBoxes();
+        }
     }
 
     public void removeColumn(){
-        if (currentCol == (gridPane.getColumnConstraints().size() - 1)){
-            currentCol--;
-            try {
-                gridPane.add(currentBox, currentCol, currentRow);
-            }
-            catch (Exception e){}
-        }
         if (gridPane.getColumnConstraints().size() > 5) {
             gridPane.getColumnConstraints().remove(gridPane.getColumnConstraints().size() - 1);
             viewGridSize();
-            currentBox.setWidth(gridPane.getWidth() / gridPane.getColumnConstraints().size() - 5);
-            currentBox.setHeight(gridPane.getHeight() / gridPane.getRowConstraints().size() - 5);
+            refreshBoxes();
         }
     }
 
     public void removeRow(){
-        if (currentRow == (gridPane.getRowConstraints().size() - 1)){
-            currentRow--;
-            try {
-                gridPane.add(currentBox, currentCol, currentRow);
-            }
-            catch (Exception e){}
-        }
         if (gridPane.getRowConstraints().size() > 5) {
             gridPane.getRowConstraints().remove(gridPane.getRowConstraints().size() - 1);
             viewGridSize();
-            currentBox.setWidth(gridPane.getWidth() / gridPane.getColumnConstraints().size() - 5);
-            currentBox.setHeight(gridPane.getHeight() / gridPane.getRowConstraints().size() - 5);
+            refreshBoxes();
         }
     }
 
+
+    /**
+     * In every removal or addition of cols/rows box sizes must be refreshed
+     * Add all boxes to be refreshed
+     */
+    private void refreshBoxes() {
+        double width = gridPane.getWidth() / gridPane.getColumnConstraints().size() - gridPane.getHgap();
+        double height = gridPane.getHeight() / gridPane.getRowConstraints().size() - gridPane.getVgap();
+
+        for (int i = 0; i < 25; i++) {
+            for (Rectangle cur : rectangleArray.get(i)) {
+                try {
+                    cur.setWidth(width);
+                    cur.setHeight(height);
+                }
+                catch (Exception e){}
+            }
+        }
+        removeCurrentSelection();
+    }
+
+
+    /**
+     * Shows the col and row in the sizeTextField
+     */
     private void viewGridSize(){
         int r = gridPane.getRowConstraints().size();
         int c = gridPane.getColumnConstraints().size();
         sizeTextField.setText(r + "," + c);
     }
 
+
+
+
     /**
      * Finds where clicks occur in a GridPane
      */
     public void selectInGrid(double xAxis, double yAxis){
+        removeCurrentSelection();
+
         Bounds bounds = gridPane.getBoundsInParent();
 
+        // From where the gridPane starts
         double startingHeight = bounds.getMinY();
         double startingWidth = bounds.getMinX();
 
+        // gridPane array size
         int rows = gridPane.getRowConstraints().size();
         int cols = gridPane.getColumnConstraints().size();
 
+        // gridPane width and height
         double width = gridPane.getWidth();
         double height = gridPane.getHeight();
 
+        // Column width and Row height
         double colWidth = width / cols;
         double rowHeight = height / rows;
 
+        // While loop to find in which column the click occured
         double xPos = 0;
-
         currentCol = 0;
 
         while ((xAxis - startingWidth) > xPos){
@@ -238,6 +278,7 @@ public class MapCreationLayout implements ViewInterface{
         }
         currentCol = currentCol - 2;
 
+        // While loop to find in which row the click occured
         double yPos = 0;
         currentRow = 0;
 
@@ -246,39 +287,182 @@ public class MapCreationLayout implements ViewInterface{
             currentRow++;
         }
         currentRow = currentRow -  2;
+    }
+
+
+
+    /**
+     * Release mouse event in grid
+     */
+    public void releaseInGrid(double xAxis, double yAxis){
+        Bounds bounds = gridPane.getBoundsInParent();
+
+        // From where the gridPane starts
+        double startingHeight = bounds.getMinY();
+        double startingWidth = bounds.getMinX();
+
+        // gridPane array size
+        int rows = gridPane.getRowConstraints().size();
+        int cols = gridPane.getColumnConstraints().size();
+
+        // gridPane width and height
+        double width = gridPane.getWidth();
+        double height = gridPane.getHeight();
+
+        // Column width and Row height
+        double colWidth = width / cols;
+        double rowHeight = height / rows;
+
+        // While loop to find in which column the click occured
+        double xPos = 0;
+        releasedColumn = 0;
+
+        while ((xAxis - startingWidth) > xPos){
+            xPos = releasedColumn * colWidth;
+            releasedColumn++;
+        }
+        releasedColumn = releasedColumn - 2;
+
+        // While loop to find in which row the click occured
+        double yPos = 0;
+        releasedRow = 0;
+
+        while ((yAxis - startingHeight) > yPos){
+            yPos = releasedRow * rowHeight;
+            releasedRow++;
+        }
+        releasedRow = releasedRow -  2;
+
+        if (releasedColumn >= currentCol && releasedRow >= currentRow){
+            for (int i = currentCol; i <= releasedColumn; i++){
+                for (int j = currentRow; j <= releasedRow; j++){
+                    paintCurrentSelection(i, j);
+                }
+            }
+        }
+        else if (releasedColumn <= currentCol && releasedRow <= currentRow){
+            for (int i = currentCol; i >= releasedColumn; i--){
+                for (int j = currentRow; j >= releasedRow; j--){
+                    paintCurrentSelection(i, j);
+                }
+            }
+        }
+        else if (releasedColumn > currentCol && releasedRow < currentRow){
+            for (int i = currentCol; i <= releasedColumn; i++){
+                for (int j = currentRow; j >= releasedRow; j--){
+                    paintCurrentSelection(i, j);
+                }
+            }
+        }
+        else {
+            for (int i = currentCol; i >= releasedColumn; i--){
+                for (int j = currentRow; j <= releasedRow; j++){
+                    paintCurrentSelection(i, j);
+                }
+            }
+        }
+    }
+
+    /**
+     * Creates a selection with rectangles on mouse released
+     * @param i is the column to add the rectangle
+     * @param j is the row to add the rectangle
+     */
+    private void paintCurrentSelection(int i, int j){
+        double rectangleWidth = gridPane.getWidth() / gridPane.getColumnConstraints().size() - gridPane.getHgap();
+        double rectangleHeight = gridPane.getHeight() / gridPane.getRowConstraints().size() - gridPane.getVgap();
 
         try {
-            gridPane.add(currentBox, currentCol, currentRow);
+            Rectangle currentRectangle = new Rectangle(rectangleWidth, rectangleHeight, Paint.valueOf("#58ecee"));
+            gridPane.add(currentRectangle, i, j);
         }
         catch (Exception e){}
     }
 
 
-    /**
-     * Add a Field in the map
-     */
-    public void addField(){
-        Rectangle field = new Rectangle(currentBox.getWidth(), currentBox.getHeight());
-        field.setFill(Paint.valueOf("GREEN"));
-        gridPane.add(field, currentCol, currentRow);
-    }
+
+
 
     /**
-     * Add Water in the map
+     * Adds a new rectangle terrain in the map, also adds it in the rectangleArrayList
+     * @param terrain a terrain name like water or field etc
+     * TODO enum would be helpfull
      */
-    public void addWater(){
-        Rectangle water = new Rectangle(currentBox.getWidth(), currentBox.getHeight());
-        water.setFill(Paint.valueOf("BLUE"));
-        gridPane.add(water, currentCol, currentRow);
+    public void addTerrain(String terrain){
+        double width = gridPane.getWidth() / gridPane.getColumnConstraints().size() - gridPane.getHgap();
+        double height = gridPane.getHeight() / gridPane.getRowConstraints().size() - gridPane.getVgap();
+
+        Paint color;
+
+        switch (terrain){
+            case "WATER":
+                color = Paint.valueOf("BLUE");
+                break;
+            case "FIELD":
+                color = Paint.valueOf("#00FC83");
+                break;
+            case "VOID":
+                color = Paint.valueOf("BLACK");
+                break;
+            default:
+                color = Paint.valueOf("BLACK");
+                break;
+        }
+
+        if (releasedColumn >= currentCol && releasedRow >= currentRow){
+            for (int i = currentCol; i <= releasedColumn; i++){
+                for (int j = currentRow; j <= releasedRow; j++) {
+                    Rectangle rectangle = new Rectangle(width, height, color);
+                    rectangleArray.get(i).add(j, rectangle);
+                }
+            }
+        }
+        else if (releasedColumn <= currentCol && releasedRow <= currentRow){
+            for (int i = currentCol; i >= releasedColumn; i--){
+                for (int j = currentRow; j >= releasedRow; j--){
+                    Rectangle rectangle = new Rectangle(width, height, color);
+                    rectangleArray.get(i).add(j, rectangle);
+                }
+            }
+        }
+        else if (releasedColumn > currentCol && releasedRow < currentRow){
+            for (int i = currentCol; i <= releasedColumn; i++){
+                for (int j = currentRow; j >= releasedRow; j--){
+                    Rectangle rectangle = new Rectangle(width, height, color);
+                    rectangleArray.get(i).add(j, rectangle);
+                }
+            }
+        }
+        else {
+            for (int i = currentCol; i >= releasedColumn; i--){
+                for (int j = currentRow; j <= releasedRow; j++){
+                    Rectangle rectangle = new Rectangle(width, height, color);
+                    rectangleArray.get(i).add(j, rectangle);
+                }
+            }
+        }
+        removeCurrentSelection();
     }
 
-    /**
-     * Add Empty square in the map
-     */
-    public void addVoid(){
-        Rectangle empty = new Rectangle(currentBox.getWidth(), currentBox.getHeight());
-        empty.setFill(Paint.valueOf("BLACK"));
-        gridPane.add(empty, currentCol, currentRow);
+
+    private void removeCurrentSelection(){
+        Node node = gridPane.getChildren().get(0);
+        gridPane.getChildren().clear();
+        gridPane.getChildren().add(0,node);
+
+        int sizeCol = gridPane.getColumnConstraints().size() - 1;
+        int sizeRow = gridPane.getRowConstraints().size() - 1;
+
+        for (int i = 0; i <= sizeCol; i++) {
+            for (int j = 0; j <= sizeRow; j++) {
+                Rectangle temp = rectangleArray.get(i).get(j);
+                if (temp != null) {
+                    gridPane.add(temp, i, j);
+                }
+            }
+        }
     }
+
+
 
 }

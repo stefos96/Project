@@ -78,7 +78,9 @@ public class Controller {
         mapCreation.setButtonListener("cancelButton", new MapCreationCancelListener());
         mapCreation.setButtonListener("nextButton", new MapCreationNextListener());
 
-        mapCreation.setButtonListener("gridPane", new MapCreationGridListener());
+        mapCreation.setButtonListener("gridPanePressed", new MapCreationGridPressed());
+        mapCreation.setButtonListener("gridPaneReleased", new MapCreationGridReleased());
+
 
         mapCreation.setButtonListener("fieldLabel", new MapCreationFieldListener());
         mapCreation.setButtonListener("cliffLabel", new MapCreationCliffListener());
@@ -245,18 +247,33 @@ public class Controller {
         }
     }
 
-    private class MapCreationGridListener implements EventHandler<MouseEvent> {
+
+
+
+
+    private class MapCreationGridPressed implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent event) {
             ((MapCreationLayout) mapCreation).selectInGrid(event.getSceneX(), event.getSceneY());
         }
     }
 
+     private class MapCreationGridReleased implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             ((MapCreationLayout) mapCreation).releaseInGrid(event.getSceneX(), event.getSceneY());
+         }
+     }
+
+
+
+
+
     // Map Creation Tools
     private class MapCreationFieldListener implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent event) {
-            ((MapCreationLayout) mapCreation).addField();
+            ((MapCreationLayout) mapCreation).addTerrain("FIELD");
         }
     }
 
@@ -281,14 +298,14 @@ public class Controller {
     private class MapCreationWaterListener implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent event) {
-            ((MapCreationLayout) mapCreation).addWater();
+            ((MapCreationLayout) mapCreation).addTerrain("WATER");
         }
     }
 
     private class MapCreationVoidListener implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent event) {
-            ((MapCreationLayout) mapCreation).addVoid();
+            ((MapCreationLayout) mapCreation).addTerrain("VOID");
         }
     }
 
