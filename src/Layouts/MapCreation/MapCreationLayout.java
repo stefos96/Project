@@ -413,6 +413,9 @@ public class MapCreationLayout implements ViewInterface{
             for (int i = currentCol; i <= releasedColumn; i++){
                 for (int j = currentRow; j <= releasedRow; j++) {
                     Rectangle rectangle = new Rectangle(width, height, color);
+                    Rectangle rectToRemove = rectangleArray.get(i).get(j);
+                    rectToRemove = null;
+                    rectangleArray.get(i).remove(j);
                     rectangleArray.get(i).add(j, rectangle);
                 }
             }
@@ -421,6 +424,9 @@ public class MapCreationLayout implements ViewInterface{
             for (int i = currentCol; i >= releasedColumn; i--){
                 for (int j = currentRow; j >= releasedRow; j--){
                     Rectangle rectangle = new Rectangle(width, height, color);
+                    Rectangle rectToRemove = rectangleArray.get(i).get(j);
+                    rectToRemove = null;
+                    rectangleArray.get(i).remove(j);
                     rectangleArray.get(i).add(j, rectangle);
                 }
             }
@@ -429,6 +435,9 @@ public class MapCreationLayout implements ViewInterface{
             for (int i = currentCol; i <= releasedColumn; i++){
                 for (int j = currentRow; j >= releasedRow; j--){
                     Rectangle rectangle = new Rectangle(width, height, color);
+                    Rectangle rectToRemove = rectangleArray.get(i).get(j);
+                    rectToRemove = null;
+                    rectangleArray.get(i).remove(j);
                     rectangleArray.get(i).add(j, rectangle);
                 }
             }
@@ -437,6 +446,9 @@ public class MapCreationLayout implements ViewInterface{
             for (int i = currentCol; i >= releasedColumn; i--){
                 for (int j = currentRow; j <= releasedRow; j++){
                     Rectangle rectangle = new Rectangle(width, height, color);
+                    Rectangle rectToRemove = rectangleArray.get(i).get(j);
+                    rectToRemove = null;
+                    rectangleArray.get(i).remove(j);
                     rectangleArray.get(i).add(j, rectangle);
                 }
             }
