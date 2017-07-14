@@ -38,31 +38,6 @@ public class HelpLayout implements ViewInterface {
     }
 
     @Override
-    public void setTextField(String textField, String text) {
-
-    }
-
-    @Override
-    public String getTextField(String textField) {
-        return null;
-    }
-
-    @Override
-    public void setLabel(String label, String text) {
-
-    }
-
-    @Override
     public void setButtonListener(String button, EventHandler<? super MouseEvent> listener) {
-    }
-
-    @Override
-    public String getComboBoxSelection(String comboBox) {
-        return null;
-    }
-
-    @Override
-    public boolean areFieldsFilled() {
-        return false;
     }
 }

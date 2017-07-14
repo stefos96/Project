@@ -55,28 +55,6 @@ public class CreateCharacter implements ViewInterface {
     }
 
     @Override
-    public void setTextField(String textField, String text) {}
-
-    @Override
-    public String getTextField(String textField) {
-        switch (textField){
-            case "playerNameTextField":
-                return playerNameTextField.getText();
-            case "characterNameTextField":
-                return characterNameTextField.getText();
-            case "heightTextField":
-                heightTextField.getText();
-            case "weightTextField":
-                weightTextField.getText();
-            default:
-                return "";
-        }
-    }
-
-    @Override
-    public void setLabel(String label, String text) {}
-
-    @Override
     public void setButtonListener(String button, EventHandler<? super MouseEvent> listener) {
         switch (button){
             case "createCharacterButton":
@@ -84,25 +62,5 @@ public class CreateCharacter implements ViewInterface {
             case "cancelButton":
                 cancelButton.setOnMouseClicked(listener);
         }
-    }
-
-    @Override
-    public String getComboBoxSelection(String comboBox) {
-        switch (comboBox){
-            case "raceComboBox":
-                return raceComboBox.getSelectionModel().getSelectedItem().toString();
-            case "classComboBox":
-                return classComboBox.getSelectionModel().getSelectedItem().toString();
-            case "genderComboBox":
-                return genderComboBox.getSelectionModel().getSelectedItem().toString();
-        }
-        return "";
-    }
-
-    @Override
-    public boolean areFieldsFilled(){
-        return !(playerNameTextField.getText().isEmpty() || heightTextField.getText().isEmpty()
-                || weightTextField.getText().isEmpty() || raceComboBox.getSelectionModel().isEmpty()
-                || classComboBox.getSelectionModel().isEmpty() || genderComboBox.getSelectionModel().isEmpty());
     }
 }

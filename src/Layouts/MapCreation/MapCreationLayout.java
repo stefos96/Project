@@ -41,8 +41,6 @@ public class MapCreationLayout implements ViewInterface{
     private SVGPath cancelButton;
     private SVGPath nextButton;
 
-//    private Rectangle currentBox;
-
     private TitledPane titledPane;
 
     private VBox vBox;
@@ -113,21 +111,6 @@ public class MapCreationLayout implements ViewInterface{
     }
 
     @Override
-    public void setTextField(String textField, String text) {
-
-    }
-
-    @Override
-    public String getTextField(String textField) {
-        return null;
-    }
-
-    @Override
-    public void setLabel(String label, String text) {
-
-    }
-
-    @Override
     public void setButtonListener(String button, EventHandler<? super MouseEvent> listener) {
         switch (button){
             case "addRowButton":
@@ -163,17 +146,6 @@ public class MapCreationLayout implements ViewInterface{
                 voidLabel.setOnMouseClicked(listener);
         }
     }
-
-    @Override
-    public String getComboBoxSelection(String comboBox) {
-        return null;
-    }
-
-    @Override
-    public boolean areFieldsFilled() {
-        return false;
-    }
-
 
 
     public void addColumn(){
@@ -456,7 +428,6 @@ public class MapCreationLayout implements ViewInterface{
         removeCurrentSelection();
     }
 
-
     private void removeCurrentSelection(){
         Node node = gridPane.getChildren().get(0);
         gridPane.getChildren().clear();
@@ -475,6 +446,15 @@ public class MapCreationLayout implements ViewInterface{
         }
     }
 
+    public int getColumns(){
+        return gridPane.getColumnConstraints().size();
+    }
 
+    public int getRows(){
+        return gridPane.getRowConstraints().size();
+    }
 
+    public ArrayList<ArrayList<Rectangle>> getRectangleArray(){
+        return rectangleArray;
+    }
 }

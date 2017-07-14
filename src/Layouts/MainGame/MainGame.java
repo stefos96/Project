@@ -45,27 +45,6 @@ public class MainGame implements ViewInterface{
     }
 
     @Override
-    public void setTextField(String textField, String text) {
-        switch (textField){
-            case "resultTextField":
-                resultTextArea.setText(text);
-            break;
-        }
-    }
-
-    @Override
-    public String getTextField(String textField) {
-        switch (textField){
-            case "chatTextField":
-                return chatTextField.getText();
-        }
-        return null;
-    }
-
-    @Override
-    public void setLabel(String label, String text) {}
-
-    @Override
     public void setButtonListener(String button, javafx.event.EventHandler<? super MouseEvent> listener) {
         switch (button){
             case "characterButton":
@@ -75,15 +54,5 @@ public class MainGame implements ViewInterface{
                 inventoryButton.setOnMouseClicked(listener);
                 break;
         }
-    }
-
-    @Override
-    public String getComboBoxSelection(String comboBox) {
-        return null;
-    }
-
-    @Override
-    public boolean areFieldsFilled() {
-        return false;
     }
 }

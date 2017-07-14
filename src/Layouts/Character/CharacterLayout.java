@@ -101,80 +101,11 @@ public class CharacterLayout implements ViewInterface{
     }
 
     @Override
-    public void setTextField(String textField, String text) {
-        switch (textField){
-            case "characterName":
-                characterName.setText(text);
-            case "playerName":
-                this.player.setText(text);
-            case "classAndLevel":
-                this.classAndLevel.setText(text);
-            case "race":
-                this.race.setText(text);
-            case "alignment":
-                alignment.setText(text);
-            case "deity":
-                this.deity.setText(text);
-            case "size":
-                this.size.setText(text);
-            case "age":
-                this.age.setText(text);
-            case "gender":
-                this.gender.setText(text);
-            case "height":
-                this.height.setText(text);
-            case "weight":
-                this.weight.setText(text);
-            case "eyes":
-                this.eyes.setText(text);
-            case "hair":
-                this.hair.setText(text);
-            case "skin":
-                this.skin.setText(text);
-            case "speed":
-                this.speed.setText(text);
-        }
-    }
-
-    @Override
-    public String getTextField(String textField) {
-        return null;
-    }
-
-    @Override
-    public void setLabel(String label, String text) {
-        switch (label){
-            case "str":
-                this.strLabel.setText(text);
-            case "con":
-                this.conLabel.setText(text);
-            case "dex":
-                this.dexLabel.setText(text);
-            case "int":
-                this.intLabel.setText(text);
-            case "wis":
-                this.wisLabel.setText(text);
-            case "cha":
-                this.chaLabel.setText(text);
-        }
-    }
-
-    @Override
     public void setButtonListener(String button, EventHandler<? super MouseEvent> listener) {
         switch (button){
             case "backButton":
                 backButton.setOnMouseClicked(listener);
         }
-    }
-
-    @Override
-    public String getComboBoxSelection(String comboBox) {
-        return null;
-    }
-
-    @Override
-    public boolean areFieldsFilled() {
-        return false;
     }
 }
 

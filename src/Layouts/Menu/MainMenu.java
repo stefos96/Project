@@ -51,21 +51,6 @@ public class MainMenu implements ViewInterface{
     }
 
     @Override
-    public void setTextField(String textField, String text) {}
-
-    @Override
-    public String getTextField(String textField) {
-        switch (textField){
-            case "nameTextField":
-                return nameTextField.getText();
-        }
-        return null;
-    }
-
-    @Override
-    public void setLabel(String label, String text) {}
-
-    @Override
     public void setButtonListener(String button, EventHandler<? super MouseEvent> listener) {
         switch (button){
             case "enterGameButton":
@@ -79,15 +64,5 @@ public class MainMenu implements ViewInterface{
             case "helpButton":
                 helpButton.setOnMouseClicked(listener);
         }
-    }
-
-    @Override
-    public String getComboBoxSelection(String comboBox) {
-        return null;
-    }
-
-    @Override
-    public boolean areFieldsFilled() {
-        return nameTextField.getText().isEmpty();
     }
 }

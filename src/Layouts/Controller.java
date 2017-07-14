@@ -2,6 +2,7 @@
 import Layouts.Activity.ActivityLayout;
 import Layouts.Character.CharacterLayout;
 import Layouts.CreateCharacter.CreateCharacter;
+import Layouts.DescriptionAdder.DescriptionAdder;
 import Layouts.Help.HelpLayout;
 import Layouts.Inventory.InventoryLayout;
 import Layouts.Lobby.Lobby;
@@ -14,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 import java.awt.*;
+import java.util.ArrayList;
 
  /**
  * Controller of the MVC pattern that connects the Views with the Model
@@ -29,8 +31,13 @@ public class Controller {
     private ViewInterface mapCreation;
     private ViewInterface monsterInsertion;
     private ViewInterface activity;
+    private ViewInterface descriptionAdder;
+
+    private Model model;
 
     public Controller(Model model) throws Exception {
+        this.model = model;
+
         menu = new MainMenu();
         mainGame = new MainGame();
         session = new Lobby();
@@ -41,6 +48,7 @@ public class Controller {
         mapCreation = new MapCreationLayout();
         monsterInsertion = new MonsterInsertion();
         activity = new ActivityLayout();
+        descriptionAdder = new DescriptionAdder();
 
         menu.show();
 
@@ -92,7 +100,13 @@ public class Controller {
 
         // MonsterInsertion
         monsterInsertion.setButtonListener("backButton", new MonsterInsertionBackListener());
-        monsterInsertion.setButtonListener("joinButton", new MonsterInsertionNextListener());
+        monsterInsertion.setButtonListener("nextButton", new MonsterInsertionNextListener());
+        monsterInsertion.setButtonListener("gridPane", new MonsterInsertionGridPane());
+
+        // DescriptionAdder
+        descriptionAdder.setButtonListener("backButton", new DescriptionAdderBackListener());
+        descriptionAdder.setButtonListener("nextButton", new DescriptionAdderNextListener());
+        descriptionAdder.setButtonListener("descriptionButton", new DescriptionAdderListener());
     }
 
     // Menu
@@ -242,6 +256,15 @@ public class Controller {
     private class MapCreationNextListener implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent event) {
+            int columns = ((MapCreationLayout) mapCreation).getColumns();
+            int rows = ((MapCreationLayout) mapCreation).getRows();
+
+            model.updateArraySize(columns, rows);
+            model.setRectangleArray(((MapCreationLayout) mapCreation).getRectangleArray());
+
+            ((MonsterInsertion) monsterInsertion).setColumns(columns);
+            ((MonsterInsertion) monsterInsertion).setRows(rows);
+
             mapCreation.hide();
             monsterInsertion.show();
         }
@@ -249,8 +272,7 @@ public class Controller {
 
 
 
-
-
+    // Map Creation Selecting the grid
     private class MapCreationGridPressed implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent event) {
@@ -264,8 +286,6 @@ public class Controller {
              ((MapCreationLayout) mapCreation).releaseInGrid(event.getSceneX(), event.getSceneY());
          }
      }
-
-
 
 
 
@@ -309,6 +329,8 @@ public class Controller {
         }
     }
 
+
+
     // MonsterCreation
     private class MonsterInsertionBackListener implements EventHandler<MouseEvent> {
         @Override
@@ -321,7 +343,36 @@ public class Controller {
     private class MonsterInsertionNextListener implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent event) {
-            // TODO implement
+            monsterInsertion.hide();
+            descriptionAdder.show();
         }
     }
+
+     private class MonsterInsertionGridPane implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             ((MonsterInsertion) monsterInsertion).selectInGrid(event.getSceneX(), event.getSceneY());
+         }
+     }
+
+     private class DescriptionAdderBackListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             descriptionAdder.hide();
+             monsterInsertion.show();
+         }
+     }
+
+     private class DescriptionAdderNextListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+         }
+     }
+
+     private class DescriptionAdderListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             // TODO implement
+         }
+     }
 }
