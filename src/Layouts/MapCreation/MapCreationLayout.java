@@ -346,6 +346,7 @@ public class MapCreationLayout implements ViewInterface{
 
         try {
             Rectangle currentRectangle = new Rectangle(rectangleWidth, rectangleHeight, Paint.valueOf("#58ecee"));
+            currentRectangle.setOpacity(0.4);
             gridPane.add(currentRectangle, i, j);
         }
         catch (Exception e){}

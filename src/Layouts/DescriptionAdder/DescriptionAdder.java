@@ -173,7 +173,14 @@ public class DescriptionAdder implements ViewInterface{
         double rectangleHeight = gridPane.getHeight() / gridPane.getRowConstraints().size() - gridPane.getVgap();
 
         Rectangle currentRectangle = new Rectangle(rectangleWidth, rectangleHeight, Paint.valueOf("#58ecee"));
+        currentRectangle.setOpacity(0.4);
         gridPane.add(currentRectangle, currentCol, currentRow);
+
+        try {
+            String description = descriptionArray.get(currentCol).get(currentRow);
+            descriptionTextArea.setText(description);
+        }
+        catch (Exception e){}
     }
 
 
@@ -197,6 +204,7 @@ public class DescriptionAdder implements ViewInterface{
 
     public void addDescription(){
         String description = descriptionTextArea.getText();
+        descriptionArray.get(currentCol).remove(currentRow);
         descriptionArray.get(currentCol).add(currentRow, description);
         descriptionTextArea.clear();
     }

@@ -166,6 +166,7 @@ public class MonsterInsertion implements ViewInterface {
         double rectangleHeight = gridPane.getHeight() / gridPane.getRowConstraints().size() - gridPane.getVgap();
 
         Rectangle currentRectangle = new Rectangle(rectangleWidth, rectangleHeight, Paint.valueOf("#58ecee"));
+        currentRectangle.setOpacity(0.4);
         gridPane.add(currentRectangle, currentCol, currentRow);
     }
 
