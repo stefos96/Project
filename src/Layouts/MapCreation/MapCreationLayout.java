@@ -360,8 +360,7 @@ public class MapCreationLayout implements ViewInterface{
      * @param terrain a terrain name like water or field etc
      */
     public void addTerrain(String terrain){
-        double width = gridPane.getWidth() / gridPane.getColumnConstraints().size() - gridPane.getHgap();
-        double height = gridPane.getHeight() / gridPane.getRowConstraints().size() - gridPane.getVgap();
+
 
         Paint color;
 
@@ -383,48 +382,46 @@ public class MapCreationLayout implements ViewInterface{
         if (releasedColumn >= currentCol && releasedRow >= currentRow){
             for (int i = currentCol; i <= releasedColumn; i++){
                 for (int j = currentRow; j <= releasedRow; j++) {
-                    Rectangle rectangle = new Rectangle(width, height, color);
-                    Rectangle rectToRemove = rectangleArray.get(i).get(j);
-                    rectToRemove = null;
-                    rectangleArray.get(i).remove(j);
-                    rectangleArray.get(i).add(j, rectangle);
+                    terrainAddLoop(i, j, color);
                 }
             }
         }
         else if (releasedColumn <= currentCol && releasedRow <= currentRow){
             for (int i = currentCol; i >= releasedColumn; i--){
                 for (int j = currentRow; j >= releasedRow; j--){
-                    Rectangle rectangle = new Rectangle(width, height, color);
-                    Rectangle rectToRemove = rectangleArray.get(i).get(j);
-                    rectToRemove = null;
-                    rectangleArray.get(i).remove(j);
-                    rectangleArray.get(i).add(j, rectangle);
+                    terrainAddLoop(i, j, color);
                 }
             }
         }
         else if (releasedColumn > currentCol && releasedRow < currentRow){
             for (int i = currentCol; i <= releasedColumn; i++){
                 for (int j = currentRow; j >= releasedRow; j--){
-                    Rectangle rectangle = new Rectangle(width, height, color);
-                    Rectangle rectToRemove = rectangleArray.get(i).get(j);
-                    rectToRemove = null;
-                    rectangleArray.get(i).remove(j);
-                    rectangleArray.get(i).add(j, rectangle);
+                    terrainAddLoop(i, j, color);
                 }
             }
         }
         else {
             for (int i = currentCol; i >= releasedColumn; i--){
                 for (int j = currentRow; j <= releasedRow; j++){
-                    Rectangle rectangle = new Rectangle(width, height, color);
-                    Rectangle rectToRemove = rectangleArray.get(i).get(j);
-                    rectToRemove = null;
-                    rectangleArray.get(i).remove(j);
-                    rectangleArray.get(i).add(j, rectangle);
+                    terrainAddLoop(i, j, color);
                 }
             }
         }
         removeCurrentSelection();
+    }
+
+    /**
+     * Removes the Rectangle in the current index and then adds the new Rectangle
+     */
+    private void terrainAddLoop(int i, int j, Paint color){
+        double width = gridPane.getWidth() / gridPane.getColumnConstraints().size() - gridPane.getHgap();
+        double height = gridPane.getHeight() / gridPane.getRowConstraints().size() - gridPane.getVgap();
+
+        Rectangle rectangle = new Rectangle(width, height, color);
+        Rectangle rectToRemove = rectangleArray.get(i).get(j);
+        rectToRemove = null;
+        rectangleArray.get(i).remove(j);
+        rectangleArray.get(i).add(j, rectangle);
     }
 
     private void removeCurrentSelection(){

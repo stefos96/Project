@@ -205,7 +205,10 @@ public class MonsterInsertion implements ViewInterface {
         arrayToGrid();
     }
 
-    public void arrayToGrid() {
+    /**
+     * Clears the gridPane, reforms the Strings on the monsterArray to labels and adds them to the gridPane
+     */
+    private void arrayToGrid() {
         Node node = gridPane.getChildren().get(0);
         gridPane.getChildren().clear();
         gridPane.getChildren().add(0,node);
