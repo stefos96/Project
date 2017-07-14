@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class CharacterClass {
+    private int classLevel = 0;
     private String name;
     private String type;
     private String alignment;
@@ -114,14 +115,28 @@ public class CharacterClass {
     public String getAlignment() {
         return alignment;
     }
+
+    public int getHitDie() {
+        return hitDie.number;
+    }
+
+    public int getClassLevel() {
+        return classLevel;
+    }
 }
 
 enum HitDieEnum{
-    D4,
-    D6,
-    D8,
-    D10,
-    D12;
+    D4(4),
+    D6(6),
+    D8(8),
+    D10(10),
+    D12(12);
+
+    int number;
+
+    HitDieEnum(int number){
+        this.number = number;
+    }
 }
 
 enum SpellStatEnum{

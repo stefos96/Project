@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Project:jar2" />
+      <artifact name="Project:jar" />
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
@@ -10,10 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="951185e5-246e-46ee-8b14-88bd938d2269" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/Project_jar2.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Project_jar/Project.jar" afterPath="$PROJECT_DIR$/out/artifacts/Project_jar/Project.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Project_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Project_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java" afterPath="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java" afterPath="$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java" afterPath="$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Project/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/out/production/Project/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Character/Character.java" afterPath="$PROJECT_DIR$/src/Character/Character.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Character/CharacterClass.java" afterPath="$PROJECT_DIR$/src/Character/CharacterClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,42 +54,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Layouts/Controller.java">
+      <file leaf-file-name="Character.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Character/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="391" column="57" lean-forward="false" selection-start-line="391" selection-start-column="57" selection-end-line="391" selection-end-column="57" />
+            <state relative-caret-position="560">
+              <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MonsterInsertion.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java">
+      <file leaf-file-name="CharacterRace.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Character/CharacterRace.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="168" column="41" lean-forward="false" selection-start-line="168" selection-start-column="41" selection-end-line="168" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="84">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <marker date="1496623251916" expanded="true" signature="1127:1181" ph="SELECT * FRO... race" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapCreationLayout.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java">
+      <file leaf-file-name="CharacterClass.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Character/CharacterClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="348" column="45" lean-forward="false" selection-start-line="348" selection-start-column="45" selection-end-line="348" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DescriptionAdder.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="112">
+              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+              <folding>
+                <marker date="1500056745389" expanded="true" signature="1737:1793" ph="SELECT * FRO... class" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Game/GenderEnum.java" />
         <option value="$PROJECT_DIR$/src/Game/Character.java" />
         <option value="$PROJECT_DIR$/src/ExternalIpFinder/ExternalIpFinder.java" />
         <option value="$PROJECT_DIR$/src/Layouts/Lobby/Lobby.fxml" />
@@ -145,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/TextPrinter/TextPrinter.java" />
         <option value="$PROJECT_DIR$/src/Layouts/View.java" />
         <option value="$PROJECT_DIR$/src/Scenes/Scene.java" />
-        <option value="$PROJECT_DIR$/src/Character/Character.java" />
         <option value="$PROJECT_DIR$/src/Layouts/Help/Help.fxml" />
         <option value="$PROJECT_DIR$/src/Layouts/Help/Help.java" />
         <option value="$PROJECT_DIR$/src/Layouts/MapCreation/MapCreation.fxml" />
@@ -182,6 +178,8 @@
         <option value="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java" />
         <option value="$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java" />
         <option value="$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java" />
+        <option value="$PROJECT_DIR$/src/Character/CharacterClass.java" />
+        <option value="$PROJECT_DIR$/src/Character/Character.java" />
       </list>
     </option>
   </component>
@@ -217,6 +215,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,7 +303,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MonsterInsertion" />
+              <option name="myItemId" value="CreateCharacter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -317,36 +317,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MapCreation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DescriptionAdder" />
+              <option name="myItemId" value="Character" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -856,7 +832,9 @@
       <workItem from="1499794884089" duration="166000" />
       <workItem from="1499948303567" duration="8381000" />
       <workItem from="1499980709201" duration="11406000" />
-      <workItem from="1500024877889" duration="9206000" />
+      <workItem from="1500024877889" duration="9248000" />
+      <workItem from="1500036618996" duration="2328000" />
+      <workItem from="1500053475888" duration="3290000" />
     </task>
     <task id="LOCAL-00001" summary="monsterEnum changed">
       <created>1492722644792</created>
@@ -1068,11 +1046,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500032252044</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Selection in gridPanes now has opacity=0.4">
+      <created>1500036408409</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1500036408409</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29688000" />
+    <option name="totallyTimeSpent" value="35348000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1104,7 +1089,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16887417" sideWeight="0.4914712" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24739583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24701987" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1164,7 +1149,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Command pattern, returning string instead of println and gui" />
     <MESSAGE value="Monster bug fix" />
     <MESSAGE value="Minor string changes" />
     <MESSAGE value="Test" />
@@ -1189,7 +1173,8 @@
     <MESSAGE value="MonsterInsertion - You can add monsters to the grid in the form of labels" />
     <MESSAGE value="MapCreation - Created new private method to fix duplicate code" />
     <MESSAGE value="DescriptionAdder completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="DescriptionAdder completed" />
+    <MESSAGE value="Selection in gridPanes now has opacity=0.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Selection in gridPanes now has opacity=0.4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1202,24 +1187,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/scene/control/ScrollPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1008">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Layouts/Help/Help.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Lobby.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/scene/layout/RowConstraints.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7476">
@@ -1235,23 +1202,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/MapCreation/MapCreation.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2744">
           <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Layouts/Menu/MainMenu.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Layouts/Menu/MainMenu.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/View.java">
@@ -1262,13 +1229,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="10" column="68" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="68" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/scene/effect/Effect.java">
@@ -1300,13 +1267,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/Settings/Settings.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="52" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/CreateCharacter/CreateCharacter.css">
@@ -1317,13 +1284,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/Activity/Activity.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/Inventory/InventoryLayout.css">
@@ -1425,19 +1392,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="562" column="24" lean-forward="false" selection-start-line="562" selection-start-column="24" selection-end-line="562" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="10" column="68" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="68" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/ViewInterface.java">
@@ -1482,20 +1447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Layouts/CreateCharacter/CreateCharacter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Layouts/Character/CharacterLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1941">
-          <caret line="100" column="5" lean-forward="false" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/Activity/ActivityLayout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="896">
@@ -1535,9 +1486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="812">
           <caret line="34" column="29" lean-forward="false" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-          <folding>
-            <marker date="1499995927037" expanded="true" signature="848:878" ph="SELECT name monsters" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1545,17 +1493,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="48" column="25" lean-forward="true" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
-          <folding>
-            <marker date="1500031203798" expanded="true" signature="1105:1128" ph="SELECT name missingValue" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
+        <state relative-caret-position="10500">
           <caret line="391" column="57" lean-forward="false" selection-start-line="391" selection-start-column="57" selection-end-line="391" selection-end-column="57" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1569,24 +1516,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
+        <state relative-caret-position="4088">
           <caret line="168" column="41" lean-forward="false" selection-start-line="168" selection-start-column="41" selection-end-line="168" selection-end-column="41" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
+        <state relative-caret-position="9044">
           <caret line="348" column="45" lean-forward="false" selection-start-line="348" selection-start-column="45" selection-end-line="348" selection-end-column="45" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+        <state relative-caret-position="532">
+          <caret line="39" column="27" lean-forward="true" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Layouts/CreateCharacter/CreateCharacter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Character/CharacterClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <marker date="1500056745389" expanded="true" signature="1737:1793" ph="SELECT * FRO... class" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Character/CharacterRace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <marker date="1496623251916" expanded="true" signature="1127:1181" ph="SELECT * FRO... race" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Layouts/Character/CharacterLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="100" column="5" lean-forward="false" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Character/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
           <folding />
         </state>
       </provider>
