@@ -13,7 +13,8 @@ public class MonstersSql implements Runnable{
     private Statement stmt;
     private MysqlDataSource dataSource = new MysqlDataSource();
 
-    ArrayList<String> monsterList = new ArrayList<>();
+    private ResultSet monsters;
+    private ArrayList<String> monsterList = new ArrayList<>();
 
 
     public MonstersSql(){
@@ -27,12 +28,13 @@ public class MonstersSql implements Runnable{
         try {
             conn = dataSource.getConnection();
             stmt = conn.createStatement();
-            ResultSet monsters = stmt.executeQuery("SELECT name FROM test1.monster");
-            while (monsters.next()) {
+            monsters = stmt.executeQuery("SELECT name FROM test1.monster");
+            while (monsters.next())
                 monsterList.add(monsters.getString("name"));
-            }
         }
-        catch (Exception e) { e.printStackTrace(); }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public ArrayList<String> getMonsterList(){

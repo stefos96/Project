@@ -8,6 +8,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
@@ -30,7 +31,6 @@ public class MonsterInsertion implements ViewInterface {
     private SVGPath backButton;
 
     private GridPane gridPane;
-
     private ListView listView;
 
     private int columns;
@@ -39,7 +39,7 @@ public class MonsterInsertion implements ViewInterface {
     private int currentCol;
     private int currentRow;
 
-    private ArrayList<String> monsterInserted = new ArrayList<>();
+    private ArrayList<ArrayList<String>> monsterArray = new ArrayList<>();
 
     public MonsterInsertion() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MonsterInsertion.fxml"));
@@ -59,6 +59,14 @@ public class MonsterInsertion implements ViewInterface {
         titledPane = null;
 
         printMonsters();
+
+        for (int i = 0; i < 25; i++){
+            monsterArray.add(new ArrayList<>());
+            for (int j = 0; j < 25; j++){
+                String temp = null;
+                monsterArray.get(i).add(temp);
+            }
+        }
     }
 
     @Override
@@ -93,6 +101,10 @@ public class MonsterInsertion implements ViewInterface {
 
     @Override
     public void hide() {
+        Node node = gridPane.getChildren().get(0);
+        gridPane.getChildren().clear();
+        gridPane.getChildren().add(0,node);
+
         stage.hide();
     }
 
@@ -105,6 +117,8 @@ public class MonsterInsertion implements ViewInterface {
                 nextButton.setOnMouseClicked(listener);
             case "gridPane":
                 gridPane.setOnMouseClicked(listener);
+            case "listView":
+                listView.setOnMouseClicked(listener);
         }
     }
 
@@ -116,6 +130,9 @@ public class MonsterInsertion implements ViewInterface {
         this.rows = rows;
     }
 
+    /**
+     * Shows all monsters in the listView calling making a new thread that retrieves data from database
+     */
     private void printMonsters(){
         Runnable monstersSql = new MonstersSql();
         monstersSql.run();
@@ -129,9 +146,7 @@ public class MonsterInsertion implements ViewInterface {
      * Simple selection when a click occurs in gridPane highlighting the box it's targetted
      */
     public void selectInGrid(double xAxis, double yAxis){
-        Node node = gridPane.getChildren().get(0);
-        gridPane.getChildren().clear();
-        gridPane.getChildren().add(0,node);
+        arrayToGrid();
 
         Bounds bounds = gridPane.getBoundsInParent();
 
@@ -176,5 +191,32 @@ public class MonsterInsertion implements ViewInterface {
 
         Rectangle currentRectangle = new Rectangle(rectangleWidth, rectangleHeight, Paint.valueOf("#58ecee"));
         gridPane.add(currentRectangle, currentCol, currentRow);
+    }
+
+    /**
+     * Manages the click on a monster in the listView adding a label in the current selection
+     */
+    public void selectListView(){
+        String monsterSelected = (String) listView.getSelectionModel().getSelectedItem();
+
+        monsterArray.get(currentCol).remove(currentRow);
+        monsterArray.get(currentCol).add(currentRow, monsterSelected);
+
+        arrayToGrid();
+    }
+
+    public void arrayToGrid() {
+        Node node = gridPane.getChildren().get(0);
+        gridPane.getChildren().clear();
+        gridPane.getChildren().add(0,node);
+
+        for (int i = 0; i <= columns; i++) {
+            for (int j = 0; j <= rows; j++) {
+                String monster = monsterArray.get(i).get(j);
+                Label temp = new Label(monster);
+                if (monster != null)
+                    gridPane.add(temp, i, j);
+            }
+        }
     }
 }

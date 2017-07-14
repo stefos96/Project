@@ -358,7 +358,6 @@ public class MapCreationLayout implements ViewInterface{
     /**
      * Adds a new rectangle terrain in the map, also adds it in the rectangleArrayList
      * @param terrain a terrain name like water or field etc
-     * TODO enum would be helpfull
      */
     public void addTerrain(String terrain){
         double width = gridPane.getWidth() / gridPane.getColumnConstraints().size() - gridPane.getHgap();

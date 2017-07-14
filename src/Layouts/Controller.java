@@ -102,6 +102,8 @@ public class Controller {
         monsterInsertion.setButtonListener("backButton", new MonsterInsertionBackListener());
         monsterInsertion.setButtonListener("nextButton", new MonsterInsertionNextListener());
         monsterInsertion.setButtonListener("gridPane", new MonsterInsertionGridPane());
+        monsterInsertion.setButtonListener("listView", new MonsterInsertionListView());
+
 
         // DescriptionAdder
         descriptionAdder.setButtonListener("backButton", new DescriptionAdderBackListener());
@@ -355,6 +357,14 @@ public class Controller {
          }
      }
 
+     private class MonsterInsertionListView implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             ((MonsterInsertion) monsterInsertion).selectListView();
+         }
+     }
+
+     // DescriptionAdder
      private class DescriptionAdderBackListener implements EventHandler<MouseEvent> {
          @Override
          public void handle(MouseEvent event) {
