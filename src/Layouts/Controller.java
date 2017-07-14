@@ -109,6 +109,7 @@ public class Controller {
         descriptionAdder.setButtonListener("backButton", new DescriptionAdderBackListener());
         descriptionAdder.setButtonListener("nextButton", new DescriptionAdderNextListener());
         descriptionAdder.setButtonListener("descriptionButton", new DescriptionAdderListener());
+        descriptionAdder.setButtonListener("gridPane", new DescriptionAdderGridPane());
     }
 
     // Menu
@@ -345,6 +346,12 @@ public class Controller {
     private class MonsterInsertionNextListener implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent event) {
+            ArrayList<ArrayList<String>> temp = ((MonsterInsertion) monsterInsertion).getMonsterArray();
+            model.setMonsterArray(temp);
+
+            ((DescriptionAdder) descriptionAdder).setColumns(model.getColumns());
+            ((DescriptionAdder) descriptionAdder).setRows(model.getRows());
+
             monsterInsertion.hide();
             descriptionAdder.show();
         }
@@ -382,7 +389,14 @@ public class Controller {
      private class DescriptionAdderListener implements EventHandler<MouseEvent> {
          @Override
          public void handle(MouseEvent event) {
-             // TODO implement
+             ((DescriptionAdder) descriptionAdder).addDescription();
+         }
+     }
+
+     private class DescriptionAdderGridPane implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             ((DescriptionAdder) descriptionAdder).selectInGrid(event.getSceneX(), event.getSceneY());
          }
      }
 }

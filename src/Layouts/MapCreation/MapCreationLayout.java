@@ -360,8 +360,6 @@ public class MapCreationLayout implements ViewInterface{
      * @param terrain a terrain name like water or field etc
      */
     public void addTerrain(String terrain){
-
-
         Paint color;
 
         switch (terrain){
@@ -424,6 +422,9 @@ public class MapCreationLayout implements ViewInterface{
         rectangleArray.get(i).add(j, rectangle);
     }
 
+    /**
+     * Removes the rectangle selection and adds again the terrain rectangles
+     */
     private void removeCurrentSelection(){
         Node node = gridPane.getChildren().get(0);
         gridPane.getChildren().clear();

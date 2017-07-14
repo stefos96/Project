@@ -11,7 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="951185e5-246e-46ee-8b14-88bd938d2269" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Layouts/Controller.java" afterPath="$PROJECT_DIR$/src/Layouts/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.fxml" afterPath="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java" afterPath="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java" afterPath="$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Layouts/Model.java" afterPath="$PROJECT_DIR$/src/Layouts/Model.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java" afterPath="$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -52,8 +56,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Layouts/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="361" column="47" lean-forward="false" selection-start-line="361" selection-start-column="47" selection-end-line="361" selection-end-column="47" />
+            <state relative-caret-position="373">
+              <caret line="391" column="57" lean-forward="false" selection-start-line="391" selection-start-column="57" selection-end-line="391" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -62,18 +66,18 @@
       <file leaf-file-name="MonsterInsertion.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1307">
-              <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+            <state relative-caret-position="479">
+              <caret line="118" column="5" lean-forward="false" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapCreationLayout.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java">
+      <file leaf-file-name="DescriptionAdder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1335">
-              <caret line="384" column="48" lean-forward="false" selection-start-line="384" selection-start-column="48" selection-end-line="384" selection-end-column="48" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -152,7 +156,6 @@
         <option value="$PROJECT_DIR$/src/Layouts/Menu/MainMenu.css" />
         <option value="$PROJECT_DIR$/src/Layouts/MapCreation/MapKotlin.kt" />
         <option value="$PROJECT_DIR$/src/Layouts/MapCreation/MapCreation.css" />
-        <option value="$PROJECT_DIR$/src/Layouts/Model.java" />
         <option value="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.fxml" />
         <option value="$PROJECT_DIR$/src/Layouts/ViewInterface.java" />
         <option value="$PROJECT_DIR$/src/Layouts/Menu/MainMenu.java" />
@@ -164,13 +167,14 @@
         <option value="$PROJECT_DIR$/src/Layouts/Character/CharacterLayout.java" />
         <option value="$PROJECT_DIR$/src/Layouts/Activity/ActivityLayout.java" />
         <option value="$PROJECT_DIR$/src/Layouts/Settings/SettingsLayout.java" />
-        <option value="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java" />
         <option value="$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.css" />
         <option value="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.css" />
-        <option value="$PROJECT_DIR$/src/Layouts/Controller.java" />
         <option value="$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonstersSql.java" />
-        <option value="$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java" />
         <option value="$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java" />
+        <option value="$PROJECT_DIR$/src/Layouts/Model.java" />
+        <option value="$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java" />
+        <option value="$PROJECT_DIR$/src/Layouts/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java" />
       </list>
     </option>
   </component>
@@ -310,7 +314,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MapCreation" />
+              <option name="myItemId" value="DescriptionAdder" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -827,7 +831,7 @@
       <workItem from="1499794884089" duration="166000" />
       <workItem from="1499948303567" duration="8381000" />
       <workItem from="1499980709201" duration="11406000" />
-      <workItem from="1500024877889" duration="3164000" />
+      <workItem from="1500024877889" duration="6149000" />
     </task>
     <task id="LOCAL-00001" summary="monsterEnum changed">
       <created>1492722644792</created>
@@ -1025,11 +1029,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500028194781</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="MapCreation - Created new private method to fix duplicate code">
+      <created>1500028645477</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1500028645477</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23646000" />
+    <option name="totallyTimeSpent" value="26631000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1121,7 +1132,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="println simple change" />
     <MESSAGE value="Antistrofi metrisi gia na teleiosei to paixnidi o xristis" />
     <MESSAGE value="Command pattern, returning string instead of println and gui" />
     <MESSAGE value="Monster bug fix" />
@@ -1146,7 +1156,8 @@
     <MESSAGE value="dunno" />
     <MESSAGE value="Monster list now shows up in the MonsterInsertion and creation of DescriptionAdder layout" />
     <MESSAGE value="MonsterInsertion - You can add monsters to the grid in the form of labels" />
-    <option name="LAST_COMMIT_MESSAGE" value="MonsterInsertion - You can add monsters to the grid in the form of labels" />
+    <MESSAGE value="MapCreation - Created new private method to fix duplicate code" />
+    <option name="LAST_COMMIT_MESSAGE" value="MapCreation - Created new private method to fix duplicate code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1389,6 +1400,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="562" column="24" lean-forward="false" selection-start-line="562" selection-start-column="24" selection-end-line="562" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1399,6 +1411,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="10" column="68" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="68" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1493,20 +1506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="56" column="62" lean-forward="false" selection-start-line="56" selection-start-column="62" selection-end-line="56" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Layouts/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonstersSql.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="812">
@@ -1517,26 +1516,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Layouts/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="361" column="47" lean-forward="false" selection-start-line="361" selection-start-column="47" selection-end-line="361" selection-end-column="47" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Layouts/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="48" column="25" lean-forward="true" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+          <folding>
+            <marker date="1500031203798" expanded="true" signature="1105:1128" ph="SELECT name missingValue" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layouts/MonsterInsertion/MonsterInsertion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1307">
-          <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+        <state relative-caret-position="479">
+          <caret line="118" column="5" lean-forward="false" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Layouts/MapCreation/MapCreationLayout.java">
+    <entry file="file://$PROJECT_DIR$/src/Layouts/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1335">
-          <caret line="384" column="48" lean-forward="false" selection-start-line="384" selection-start-column="48" selection-end-line="384" selection-end-column="48" />
+        <state relative-caret-position="373">
+          <caret line="391" column="57" lean-forward="false" selection-start-line="391" selection-start-column="57" selection-end-line="391" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Layouts/DescriptionAdder/DescriptionAdder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

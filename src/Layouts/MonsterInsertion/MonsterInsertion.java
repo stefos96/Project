@@ -72,31 +72,7 @@ public class MonsterInsertion implements ViewInterface {
     @Override
     public void show() {
         stage.show();
-
-        // Removes columns so it can add any necessary columns later, same thing goes for rows
-        if (gridPane.getColumnConstraints().size() > 5) {
-            for (int i = gridPane.getColumnConstraints().size(); i >= 5; i--)
-                gridPane.getColumnConstraints().remove(gridPane.getColumnConstraints().size() - 1);
-        }
-
-        if (gridPane.getRowConstraints().size() > 5) {
-            for (int i = gridPane.getRowConstraints().size(); i >= 5; i--)
-                gridPane.getRowConstraints().remove(gridPane.getRowConstraints().size() - 1);
-        }
-
-        int currentColumnSize = gridPane.getColumnConstraints().size();
-        int currentRowSize = gridPane.getRowConstraints().size();
-
-        // Adds necessary columns and rows
-        for (int i = currentColumnSize; i < columns; i++) {
-            ColumnConstraints col = new ColumnConstraints(5, 100, Region.USE_COMPUTED_SIZE);
-            gridPane.getColumnConstraints().add(col);
-        }
-
-        for (int i = currentRowSize; i < rows; i++) {
-            RowConstraints row = new RowConstraints(5, 100, Region.USE_COMPUTED_SIZE);
-            gridPane.getRowConstraints().add(row);
-        }
+        setGridPane();
     }
 
     @Override
@@ -220,6 +196,40 @@ public class MonsterInsertion implements ViewInterface {
                 if (monster != null)
                     gridPane.add(temp, i, j);
             }
+        }
+    }
+
+    public ArrayList<ArrayList<String>> getMonsterArray(){
+        return monsterArray;
+    }
+
+    /**
+     * Sets the gridPane in the correct rows and columns
+     */
+    private void setGridPane(){
+        // Removes columns so it can add any necessary columns later, same thing goes for rows
+        if (gridPane.getColumnConstraints().size() > 5) {
+            for (int i = gridPane.getColumnConstraints().size(); i >= 5; i--)
+                gridPane.getColumnConstraints().remove(gridPane.getColumnConstraints().size() - 1);
+        }
+
+        if (gridPane.getRowConstraints().size() > 5) {
+            for (int i = gridPane.getRowConstraints().size(); i >= 5; i--)
+                gridPane.getRowConstraints().remove(gridPane.getRowConstraints().size() - 1);
+        }
+
+        int currentColumnSize = gridPane.getColumnConstraints().size();
+        int currentRowSize = gridPane.getRowConstraints().size();
+
+        // Adds necessary columns and rows
+        for (int i = currentColumnSize; i < columns; i++) {
+            ColumnConstraints col = new ColumnConstraints(5, 100, Region.USE_COMPUTED_SIZE);
+            gridPane.getColumnConstraints().add(col);
+        }
+
+        for (int i = currentRowSize; i < rows; i++) {
+            RowConstraints row = new RowConstraints(5, 100, Region.USE_COMPUTED_SIZE);
+            gridPane.getRowConstraints().add(row);
         }
     }
 }

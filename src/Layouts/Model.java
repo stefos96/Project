@@ -1,7 +1,6 @@
 package Layouts;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import javafx.scene.shape.Rectangle;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -16,6 +15,8 @@ public class Model {
     private int rows;
 
     private ArrayList<ArrayList<Rectangle>> rectangleArray = new ArrayList<>();
+    private ArrayList<ArrayList<String>> monsterArray = new ArrayList<>();
+
 
     /**
      * Get a resultSet(table) from the database
@@ -43,20 +44,24 @@ public class Model {
     /**
      * Set the array size for the map creation and for the monster insertion
      */
-    public void updateArraySize(int rows, int columns){
+    void updateArraySize(int rows, int columns){
         this.columns = columns;
         this.rows = rows;
     }
 
-    public int getColumns(){
+    int getColumns(){
         return columns;
     }
 
-    public int getRows(){
+    int getRows(){
         return rows;
     }
 
-    public void setRectangleArray(ArrayList<ArrayList<Rectangle>> rectangleArray){
+    void setRectangleArray(ArrayList<ArrayList<Rectangle>> rectangleArray){
         this.rectangleArray = rectangleArray;
+    }
+
+    void setMonsterArray(ArrayList<ArrayList<String>> monsterArray){
+        this.monsterArray = monsterArray;
     }
 }
