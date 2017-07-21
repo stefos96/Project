@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class CharacterClass {
+public class CharacterClass implements Runnable{
     private int classLevel = 0;
     private String name;
     private String type;
@@ -122,6 +122,11 @@ public class CharacterClass {
 
     public int getClassLevel() {
         return classLevel;
+    }
+
+    @Override
+    public void run() {
+
     }
 }
 

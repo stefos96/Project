@@ -22,6 +22,7 @@ import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
+import Monster.Monster;
 
 public class MonsterInsertion implements ViewInterface {
     private Scene scene;
@@ -110,9 +111,9 @@ public class MonsterInsertion implements ViewInterface {
      * Shows all monsters in the listView calling making a new thread that retrieves data from database
      */
     private void printMonsters(){
-        Runnable monstersSql = new MonstersSql();
-        monstersSql.run();
-        ArrayList<String> monsters = ((MonstersSql) monstersSql).getMonsterList();
+        Runnable monster = new MonsterSql();
+        monster.run();
+        ArrayList<String> monsters = ((MonsterSql) monster).getMonsterList();
 
         ObservableList<String> monstersObservable = FXCollections.observableArrayList(monsters);
         listView.setItems(monstersObservable);

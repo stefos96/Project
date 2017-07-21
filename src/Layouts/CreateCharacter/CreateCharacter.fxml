@@ -8,17 +8,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField id="characterNameTextField" focusTraversable="false" layoutX="266.0" layoutY="204.0" prefHeight="42.0" prefWidth="150.0" promptText="character">
          <font>
             <Font size="19.0" />
          </font>
       </TextField>
-      <SVGPath id="createCharacterButton" content="M437.6,390H174.4c-10.3,0-18.6-8.3-18.6-18.6v-2.8c0-10.3,8.3-18.6,18.6-18.6h263.3c10.3,0,18.6,8.3,18.6,18.6v2.8C456.3,381.7,447.9,390,437.6,390z" fill="#252525" layoutX="-54.0" layoutY="251.0">
+      <SVGPath id="createCharacterButton" content="M437.6,390H174.4c-10.3,0-18.6-8.3-18.6-18.6v-2.8c0-10.3,8.3-18.6,18.6-18.6h263.3c10.3,0,18.6,8.3,18.6,18.6v2.8C456.3,381.7,447.9,390,437.6,390z" fill="#252525" layoutX="-49.0" layoutY="326.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -40,18 +41,17 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <ComboBox id="genderComboBox" layoutX="266.0" layoutY="364.0" prefWidth="150.0" promptText="Male or Female" />
-      <Label layoutX="167.0" layoutY="604.0" mouseTransparent="true" text="Create Character" textFill="#fcfcfc">
+      <Label layoutX="172.0" layoutY="679.0" mouseTransparent="true" text="Create Character" textFill="#fcfcfc">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <SVGPath id="cancelButton" content="M437.6,390H174.4c-10.3,0-18.6-8.3-18.6-18.6v-2.8c0-10.3,8.3-18.6,18.6-18.6h263.3c10.3,0,18.6,8.3,18.6,18.6v2.8C456.3,381.7,447.9,390,437.6,390z" fill="#252525" layoutX="-55.0" layoutY="302.0">
+      <SVGPath id="cancelButton" content="M437.6,390H174.4c-10.3,0-18.6-8.3-18.6-18.6v-2.8c0-10.3,8.3-18.6,18.6-18.6h263.3c10.3,0,18.6,8.3,18.6,18.6v2.8C456.3,381.7,447.9,390,437.6,390z" fill="#252525" layoutX="-50.0" layoutY="377.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </SVGPath>
-      <Label layoutX="214.0" layoutY="655.0" mouseTransparent="true" text="Cancel" textFill="#fcfcfc">
+      <Label layoutX="219.0" layoutY="730.0" mouseTransparent="true" text="Cancel" textFill="#fcfcfc">
          <font>
             <Font size="23.0" />
          </font>
@@ -90,19 +90,42 @@
       </Label>
       <Group layoutX="439.0" layoutY="279.0">
          <children>
-            <Circle fill="#d7d7d7" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+            <Circle id="helpButton" fill="#d7d7d7" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Circle>
             <SVGPath content="M210.9,389.4l0-0.5c-0.1-1.1,0.2-2.3,1.3-3.5c0.9-1.1,1.4-1.9,1.4-2.8c0-1-0.7-1.7-1.9-1.8c-0.7,0-1.5,0.2-2.1,0.6l-0.5-1.3c0.7-0.5,1.8-0.8,2.9-0.8c2.3,0,3.4,1.4,3.4,3c0,1.4-0.8,2.4-1.8,3.5c-0.9,1.1-1.2,2-1.2,3l0,0.5H210.9z M210.4,392.2c0-0.8,0.5-1.3,1.2-1.3c0.7,0,1.2,0.5,1.2,1.3c0,0.7-0.5,1.3-1.2,1.3C210.9,393.5,210.4,393,210.4,392.2z" fill="#434343" layoutX="-212.0" layoutY="-387.0" mouseTransparent="true" />
          </children>
       </Group>
-      <Label layoutX="76.0" layoutY="512.0" text="Alignment" textFill="#6b6b6b">
+      <Label layoutX="76.0" layoutY="514.0" text="Ethics" textFill="#6b6b6b">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <ComboBox id="alignmentComboBox" layoutX="266.0" layoutY="517.0" prefWidth="150.0" promptText="ex. lawfull good" />
+      <ComboBox id="ethicsComboBox" layoutX="266.0" layoutY="519.0" prefWidth="150.0" promptText="ex. lawfull" />
+      <Rectangle id="genderRectangle" arcHeight="5.0" arcWidth="5.0" fill="#5d5e5e" height="42.0" layoutX="317.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Rectangle>
+      <Circle id="genderFemaleCircle" fill="#5c5b5c" layoutX="317.0" layoutY="377.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Circle>
+      <Circle id="genderMaleCircle" fill="#00ffb4" layoutX="359.0" layoutY="377.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Circle>
+      <SVGPath id="femaleSVG" content="M312.5,414.6c0,1.2,0,2.5,0,3.7c1.1,0,2.1,0,3.2,0c0,0.7,0,1.5,0,2.2c-1.1,0-2.1,0-3.2,0c0,1.2,0,2.3,0,3.4c-0.7,0-1.4,0-2.2,0c0-1.1,0-2.3,0-3.4c-1.1,0-2.1,0-3.2,0c0-0.7,0-1.5,0-2.2c1,0,2.1,0,3.2,0c0-1.3,0-2.5,0-3.7c-5.2-0.7-8.7-5.2-8.2-10.2c0.5-4.8,4.7-8.6,9.7-8.3c4.8,0.2,8.4,4,8.8,8.4C321.1,409.6,317.4,414,312.5,414.6z M311.4,398.2c-3.8-0.1-7.2,3-7.1,7.2c0,3.8,3.2,7.1,7.1,7.1c4.1,0,7.1-3.3,7.1-7C318.5,401.4,315.3,398.2,311.4,398.2z" fill="WHITE" layoutX="5.0" layoutY="-32.0" visible="false" />
+      <SVGPath id="maleSVG" content="M317,397.7c1.5-1.5,3.1-3.1,4.6-4.6c-1.1,0-2.2,0-3.4,0c0-0.7,0-1.4,0-2.2c2.4,0,4.8,0,7.2,0c0,2.4,0,4.8,0,7.2c-0.7,0-1.4,0-2.1,0c0-1.1,0-2.3,0-3.5c-0.1,0.1-0.1,0.1-0.2,0.1c-1.4,1.4-2.9,2.9-4.3,4.3c-0.2,0.2-0.2,0.3,0,0.5c2.5,3.3,2.4,8-0.3,11.2c-1.4,1.8-3.3,2.9-5.5,3.2c-3.4,0.5-6.3-0.5-8.6-3.1c-1.7-1.9-2.3-4.2-2.2-6.7c0.3-4,3.3-7.5,7.3-8.3c2.6-0.5,5.1,0,7.3,1.5C316.8,397.6,316.9,397.6,317,397.7C317,397.7,317,397.7,317,397.7z M318.4,405c0.1-3.7-3-7-7-7c-3.8,0-7,3.2-7,7c0,4,3.3,7.1,7.1,7.1C315.3,412,318.4,408.7,318.4,405z" fill="#4d4d4d" layoutX="45.0" layoutY="-24.0" visible="false" />
+      <Label layoutX="76.0" layoutY="568.0" text="Alignment" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ComboBox id="alignmentComboBox" layoutX="266.0" layoutY="573.0" prefWidth="150.0" promptText="ex. evil" />
    </children>
    <stylesheets>
       <URL value="@../Menu/MainMenu.css" />

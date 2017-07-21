@@ -17,7 +17,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -207,5 +206,9 @@ public class DescriptionAdder implements ViewInterface{
         descriptionArray.get(currentCol).remove(currentRow);
         descriptionArray.get(currentCol).add(currentRow, description);
         descriptionTextArea.clear();
+    }
+
+    public ArrayList<ArrayList<String>> getDescriptionArray(){
+        return descriptionArray;
     }
 }

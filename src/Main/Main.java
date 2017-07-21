@@ -1,11 +1,9 @@
 package Main;
 import Layouts.Controller;
-import Layouts.MainGame.MainGame;
-import Layouts.Menu.MainMenu;
 import Layouts.Model;
-import Layouts.View;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import Character.*;
 
 public class Main extends Application{
 

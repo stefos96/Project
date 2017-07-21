@@ -1,78 +1,34 @@
 package Character;
+import Alignment.Alignment;
+import Alignment.Ethics;
+import Equipment.Equipment;
+import Spells.Spells;
+import java.util.ArrayList;
 import java.util.HashMap;
-import static MapCreation.MapCreation.sceneList;
-import Scenes.Scene;
 
 
 public class Character {
     private String name;
-    public CharacterRace race;
-    public CharacterClass class1; // A character can have many classes but for now it's limited to 3
+    private CharacterRace race;
+    private CharacterClass class1;
     public CharacterClass class2;
     public CharacterClass class3;
 
-    private GenderEnum gender;
-    private int height;
-    private int weight;
-
-
-    public Character(String name, CharacterRace pickedRace, CharacterClass pickedClass){
-        this.race = pickedRace;
-        strength += race.getStr();
-        dexterity += race.getDex();
-        constitution += race.getCon();
-        intelligence += race.getInt();
-        wisdom += race.getWis();
-        charisma += race.getCha();
-        this.class1 = pickedClass;
-        this.name = name;
-        abilityScores();
-    }
-
-    //    health = class + con
-    private int health;
-
-    // lawfull good or lawfull neutral
-    private int ethics;
-    private int justice;
+    // Lets you act before others
+    // sum(dex + misc bonuses)
+    private int initiativeModifier;
+    // Any misc bonuses will change the initiativeBonus
+    private int initiativeBonus;
 
     private String prefClass;
 
-    /**
-     * Calculates health
-     */
-    public void calcHealth(){
-        health += class1.getHitDie() + constitution;
-    }
-
     // overall level
-
     private int effectiveCharacterLevel;
 
-    public void calcEffectiveLevel(){
-//        effectiveCharacterLevel = class1.getClassLevel() + levelAdjustment + racialHD;
-    }
-
-
-    /*
-     * Base attack bonus
-     * low, medium, high
-     * initial 0,0,1 respectively
-     * 1/3 1/2 1
-     */
-
-
-    private int currentHealth;
-    private int armor;
-    private int dmg;
-    private int level;
     private int xp;
     private int xpToNextLvl;
     private int gold = 0;
 
-
-//    private HashMap<String, Equipment> equipment = new HashMap<>();
-//    private HashMap<String, Item> inventory = new HashMap<>();
 
     private int strength;
     private int dexterity;
@@ -81,8 +37,105 @@ public class Character {
     private int wisdom;
     private int charisma;
 
+    // Depending on your hit die
+    // You roll your classes dice plus constitution
+    // some feats can grant you hp
     private int hitPoints;
+
+
+   // BAB + str for melee OR dex for ranged + size modifier(if any) + any other modifier
+    private int atackModifier;
+
+    // fort save helps you avoid poison, disease, and being turned into a frog
+    // ref save helps you avoid being caught in explosions or trapped under avalanches
+    // will helps you avoid mind control and telepathy
+
+    // constitution for fortitude saves
+    // dexterity for reflex saves
+    // wisdom for will saves
+
+    // baseSave(class) + a save from above + equipment modifier + any other modifier
+    private int saveModifier;
+
+
+    // class skill points per lvl + intelligence per level
+    // note at first level your skill points are *4
+    // with every skill point you can purchase a rank in a skill
+    // one rank in cross class skill costs 2 skill points
+    // you can have many ranks in a skill equal to class level + 3
+    private int skillPoints;
+
+
+    // when you make a skill check
+    // sum of that skill's ranks + relevant ability modifier + any misc modifier
+    // some classes, races, equipment etc can grant bonuses or grant penalties
+    private int skillModifier;
+
+
+    // TODO: check the type of equipment so you can't have 2 armors etc
+    private HashMap<String, Equipment> equipmentHashMap = new HashMap<>();
+
+
+    // Determines how well you can avoid taking hits
+    // sum of
+    // +10
+    // armor bonus by your armor or similar protective item
+    // shield bonus by your shield, buckler, or similar item
+    // dex, certain armors restrict the amount of your dexterity bonus you can apply to your AC.
+    // size modifier, +0 for normal, bonuses for smaller, penalties for bigger
+    // natural armor bonus, some races haves bonuses
+    // deflection bonus, some spells and magic items have
+    // any other modifier from any other source
     private int armorClass;
+
+    private int armorBonus;
+    private int shieldBonus;
+    private int naturalArmorBonus;
+    private int deflectionBonus;
+    private int miscArmor;
+
+    private HashMap<String, Spells> spellsHashMap = new HashMap<>();
+
+    // Languages that the character can speak
+    private ArrayList<String> languages = new ArrayList<>();
+
+    // carrying capacity
+    private int capacity;
+
+    // lawfull good or lawfull neutral
+    private Ethics ethics;
+    private Alignment alignment;
+
+    // Less important
+    private GenderEnum gender;
+    private int height;
+    private int weight;
+
+
+    public Character(){}
+
+    public Character(String name, CharacterRace pickedRace, CharacterClass pickedClass){
+        this.race = pickedRace;
+        strength += race.getRaceStr();
+        dexterity += race.getRaceDex();
+        constitution += race.getRaceCon();
+        intelligence += race.getRaceInt();
+        wisdom += race.getRaceWis();
+        charisma += race.getRaceCha();
+        this.class1 = pickedClass;
+        this.name = name;
+        abilityScores();
+    }
+
+
+    public void setHitPoints(CharacterClass selectedClass){
+        hitPoints += selectedClass.getHitDie() + constitution;
+    }
+
+
+    public void calcEffectiveLevel(){
+//        effectiveCharacterLevel = class1.getClassLevel() + levelAdjustment + racialHD;
+    }
 
 
     private void abilityScores(){
@@ -101,7 +154,6 @@ public class Character {
             if (diceThrow > max)
                 max = diceThrow;
         }
-        System.out.println(max);
         return max;
     }
 
@@ -114,25 +166,12 @@ public class Character {
         return (ability - 10) / 2;
     }
 
-    public String getAbilityScores(){
-        return "strength=" + strength + " " +
-                "dexterity=" + dexterity + " " +
-                "constitution=" + constitution + " " +
-                "intelligence=" + intelligence + " " +
-                "wisdom=" + wisdom + " " +
-                "charisma=" + charisma + "\n";
-    }
-
     public void setGender(GenderEnum gender){
         this.gender = gender;
     }
 
     public GenderEnum getGender(){
         return gender;
-    }
-
-    public String getAnythingFromRace(String word){
-        return null;
     }
 
     public String getName() {
@@ -177,5 +216,9 @@ public class Character {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public void setInitiativeModifier() {
+        this.initiativeModifier = dexterity + initiativeBonus;
     }
 }

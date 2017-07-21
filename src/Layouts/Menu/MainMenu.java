@@ -1,15 +1,22 @@
 package Layouts.Menu;
 import Layouts.ViewInterface;
+import javafx.animation.Animation;
+import javafx.animation.RotateTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Point3D;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -30,6 +37,37 @@ public class MainMenu implements ViewInterface{
         stage = new Stage();
         stage.setResizable(false);
         stage.setScene(scene);
+        Image icon = new Image("/Extras/dnd_icon.png");
+        stage.getIcons().add(icon);
+
+        Group dice;
+        dice = (Group) scene.lookup("#dice");
+        dice.setScaleX(0.3);
+        dice.setScaleY(0.3);
+        dice.setLayoutX(-86);
+        dice.setLayoutY(126);
+
+        //Creating a rotate transition
+        RotateTransition rotateTransition = new RotateTransition();
+
+        //Setting the duration for the transition
+        rotateTransition.setDuration(Duration.millis(800));
+
+        //Setting the node for the transition
+        rotateTransition.setNode(dice);
+
+        //Setting the angle of the rotation
+        rotateTransition.setByAngle(360);
+
+        //Setting the cycle count for the transition
+        rotateTransition.setCycleCount(100);
+
+        //Setting auto reverse value to false
+        rotateTransition.setAutoReverse(false);
+
+        //Playing the animation
+        rotateTransition.play();
+
 
         nameTextField = (TextField) scene.lookup("#nameTextField");
         enterGameButton = (SVGPath) scene.lookup("#enterGameButton");

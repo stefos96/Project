@@ -12,9 +12,7 @@ import Layouts.Menu.MainMenu;
 import Layouts.MonsterInsertion.MonsterInsertion;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 
-import java.awt.*;
 import java.util.ArrayList;
 
  /**
@@ -65,6 +63,9 @@ public class Controller {
 
         // Create character
         createCharacter.setButtonListener("cancelButton", new CreateCharacterCancelListener());
+        createCharacter.setButtonListener("nextButton", new CreateCharacterNextListener());
+        createCharacter.setButtonListener("genderButton", new CreateCharacterGenderListener());
+
 
         // Character
         character.setButtonListener("backButton", new CharacterBackListener());
@@ -126,6 +127,7 @@ public class Controller {
         public void handle(MouseEvent event) {
             menu.hide();
             createCharacter.show();
+            ((CreateCharacter) createCharacter).ready();
         }
     }
 
@@ -176,6 +178,21 @@ public class Controller {
             menu.show();
         }
     }
+
+     private class CreateCharacterNextListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+//             createCharacter.hide();
+
+         }
+     }
+
+     private class CreateCharacterGenderListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             ((CreateCharacter) createCharacter).changeGender();
+         }
+     }
 
     // Character
     private class CharacterBackListener implements EventHandler<MouseEvent> {

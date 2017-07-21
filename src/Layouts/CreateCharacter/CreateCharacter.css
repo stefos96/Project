@@ -9,3 +9,7 @@
 #cancelButton:hover {
     -fx-fill: #e92633;
 }
+
+#helpButton:hover {
+    -fx-fill: #e92633;
+}

@@ -16,6 +16,7 @@ public class Model {
 
     private ArrayList<ArrayList<Rectangle>> rectangleArray = new ArrayList<>();
     private ArrayList<ArrayList<String>> monsterArray = new ArrayList<>();
+    private ArrayList<ArrayList<String>> descriptionArray = new ArrayList<>();
 
 
     /**
@@ -63,5 +64,9 @@ public class Model {
 
     void setMonsterArray(ArrayList<ArrayList<String>> monsterArray){
         this.monsterArray = monsterArray;
+    }
+
+    void setDescriptionArray(ArrayList<ArrayList<String>> descriptionArray){
+        this.descriptionArray = descriptionArray;
     }
 }

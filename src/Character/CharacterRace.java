@@ -1,10 +1,11 @@
 package Character;
+import Size.Size;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class CharacterRace {
+public class CharacterRace implements Runnable{
     private String name;
     // Abiltiy Adjustments
     private int raceStr;
@@ -14,19 +15,82 @@ public class CharacterRace {
     private int raceWis;
     private int raceCha;
 
-    private SizeEnum size;
-    private String speed;
+    private Size size;
+    private int speed;
+
     private String bonusFeat;
     private String favoredClass;
-    private int str;
-    private int dex;
-    private int con;
-    private int anInt;
-    private int wis;
-    private int cha;
+
+    public CharacterRace(){}
 
     public CharacterRace(String raceName){
         name = raceName;
+    }
+
+    /**
+     * Sets all ability adjustments from a string like +2 con, -2 wis
+     * TODO: cases where it's 'any'
+     */
+    public void setAbilityAdjustments(String abilityAdjustment){
+        abilityAdjustment = abilityAdjustment.replaceAll(",", "");
+
+        int i = 0;
+        while (i < abilityAdjustment.length()) {
+            try {
+                char prefix = abilityAdjustment.charAt(i);
+                int number = Integer.parseInt(abilityAdjustment.substring(i + 1, i + 2));
+
+                if (prefix == '-')
+                    number = number * -1;
+
+                String ability = abilityAdjustment.substring(i + 3, i + 6);
+
+                switch (ability){
+                    case "str":
+                        raceStr = number;
+                        break;
+                    case "dex":
+                        raceDex = number;
+                        break;
+                    case "con":
+                        raceCon = number;
+                        break;
+                    case "int":
+                        raceInt = number;
+                        break;
+                    case "wis":
+                        raceWis = number;
+                        break;
+                    case "cha":
+                        raceCha = number;
+                        break;
+                }
+            }
+            catch (Exception e){}
+
+
+            i += 7;
+        }
+    }
+
+    public void setSize(String size){
+        this.size = Size.valueOf(size.toUpperCase());
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    @Override
+    public void run() {
         // SQL connections
         Connection conn;
         Statement stmt;
@@ -37,16 +101,7 @@ public class CharacterRace {
         try {
             conn = dataSource.getConnection();
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM test1.race WHERE name='" + raceName + "'");
-            while (rs.next()) {
-                String abilityAdjustment = rs.getString("ability_adjustments");
-                setAbilityAdjustments(abilityAdjustment);
-                String temp = rs.getString("size").toUpperCase().trim();
-                size = SizeEnum.valueOf(temp);
-                speed = rs.getString("speed");
-                bonusFeat = rs.getString("bonus_feat");
-                favoredClass = rs.getString("favored_class");
-            }
+            ResultSet rs = stmt.executeQuery("SELECT * FROM test1.race");
             rs.close();
             stmt.close();
             conn.close();
@@ -56,89 +111,28 @@ public class CharacterRace {
         }
     }
 
-    private void setAbilityAdjustments(String abilityAdjustment){
-        int i = 0;
-        while (abilityAdjustment.length() - 1 >= i){
-            char tempChar = abilityAdjustment.charAt(i);
-            if (tempChar == '+'){
-                String temp = abilityAdjustment.substring(i+3, i+6);
-                String number = String.valueOf(abilityAdjustment.charAt(i + 1));
-                switch (temp){
-                    case "str": raceStr = Integer.parseInt(number);
-                        break;
-                    case "con": raceCon = Integer.parseInt(number);
-                        break;
-                    case "dex": raceDex = Integer.parseInt(number);
-                        break;
-                    case "int": raceInt = Integer.parseInt(number);
-                        break;
-                    case "wis": raceWis = Integer.parseInt(number);
-                        break;
-                    case "cha": raceCha = Integer.parseInt(number);
-                        break;
-                }
-            }
-            if (tempChar == '-'){
-                String temp = abilityAdjustment.substring(i+3, i+6);
-                String number = String.valueOf(abilityAdjustment.charAt(i + 1));
-                switch (temp){
-                    case "str": raceStr = - Integer.parseInt(number);
-                        break;
-                    case "con": raceCon = - Integer.parseInt(number);
-                        break;
-                    case "dex": raceDex = - Integer.parseInt(number);
-                        break;
-                    case "int": raceInt = - Integer.parseInt(number);
-                        break;
-                    case "wis": raceWis = - Integer.parseInt(number);
-                        break;
-                    case "cha": raceCha = - Integer.parseInt(number);
-                        break;
-                }
-            }
-            i++;
-        }
+    public int getRaceStr() {
+        return raceStr;
     }
 
-    public String getName() {
-        return name;
+    public int getRaceDex() {
+        return raceDex;
     }
 
-    public SizeEnum getSize() {
-        return size;
+    public int getRaceCon() {
+        return raceCon;
     }
 
-    public String getSpeed() {
-        return speed;
+    public int getRaceInt() {
+        return raceInt;
     }
 
-    public int getStr() {
-        return str;
+    public int getRaceWis() {
+        return raceWis;
     }
 
-    public int getDex() {
-        return dex;
-    }
-
-    public int getCon() {
-        return con;
-    }
-
-    public int getInt() {
-        return anInt;
-    }
-
-    public int getWis() {
-        return wis;
-    }
-
-    public int getCha() {
-        return cha;
+    public int getRaceCha() {
+        return raceCha;
     }
 }
 
-enum SizeEnum{
-    SMALL,
-    MEDIUM,
-    LARGE;
-}

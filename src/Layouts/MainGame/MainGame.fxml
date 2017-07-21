@@ -14,12 +14,12 @@
 
 <Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="441.0" minWidth="747.0" prefHeight="465.0" prefWidth="832.0" stylesheets="@MainGame.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SVGPath id="characterButton" content="M355.5,423h-98.1c-6.6,0-12-5.4-12-12v-30.8c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12V411C367.5,417.6,362.1,423,355.5,423z" layoutX="307.0" layoutY="-28.0">
+      <SVGPath id="characterButton" content="M287.6,361.8h-43.4c-8.4,0-15.2-6.8-15.2-15.2v-43.4c0-8.4,6.8-15.2,15.2-15.2h43.4c8.4,0,15.2,6.8,15.2,15.2v43.4C302.8,355,296,361.8,287.6,361.8z" layoutX="432.0" layoutY="34.0">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </SVGPath>
-      <TextArea id="resultTextArea" editable="false" layoutX="13.0" layoutY="14.0" mouseTransparent="true" prefHeight="318.0" prefWidth="684.0" text="DM moron welcomes you to his world" wrapText="true">
+      <TextArea id="resultTextArea" editable="false" layoutX="14.0" layoutY="13.0" mouseTransparent="true" prefHeight="318.0" prefWidth="684.0" text="DM moron welcomes you to his world" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
@@ -30,16 +30,16 @@
             <Font size="30.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="553.0" layoutY="353.0" mouseTransparent="true" prefHeight="30.0" prefWidth="122.0" text="Character" textFill="#ebebeb">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="637.0" layoutY="345.0" mouseTransparent="true" prefHeight="30.0" prefWidth="122.0" text="Character" textFill="#ebebeb">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <SVGPath id="inventoryButton" content="M355.5,423h-98.1c-6.6,0-12-5.4-12-12v-30.8c0-6.6,5.4-12,12-12h98.1c6.6,0,12,5.4,12,12V411C367.5,417.6,362.1,423,355.5,423z" layoutX="450.0" layoutY="-28.0">
+      <SVGPath id="inventoryButton" content="M287.6,361.8h-43.4c-8.4,0-15.2-6.8-15.2-15.2v-43.4c0-8.4,6.8-15.2,15.2-15.2h43.4c8.4,0,15.2,6.8,15.2,15.2v43.4C302.8,355,296,361.8,287.6,361.8z" layoutX="514.0" layoutY="35.0">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor></SVGPath>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="695.0" layoutY="353.0" mouseTransparent="true" prefHeight="30.0" prefWidth="122.0" text="Inventory" textFill="#ebebeb">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="726.0" layoutY="345.0" mouseTransparent="true" prefHeight="30.0" prefWidth="122.0" text="Inventory" textFill="#ebebeb">
          <font>
             <Font size="20.0" />
          </font>
