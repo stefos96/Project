@@ -18,6 +18,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import Character.GenderEnum;
+import Character.CharacterRace;
+import Character.CharacterClass;
+import Character.Character;
+
+
 
 public class CreateCharacter implements ViewInterface {
     private Scene scene;

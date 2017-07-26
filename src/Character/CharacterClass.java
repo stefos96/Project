@@ -10,7 +10,7 @@ public class CharacterClass implements Runnable{
     private String type;
     private String alignment;
     private HitDieEnum hitDie;
-    private String skills;
+    private String skills; // TODO skill class
     private int skillPoints;
 
 //    private String skillPointsAbility; it's always 'int'
@@ -41,12 +41,34 @@ public class CharacterClass implements Runnable{
     private String spellList4;
     private String spellList5;
 
-
-
+    public CharacterClass(){}
 
     public CharacterClass(String className){
         name = className;
+    }
 
+    public void setAbilityAdjustment(){
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAlignment() {
+        return alignment;
+    }
+
+    public int getHitDie() {
+        return hitDie.number;
+    }
+
+    public int getClassLevel() {
+        return classLevel;
+    }
+
+    @Override
+    public void run() {
         // SQL connections
         Connection conn;
         Statement stmt;
@@ -60,15 +82,17 @@ public class CharacterClass implements Runnable{
             conn = dataSource.getConnection();
             stmt = conn.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM test1.class WHERE name='" + className + "'");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM test1.class WHERE name='" + name + "'");
             while (rs.next()) {
                 String temp; // we need it just to check if some strings are null
+                type = rs.getString("type");
                 alignment = rs.getString("alignment");
                 temp = rs.getString("hit_die").toUpperCase();
                 if (temp != null)
                     hitDie = HitDieEnum.valueOf(temp);
                 skills = rs.getString("class_skills");
                 temp = rs.getString("spell_stat");
+                skillPoints = Integer.parseInt(rs.getString("skill_points"));
                 if (spellStat != null)
                     spellStat = SpellStatEnum.valueOf(temp);
                 proficiencies = rs.getString("proficiencies");
@@ -102,31 +126,6 @@ public class CharacterClass implements Runnable{
         catch (Exception e){
             e.printStackTrace();
         }
-    }
-
-    public void setAbilityAdjustment(){
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getAlignment() {
-        return alignment;
-    }
-
-    public int getHitDie() {
-        return hitDie.number;
-    }
-
-    public int getClassLevel() {
-        return classLevel;
-    }
-
-    @Override
-    public void run() {
-
     }
 }
 

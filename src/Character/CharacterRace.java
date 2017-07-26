@@ -101,7 +101,15 @@ public class CharacterRace implements Runnable{
         try {
             conn = dataSource.getConnection();
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM test1.race");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM test1.race WHERE name='" + name + "'");
+            while (rs.next()) {
+                setAbilityAdjustments(rs.getString("ability_adju`stment"));
+                size = Size.valueOf(rs.getString("size"));
+                speed = Integer.parseInt(rs.getString("speed"));
+                bonusFeat = rs.getString("bonus_feat");
+                favoredClass = rs.getString("favored_class");
+            }
+
             rs.close();
             stmt.close();
             conn.close();
