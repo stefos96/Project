@@ -32,6 +32,36 @@ public class MainGame implements ViewInterface{
         resultTextArea = (TextArea) scene.lookup("#resultTextArea");
         characterButton = (SVGPath) scene.lookup("#characterButton");
         inventoryButton = (SVGPath) scene.lookup("#inventoryButton");
+
+        /*
+        Group dice;
+        dice = (Group) scene.lookup("#dice");
+        dice.setScaleX(0.3);
+        dice.setScaleY(0.3);
+        dice.setLayoutX(-86);
+        dice.setLayoutY(126);
+
+        //Creating a rotate transition
+        RotateTransition rotateTransition = new RotateTransition();
+
+        //Setting the duration for the transition
+        rotateTransition.setDuration(Duration.millis(800));
+
+        //Setting the node for the transition
+        rotateTransition.setNode(dice);
+
+        //Setting the angle of the rotation
+        rotateTransition.setByAngle(360);
+
+        //Setting the cycle count for the transition
+        rotateTransition.setCycleCount(100);
+
+        //Setting auto reverse value to false
+        rotateTransition.setAutoReverse(false);
+
+        //Playing the animation
+        rotateTransition.play();
+        */
     }
 
     @Override

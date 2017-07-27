@@ -1,6 +1,8 @@
 package Layouts.CreateCharacter;
 import Alignment.*;
 import Layouts.ViewInterface;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -84,6 +86,16 @@ public class CreateCharacter implements ViewInterface {
         ethicsComboBox.setItems(FXCollections.observableArrayList( Ethics.values()));
 
 
+        // every time you select another class it will run the classSelected method in the CharacterClass
+        // TODO: somewhere the CharacterClass class must be a property (here or in model)
+        classComboBox.valueProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observableValue, Object o, Object t1) {
+                String selectedClass = classComboBox.getSelectionModel().getSelectedItem().toString();
+                System.out.println(selectedClass);
+            }
+        });
+
         Thread characterThread = new Thread(characterSql);
         characterThread.run();
     }
@@ -109,7 +121,15 @@ public class CreateCharacter implements ViewInterface {
                 genderRectangle.setOnMouseClicked(listener);
                 genderFemaleCircle.setOnMouseClicked(listener);
                 genderMaleCircle.setOnMouseClicked(listener);
+                break;
+            // TODO for race as well
         }
+    }
+
+    public void classChanged() {
+        String classSelected = classComboBox.getSelectionModel().toString();
+        System.out.println(classSelected);
+
     }
 
     /**
@@ -139,13 +159,18 @@ public class CreateCharacter implements ViewInterface {
     }
 
 
-    public void createCharacter(){
+    /**
+     * Retrieves data from textFields and comboBoxes to make a new character.
+     * Starts when the character has filled all fields and pressed the creation button.
+     */
+    public void createCharacter() {
         String playerName = playerNameTextField.getText();
         String characterName = characterNameTextField.getText();
         String race = raceComboBox.getSelectionModel().getSelectedItem().toString();
         String playerClass = classComboBox.getSelectionModel().getSelectedItem().toString();
         GenderEnum gender;
 
+        // TODO: same thing with visible
         if (genderMaleCircle.getFill().equals("#00ffb4"))
             gender = GenderEnum.MALE;
         else

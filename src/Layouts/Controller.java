@@ -187,6 +187,14 @@ public class Controller {
          }
      }
 
+     private class CreateCharacterClassSelected implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             ((CreateCharacter) createCharacter).classChanged();
+         }
+     }
+
+
      private class CreateCharacterGenderListener implements EventHandler<MouseEvent> {
          @Override
          public void handle(MouseEvent event) {

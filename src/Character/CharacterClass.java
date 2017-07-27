@@ -67,6 +67,19 @@ public class CharacterClass implements Runnable{
         return classLevel;
     }
 
+   /**
+    * Runs when you select a class for your character.
+    * Aims to find your class' properties without having many setters and runs in a new thread
+    * an sql query.
+    *
+    * @param selectedClass the class you have selected from the menum
+    */
+    public void selectClass(String selectedClass) {
+        this.name = selectedClass;
+        Thread classThread = new Thread(this);
+        classThread.run();
+    }
+
     @Override
     public void run() {
         // SQL connections
