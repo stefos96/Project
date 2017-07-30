@@ -1,0 +1,43 @@
+#addColumnButton:hover {
+    -fx-fill: #00FC83;
+}
+
+#addRowButton:hover {
+    -fx-fill: #00FC83;
+}
+
+#removeColumnButton:hover {
+    -fx-fill: #00FC83;
+}
+
+#removeRowButton:hover {
+    -fx-fill: #00FC83;
+}
+
+#cancelButton:hover {
+    -fx-fill: #302567;
+}
+
+#nextButton:hover {
+    -fx-fill: #302567;
+}
+
+#upButton:hover {
+    -fx-fill: #222222;
+}
+
+#downButton:hover {
+    -fx-fill: #222222;
+}
+
+#leftButton:hover {
+    -fx-fill: #222222;
+}
+
+#rightButton:hover {
+    -fx-fill: #222222;
+}
+
+#helpButton:hover {
+    -fx-fill: #00FC83;
+}

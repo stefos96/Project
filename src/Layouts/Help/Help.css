@@ -1,0 +1,4 @@
+#scrollPane .scroll-bar:vertical{
+     -fx-unit-increment: 10;
+     -fx-block-increment: 50;
+ }

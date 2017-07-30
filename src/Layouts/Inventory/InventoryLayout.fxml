@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="656.0" prefWidth="907.0" stylesheets="@InventoryLayout.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ListView id="inventoryList" layoutX="442.0" layoutY="77.0" prefHeight="517.0" prefWidth="451.0" />
+      <Label layoutX="610.0" layoutY="22.0" prefHeight="38.0" prefWidth="116.0" text="Inventory" textFill="#404040">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="22.0" prefHeight="39.0" prefWidth="135.0" text="Equipment" textFill="#404040">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <ListView id="equipmentList" layoutX="26.0" layoutY="77.0" prefHeight="517.0" prefWidth="220.0" />
+      <SVGPath id="backButton" content="M190.5,373h-84c-11.9,0-21.5-9.6-21.5-21.5v0c0-11.9,9.6-21.5,21.5-21.5h84c11.9,0,21.5,9.6,21.5,21.5v0C212,363.4,202.4,373,190.5,373z" layoutX="672.0" layoutY="274.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></SVGPath>
+      <Label layoutX="799.0" layoutY="610.0" mouseTransparent="true" text="Back" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Circle fill="#c6c6c6" layoutX="412.0" layoutY="261.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fill="#c6c6c6" layoutX="412.0" layoutY="313.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+   </children>
+</Pane>

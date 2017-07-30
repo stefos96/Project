@@ -1,0 +1,23 @@
+#pane {
+    -fx-background-color: #EAEAEA;
+}
+
+#listView {
+    -fx-background-color: #212121;
+}
+
+#listView:even {
+    -fx-background-color: gray;
+}
+
+#backButton:hover {
+    -fx-fill: #e92633;
+}
+
+#joinButton:hover {
+     -fx-fill: #e92633;
+ }
+
+#dmButton:hover {
+    -fx-fill: #e92633;
+}

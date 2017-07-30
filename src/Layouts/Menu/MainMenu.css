@@ -1,0 +1,31 @@
+#mainMenuPane {
+    -fx-background-color: #EAEAEA;
+}
+
+#enterGameButton:hover {
+    -fx-fill: #e92633;
+}
+
+#createCharacterButton:hover {
+    -fx-fill: #e92633;
+}
+
+#sessionButton:hover {
+    -fx-fill: #e92633;
+}
+
+#exitButton:hover {
+    -fx-fill: #e92633;
+}
+
+#nameTextField:focus {
+    -fx-fill: black;
+}
+
+#settingsButton:hover {
+    -fx-fill: #e92633;
+}
+
+#helpButton:hover {
+    -fx-fill: #e92633;
+}

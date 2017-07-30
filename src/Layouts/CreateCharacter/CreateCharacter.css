@@ -1,0 +1,15 @@
+#pane {
+    -fx-background-color: #EAEAEA;
+}
+
+#createCharacterButton:hover {
+    -fx-fill: #e92633;
+}
+
+#cancelButton:hover {
+    -fx-fill: #e92633;
+}
+
+#helpButton:hover {
+    -fx-fill: #e92633;
+}

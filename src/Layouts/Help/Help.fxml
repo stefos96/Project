@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane id="scrollPane" focusTraversable="false" prefHeight="539.0" prefWidth="690.0" stylesheets="@Help.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="936.0" prefWidth="677.0" style="-fx-background-color: #EAEAEA;">
+         <children>
+            <Label layoutX="18.0" layoutY="340.0" prefHeight="34.0" prefWidth="389.0" text="public - virtually anyone can enter your world, though you can always kick any unwanted company." wrapText="true" />
+            <Label layoutX="18.0" layoutY="381.0" prefHeight="34.0" prefWidth="389.0" text="private - you lock your session with password that you propably will give to your friends." wrapText="true" />
+            <Label layoutX="18.0" layoutY="422.0" prefHeight="51.0" prefWidth="395.0" text="fixed - once more anyone can enter your world BUT you have created everyone's character from the beggining so if someone wants to playyour session he must accept whatever you give him." wrapText="true" />
+            <Label layoutX="16.0" layoutY="311.0" text="Session Privacy:" textFill="#ff0048">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="18.0" prefHeight="27.0" prefWidth="189.0" text="Sessions:" textFill="#ff0048">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="47.0" prefHeight="58.0" prefWidth="383.0" text="If you don't participate in any sessions, you go to the session page and there either you can become a Dungeon Master or you can enter the world of another DM." wrapText="true" />
+            <Label layoutX="14.0" layoutY="128.0" text="DM Guidelines:" textFill="#ff0048">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="15.0" layoutY="159.0" prefHeight="132.0" prefWidth="395.0" text="First things first, you must create the world that you want by forming the terrain, putting your favorite monsters.Then set the maximum number of players that can dive into your world and set your session's privacy.Your world is ready, your friends created their characters but you must create their backstory, their upcoming adventure and so on,thus you have a deadline to create your world as fast a possible (your deadline will be your decision but consider everyone in your session)." wrapText="true" />
+            <Label layoutX="16.0" layoutY="501.0" text="Notes for DM:" textFill="#ff0048">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="17.0" layoutY="529.0" prefHeight="96.0" prefWidth="396.0" text="You can set a deadline for your session in the creationg of your session, if you are commited to play and you are confident that youcan create backstories, adventures, etc in a spesific amount of time you can notify that your session will be ready in 2 or 3 hours.So people that are eager to play will prefer your session." wrapText="true" />
+            <Label layoutX="17.0" layoutY="647.0" text="Player's guide:" textFill="#ff0048">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="19.0" layoutY="678.0" prefHeight="99.0" prefWidth="407.0" text="Choose your session, you can enter any public or a protected session by having the password and then create your character, note that the DM may not like your choises and force you to change them, then you will have to wait the DM's deadline to set your world and yourbackstory and everything, once it's ready you 'll be notified and you will be called to play your turn." wrapText="true" />
+            <Label layoutX="17.0" layoutY="797.0" text="General gameplay:" textFill="#ff0048">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="19.0" layoutY="827.0" prefHeight="73.0" prefWidth="407.0" text="Even though Dungeons and Dragons is better played with everyone in your group and is more enjoyable it's not required,if your DM is online you can play your turn even if your other friends aren't online, your friends will be notified for all the changesthat happened while they were offline." wrapText="true" />
+            <Label layoutX="19.0" layoutY="907.0" prefHeight="17.0" prefWidth="461.0" text="Note: your friends might choose to show in their notifications only important changes." />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
