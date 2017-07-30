@@ -1,5 +1,6 @@
 package Layouts.MainGame;
 import Layouts.*;
+import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -84,5 +85,10 @@ public class MainGame implements ViewInterface{
                 inventoryButton.setOnMouseClicked(listener);
                 break;
         }
+    }
+
+    @Override
+    public void setButtonListener(String comboBox, ChangeListener changeListener) {
+
     }
 }

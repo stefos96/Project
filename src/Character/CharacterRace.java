@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class CharacterRace implements Runnable{
+public class CharacterRace implements Runnable {
     private String name;
     // Abiltiy Adjustments
     private int raceStr;
@@ -89,6 +89,19 @@ public class CharacterRace implements Runnable{
         return speed;
     }
 
+    /**
+     * Runs when you select race for your character.
+     * Aims to find your class' properties without having many setters and runs in a new thread
+     * an sql query.
+     *
+     * @param selectedRace the class you have selected from the menum
+     */
+    public void selectRace(String selectedRace) {
+        this.name = selectedRace;
+        Thread raceThread = new Thread(this);
+        raceThread.start();
+    }
+
     @Override
     public void run() {
         // SQL connections
@@ -103,9 +116,9 @@ public class CharacterRace implements Runnable{
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM test1.race WHERE name='" + name + "'");
             while (rs.next()) {
-                setAbilityAdjustments(rs.getString("ability_adju`stment"));
-                size = Size.valueOf(rs.getString("size"));
-                speed = Integer.parseInt(rs.getString("speed"));
+                setAbilityAdjustments(rs.getString("ability_adjustments"));
+                size = Size.valueOf(rs.getString("size").toUpperCase());
+                speed = removeFt(rs.getString("speed"));
                 bonusFeat = rs.getString("bonus_feat");
                 favoredClass = rs.getString("favored_class");
             }
@@ -117,6 +130,11 @@ public class CharacterRace implements Runnable{
         catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private int removeFt(String word) {
+        word = word.replaceAll(" ft.", "");
+        return Integer.parseInt(word);
     }
 
     public int getRaceStr() {

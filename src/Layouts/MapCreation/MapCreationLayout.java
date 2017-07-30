@@ -1,6 +1,7 @@
 package Layouts.MapCreation;
 import Layouts.ViewInterface;
 import com.sun.org.apache.regexp.internal.RE;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -145,6 +146,11 @@ public class MapCreationLayout implements ViewInterface{
             case "voidLabel":
                 voidLabel.setOnMouseClicked(listener);
         }
+    }
+
+    @Override
+    public void setButtonListener(String comboBox, ChangeListener changeListener) {
+
     }
 
 

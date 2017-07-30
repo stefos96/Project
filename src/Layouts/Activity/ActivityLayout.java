@@ -1,5 +1,6 @@
 package Layouts.Activity;
 import Layouts.ViewInterface;
+import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,6 +38,11 @@ public class ActivityLayout implements ViewInterface{
 
     @Override
     public void setButtonListener(String button, EventHandler<? super MouseEvent> listener) {
+
+    }
+
+    @Override
+    public void setButtonListener(String comboBox, ChangeListener changeListener) {
 
     }
 }

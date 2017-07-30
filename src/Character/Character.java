@@ -1,18 +1,24 @@
 package Character;
 import Alignment.Alignment;
 import Alignment.Ethics;
+import Dice.Dice;
 import Equipment.Equipment;
+import Item.Item;
+import Skills.Skills;
 import Spells.Spells;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class Character {
+    private String playerName;
     private String name;
+
     private CharacterRace race;
+
     private CharacterClass class1;
-    public CharacterClass class2;
-    public CharacterClass class3;
+    private CharacterClass class2;
+    private CharacterClass class3;
 
     // Lets you act before others
     // sum(dex + misc bonuses)
@@ -43,7 +49,7 @@ public class Character {
     private int hitPoints;
 
 
-   // BAB + str for melee OR dex for ranged + size modifier(if any) + any other modifier
+    // BAB + str for melee OR dex for ranged + size modifier(if any) + any other modifier
     private int atackModifier;
 
     // fort save helps you avoid poison, disease, and being turned into a frog
@@ -72,10 +78,6 @@ public class Character {
     private int skillModifier;
 
 
-    // TODO: check the type of equipment so you can't have 2 armors etc
-    private HashMap<String, Equipment> equipmentHashMap = new HashMap<>();
-
-
     // Determines how well you can avoid taking hits
     // sum of
     // +10
@@ -94,7 +96,19 @@ public class Character {
     private int deflectionBonus;
     private int miscArmor;
 
+
+    // TODO: check the type of equipment so you can't have 2 armors etc
+    private HashMap<String, Equipment> equipmentHashMap = new HashMap<>();
+
+    // All items
+    private HashMap<String, Item> itemHashMap = new HashMap<>();
+
+    // All learned skills
+    private HashMap<String, Skills> skillHashMap = new HashMap<>();
+
     private HashMap<String, Spells> spellsHashMap = new HashMap<>();
+
+
 
     // Languages that the character can speak
     private ArrayList<String> languages = new ArrayList<>();
@@ -112,20 +126,25 @@ public class Character {
     private int weight;
 
 
-    public Character(){}
+    public Character(String playerName, String name, CharacterRace pickedRace, CharacterClass pickedClass, GenderEnum gender){
+        this.name = name;
+        this.playerName = playerName;
 
-    public Character(String name, CharacterRace pickedRace, CharacterClass pickedClass){
         this.race = pickedRace;
+        this.class1 = pickedClass;
+
+        abilityScores();
+
         strength += race.getRaceStr();
         dexterity += race.getRaceDex();
         constitution += race.getRaceCon();
         intelligence += race.getRaceInt();
         wisdom += race.getRaceWis();
         charisma += race.getRaceCha();
-        this.class1 = pickedClass;
-        this.name = name;
-        abilityScores();
+
+        this.gender = gender;
     }
+
 
 
     public void setHitPoints(CharacterClass selectedClass){
@@ -148,17 +167,15 @@ public class Character {
     }
 
     private int fourThrowsD6(){
+        Dice dice = Dice.D6;
+
         int max = 0;
         for (int i = 0; i < 4; i++){
-            int diceThrow = dice(6);
+            int diceThrow = dice.roll();
             if (diceThrow > max)
                 max = diceThrow;
         }
         return max;
-    }
-
-    private int dice(int diceSides){
-        return (int) ((Math.random() * diceSides + 1));
     }
 
 

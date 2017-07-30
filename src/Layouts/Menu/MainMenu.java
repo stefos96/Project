@@ -1,5 +1,6 @@
 package Layouts.Menu;
 import Layouts.ViewInterface;
+import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -63,5 +64,10 @@ public class MainMenu implements ViewInterface{
             case "helpButton":
                 helpButton.setOnMouseClicked(listener);
         }
+    }
+
+    @Override
+    public void setButtonListener(String comboBox, ChangeListener changeListener) {
+
     }
 }

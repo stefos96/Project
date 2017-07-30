@@ -1,21 +1,23 @@
 package Character;
+import SpellStat.SpellStat;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import Dice.Dice;
 
 public class CharacterClass implements Runnable{
     private int classLevel = 0;
     private String name;
     private String type;
     private String alignment;
-    private HitDieEnum hitDie;
+    private Dice hitDie;
     private String skills; // TODO skill class
     private int skillPoints;
 
 //    private String skillPointsAbility; it's always 'int'
 
-    private SpellStatEnum spellStat;
+    private SpellStat spellStat;
     private String proficiencies;
     private String spellType;
     private int epicFeatBaseLevel;
@@ -77,7 +79,7 @@ public class CharacterClass implements Runnable{
     public void selectClass(String selectedClass) {
         this.name = selectedClass;
         Thread classThread = new Thread(this);
-        classThread.run();
+        classThread.start();
     }
 
     @Override
@@ -102,12 +104,12 @@ public class CharacterClass implements Runnable{
                 alignment = rs.getString("alignment");
                 temp = rs.getString("hit_die").toUpperCase();
                 if (temp != null)
-                    hitDie = HitDieEnum.valueOf(temp);
+                    hitDie = Dice.valueOf(temp);
                 skills = rs.getString("class_skills");
                 temp = rs.getString("spell_stat");
                 skillPoints = Integer.parseInt(rs.getString("skill_points"));
                 if (spellStat != null)
-                    spellStat = SpellStatEnum.valueOf(temp);
+                    spellStat = SpellStat.valueOf(temp);
                 proficiencies = rs.getString("proficiencies");
                 spellType = rs.getString("spell_type");
                 temp = rs.getString("epic_feat_base_level");
@@ -142,27 +144,5 @@ public class CharacterClass implements Runnable{
     }
 }
 
-enum HitDieEnum{
-    D4(4),
-    D6(6),
-    D8(8),
-    D10(10),
-    D12(12);
 
-    int number;
-
-    HitDieEnum(int number){
-        this.number = number;
-    }
-}
-
-enum SpellStatEnum{
-    NULL,
-    STR,
-    DEX,
-    CON,
-    INT,
-    WIS,
-    CHA;
-}
 

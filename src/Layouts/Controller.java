@@ -1,6 +1,7 @@
  package Layouts;
 import Layouts.Activity.ActivityLayout;
 import Layouts.Character.CharacterLayout;
+import Character.Character;
 import Layouts.CreateCharacter.CreateCharacter;
 import Layouts.DescriptionAdder.DescriptionAdder;
 import Layouts.Help.HelpLayout;
@@ -10,9 +11,10 @@ import Layouts.MainGame.MainGame;
 import Layouts.MapCreation.MapCreationLayout;
 import Layouts.Menu.MainMenu;
 import Layouts.MonsterInsertion.MonsterInsertion;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-
 import java.util.ArrayList;
 
  /**
@@ -63,8 +65,12 @@ public class Controller {
 
         // Create character
         createCharacter.setButtonListener("cancelButton", new CreateCharacterCancelListener());
-        createCharacter.setButtonListener("nextButton", new CreateCharacterNextListener());
+        createCharacter.setButtonListener("createCharacterButton", new CreateCharacterNextListener());
         createCharacter.setButtonListener("genderButton", new CreateCharacterGenderListener());
+
+        createCharacter.setButtonListener("classSelected", new CreateCharacterClassSelected());
+        createCharacter.setButtonListener("raceSelected", new CreateCharacterRaceSelected());
+
 
 
         // Character
@@ -182,15 +188,26 @@ public class Controller {
      private class CreateCharacterNextListener implements EventHandler<MouseEvent> {
          @Override
          public void handle(MouseEvent event) {
-//             createCharacter.hide();
+             boolean fieldsFilled = ((CreateCharacter) createCharacter).areFieldsFilled();
 
+             if (fieldsFilled) {
+                 Character character = ((CreateCharacter) createCharacter).createCharacter();
+                 model.addCharacter(character);
+             }
          }
      }
 
-     private class CreateCharacterClassSelected implements EventHandler<MouseEvent> {
+     private class CreateCharacterClassSelected implements ChangeListener {
          @Override
-         public void handle(MouseEvent event) {
+         public void changed(ObservableValue observableValue, Object o, Object t1) {
              ((CreateCharacter) createCharacter).classChanged();
+         }
+     }
+
+     private class CreateCharacterRaceSelected implements ChangeListener {
+         @Override
+         public void changed(ObservableValue observableValue, Object o, Object t1) {
+             ((CreateCharacter) createCharacter).raceChanged();
          }
      }
 

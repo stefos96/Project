@@ -1,5 +1,6 @@
 package Layouts.Inventory;
 import Layouts.ViewInterface;
+import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -40,5 +41,9 @@ public class InventoryLayout implements ViewInterface{
             case "backButton":
                 backButton.setOnMouseClicked(listener);
         }
+    }
+
+    @Override
+    public void setButtonListener(String comboBox, ChangeListener changeListener) {
     }
 }

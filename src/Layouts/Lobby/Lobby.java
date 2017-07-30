@@ -1,5 +1,6 @@
 package Layouts.Lobby;
 import Layouts.ViewInterface;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -60,5 +61,10 @@ public class Lobby implements ViewInterface{
             case "joinButton":
                 joinButton.setOnMouseClicked(listener);
         }
+    }
+
+    @Override
+    public void setButtonListener(String comboBox, ChangeListener changeListener) {
+
     }
 }

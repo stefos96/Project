@@ -1,5 +1,6 @@
 package Layouts.DescriptionAdder;
 import Layouts.ViewInterface;
+import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
@@ -111,6 +112,11 @@ public class DescriptionAdder implements ViewInterface{
             case "gridPane":
                 gridPane.setOnMouseClicked(listener);
         }
+    }
+
+    @Override
+    public void setButtonListener(String comboBox, ChangeListener changeListener) {
+
     }
 
     public void setColumns(int columns) {

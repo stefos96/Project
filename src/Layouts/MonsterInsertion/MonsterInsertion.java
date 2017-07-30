@@ -1,5 +1,6 @@
 package Layouts.MonsterInsertion;
 import Layouts.ViewInterface;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -97,6 +98,11 @@ public class MonsterInsertion implements ViewInterface {
             case "listView":
                 listView.setOnMouseClicked(listener);
         }
+    }
+
+    @Override
+    public void setButtonListener(String comboBox, ChangeListener changeListener) {
+
     }
 
     public void setColumns(int columns){

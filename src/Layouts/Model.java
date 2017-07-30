@@ -5,9 +5,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import Character.Character;
 
 /**
- * Model of the MVC patern where all data pass to the controller
+ * Model of the MVC patern where all important data stay like map and character info
  */
 public class Model {
 
@@ -17,6 +18,9 @@ public class Model {
     private ArrayList<ArrayList<Rectangle>> rectangleArray = new ArrayList<>();
     private ArrayList<ArrayList<String>> monsterArray = new ArrayList<>();
     private ArrayList<ArrayList<String>> descriptionArray = new ArrayList<>();
+
+
+    private ArrayList<Character> characterArrayList = new ArrayList<>();
 
 
     /**
@@ -68,5 +72,9 @@ public class Model {
 
     void setDescriptionArray(ArrayList<ArrayList<String>> descriptionArray){
         this.descriptionArray = descriptionArray;
+    }
+
+    void addCharacter(Character character) {
+        characterArrayList.add(character);
     }
 }
