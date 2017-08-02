@@ -1,6 +1,7 @@
 package Main;
 import Layouts.Controller;
 import Layouts.Model;
+import Size.Size;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import Character.*;

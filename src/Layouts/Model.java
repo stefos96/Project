@@ -1,6 +1,8 @@
 package Layouts;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import javafx.scene.shape.Rectangle;
+
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -10,7 +12,7 @@ import Character.Character;
 /**
  * Model of the MVC patern where all important data stay like map and character info
  */
-public class Model {
+public class Model implements Serializable{
 
     private int columns;
     private int rows;
