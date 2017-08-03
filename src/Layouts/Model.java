@@ -1,16 +1,17 @@
 package Layouts;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import Layouts.Map.Map;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import Character.Character;
 
 /**
  * Model of the MVC patern where all important data stay like map and character info
  */
-public class Model {
+public class Model implements Serializable{
 
     private int columns;
     private int rows;
@@ -19,32 +20,7 @@ public class Model {
     private ArrayList<ArrayList<String>> monsterArray = new ArrayList<>();
     private ArrayList<ArrayList<String>> descriptionArray = new ArrayList<>();
 
-
-    private ArrayList<Character> characterArrayList = new ArrayList<>();
-
-
-    /**
-     * Get a resultSet(table) from the database
-     * @param table a table name
-     * @return a table in the form of a ResultSet
-     */
-    public ResultSet resultSet(String table){
-        MysqlDataSource dataSource = new MysqlDataSource();
-        Connection conn;
-        Statement stmt;
-
-        dataSource.setUser("stefos96");
-        dataSource.setPassword("stefos1996");
-        dataSource.setServerName("db50.grserver.gr");
-
-        try {
-            conn = dataSource.getConnection();
-            stmt = conn.createStatement();
-            return stmt.executeQuery("SELECT name FROM test1." + table);
-        }
-        catch (Exception e) { e.printStackTrace(); }
-        return null;
-    }
+    private HashMap<String, Character> characterHashMap = new HashMap<>();
 
     /**
      * Set the array size for the map creation and for the monster insertion
@@ -74,7 +50,29 @@ public class Model {
         this.descriptionArray = descriptionArray;
     }
 
-    void addCharacter(Character character) {
-        characterArrayList.add(character);
+    void addCharacter(String characterName, Character character) {
+        characterHashMap.put(characterName, character);
+    }
+
+    HashMap<String, Character> getCharacterHashMap() {
+        return characterHashMap;
+    }
+
+
+    // x-2 <= charX <= x+2
+    public Character getCorrectCharacter(double x, double y, double radius) {
+        for (String key: characterHashMap.keySet()) {
+            Character character = characterHashMap.get(key);
+
+            double charX = character.getXPosition();
+            double charY = character.getYPosition();
+
+
+            if (charX == x || (x - radius <= charX && charX <= x + radius)) {
+                if (charY == y || (y - radius <= charY && charY <= y + radius))
+                    return character;
+            }
+        }
+        return null;
     }
 }

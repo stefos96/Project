@@ -6,15 +6,18 @@ import Equipment.Equipment;
 import Item.Item;
 import Skills.Skills;
 import Spells.Spells;
+import Positions.Positions;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Character {
+public class Character implements Serializable{
     private String playerName;
     private String name;
-
     private CharacterRace race;
+
+    private String portrait;
 
     private CharacterClass class1;
     private CharacterClass class2;
@@ -124,11 +127,22 @@ public class Character {
     private GenderEnum gender;
     private int height;
     private int weight;
+    private String size;
+
+    // Position on the map
+    private double xPosition;
+    private double yPosition;
 
 
-    public Character(String playerName, String name, CharacterRace pickedRace, CharacterClass pickedClass, GenderEnum gender){
+    public Character(String playerName, String name, CharacterRace pickedRace, CharacterClass pickedClass,
+                     Alignment alignment, Ethics ethics, GenderEnum gender, String portrait){
         this.name = name;
         this.playerName = playerName;
+
+        size = String.valueOf(pickedRace.getSize());
+
+        this.alignment = alignment;
+        this.ethics = ethics;
 
         this.race = pickedRace;
         this.class1 = pickedClass;
@@ -143,8 +157,9 @@ public class Character {
         charisma += race.getRaceCha();
 
         this.gender = gender;
-    }
 
+        this.portrait = portrait;
+    }
 
 
     public void setHitPoints(CharacterClass selectedClass){
@@ -178,6 +193,11 @@ public class Character {
         return max;
     }
 
+    public void setPositions(double x, double y) {
+        this.xPosition = x;
+        this.yPosition = y;
+    }
+
 
     private int abilityModifier(int ability) {
         return (ability - 10) / 2;
@@ -191,7 +211,7 @@ public class Character {
         return gender;
     }
 
-    public String getName() {
+    public String getCharacterName() {
         return name;
     }
 
@@ -237,5 +257,41 @@ public class Character {
 
     public void setInitiativeModifier() {
         this.initiativeModifier = dexterity + initiativeBonus;
+    }
+
+    public String getPortrait() {
+        return portrait;
+    }
+
+    public CharacterClass getCharacterClass() {
+        return class1;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public CharacterRace getRace() {
+        return race;
+    }
+
+    public String getEthics() {
+        return ethics.toString();
+    }
+
+    public String getAlignment() {
+        return alignment.toString();
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public double getXPosition() {
+        return xPosition;
+    }
+
+    public double getYPosition() {
+        return yPosition;
     }
 }

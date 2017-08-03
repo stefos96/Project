@@ -41,7 +41,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="155.0" layoutY="682.0" mouseTransparent="true" text="Create Character" textFill="#fcfcfc">
+      <Label layoutX="172.0" layoutY="679.0" mouseTransparent="true" text="Create Character" textFill="#fcfcfc">
          <font>
             <Font size="23.0" />
          </font>
@@ -51,7 +51,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </SVGPath>
-      <Label layoutX="218.0" layoutY="733.0" mouseTransparent="true" text="Cancel" textFill="#fcfcfc">
+      <Label layoutX="223.0" layoutY="730.0" mouseTransparent="true" text="Cancel" textFill="#fcfcfc">
          <font>
             <Font size="23.0" />
          </font>
@@ -122,6 +122,21 @@
          </cursor>
       </Circle>
       <SVGPath content="M210.9,389.4l0-0.5c-0.1-1.1,0.2-2.3,1.3-3.5c0.9-1.1,1.4-1.9,1.4-2.8c0-1-0.7-1.7-1.9-1.8c-0.7,0-1.5,0.2-2.1,0.6l-0.5-1.3c0.7-0.5,1.8-0.8,2.9-0.8c2.3,0,3.4,1.4,3.4,3c0,1.4-0.8,2.4-1.8,3.5c-0.9,1.1-1.2,2-1.2,3l0,0.5H210.9z M210.4,392.2c0-0.8,0.5-1.3,1.2-1.3c0.7,0,1.2,0.5,1.2,1.3c0,0.7-0.5,1.3-1.2,1.3C210.9,393.5,210.4,393,210.4,392.2z" fill="#434343" layoutX="248.0" layoutY="-100.0" mouseTransparent="true" />
+      <Label layoutX="43.0" layoutY="570.0" text="Add portrait" textFill="#6b6b6b">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <SVGPath id="portraitButton" content="M249,340.5h-90.4c-12.1,0-22-9.8-22-22v0c0-12.1,9.8-22,22-22H249c12.1,0,22,9.8,22,22v0C271,330.7,261.2,340.5,249,340.5z" fill="#0a0a0a" layoutX="152.0" layoutY="268.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </SVGPath>
+      <Label layoutX="318.0" layoutY="570.0" mouseTransparent="true" text="Portrait" textFill="#fcfcfc">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
    </children>
    <stylesheets>
       <URL value="@../Menu/MainMenu.css" />

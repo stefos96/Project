@@ -8,14 +8,25 @@ import Layouts.Help.HelpLayout;
 import Layouts.Inventory.InventoryLayout;
 import Layouts.Lobby.Lobby;
 import Layouts.MainGame.MainGame;
+import Layouts.Map.Map;
 import Layouts.MapCreation.MapCreationLayout;
 import Layouts.Menu.MainMenu;
 import Layouts.MonsterInsertion.MonsterInsertion;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
+import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 
  /**
  * Controller of the MVC pattern that connects the Views with the Model
@@ -26,12 +37,13 @@ public class Controller {
     private ViewInterface session;
     private ViewInterface inventory;
     private ViewInterface createCharacter;
-    private ViewInterface character;
+    private ViewInterface characterLayout;
     private ViewInterface help;
     private ViewInterface mapCreation;
     private ViewInterface monsterInsertion;
     private ViewInterface activity;
-    private ViewInterface descriptionAdder;
+     private ViewInterface descriptionAdder;
+     private ViewInterface map;
 
     private Model model;
 
@@ -43,12 +55,13 @@ public class Controller {
         session = new Lobby();
         inventory = new InventoryLayout();
         createCharacter = new CreateCharacter();
-        character = new CharacterLayout();
+        characterLayout = new CharacterLayout();
         help = new HelpLayout();
         mapCreation = new MapCreationLayout();
         monsterInsertion = new MonsterInsertion();
         activity = new ActivityLayout();
         descriptionAdder = new DescriptionAdder();
+        map = new Map();
 
         menu.show();
 
@@ -58,15 +71,17 @@ public class Controller {
         menu.setButtonListener("sessionButton", new SessionListener());
         menu.setButtonListener("exitButton", new ExitListener());
         menu.setButtonListener("helpButton", new HelpListener());
+        menu.setButtonListener("loadButton", new LoadListener());
 
         // Main game
-        mainGame.setButtonListener("inventoryButton", new InventoryListener());
-        mainGame.setButtonListener("characterButton", new CharacterListener());
+//        mainGame.setButtonListener("inventoryButton", new InventoryListener());
+//        mainGame.setButtonListener("characterButton", new CharacterListener());
 
         // Create character
         createCharacter.setButtonListener("cancelButton", new CreateCharacterCancelListener());
         createCharacter.setButtonListener("createCharacterButton", new CreateCharacterNextListener());
         createCharacter.setButtonListener("genderButton", new CreateCharacterGenderListener());
+        createCharacter.setButtonListener("portraitButton", new CreateCharacterPortraitListener());
 
         createCharacter.setButtonListener("classSelected", new CreateCharacterClassSelected());
         createCharacter.setButtonListener("raceSelected", new CreateCharacterRaceSelected());
@@ -74,7 +89,7 @@ public class Controller {
 
 
         // Character
-        character.setButtonListener("backButton", new CharacterBackListener());
+        characterLayout.setButtonListener("backButton", new CharacterBackListener());
 
         // Inventory
         inventory.setButtonListener("backButton", new InventoryBackListener());
@@ -117,6 +132,11 @@ public class Controller {
         descriptionAdder.setButtonListener("nextButton", new DescriptionAdderNextListener());
         descriptionAdder.setButtonListener("descriptionButton", new DescriptionAdderListener());
         descriptionAdder.setButtonListener("gridPane", new DescriptionAdderGridPane());
+
+        // Map
+        map.setButtonListener("addCharacterButton", new MapAddCharacterListener());
+        map.setButtonListener("nextMapButton", new MapNextMapListener());
+        map.setButtonListener("saveButton", new MapSaveListener());
     }
 
     // Menu
@@ -124,7 +144,7 @@ public class Controller {
         @Override
         public void handle(MouseEvent event) {
             menu.hide();
-            mainGame.show();
+            map.show();
         }
     }
 
@@ -133,7 +153,6 @@ public class Controller {
         public void handle(MouseEvent event) {
             menu.hide();
             createCharacter.show();
-            ((CreateCharacter) createCharacter).ready();
         }
     }
 
@@ -159,6 +178,29 @@ public class Controller {
         }
     }
 
+     private class LoadListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             try {
+                 FileInputStream fileIn = new FileInputStream("model.ser");
+                 ObjectInputStream in = new ObjectInputStream(fileIn);
+                 model = (Model) in.readObject();
+                 in.close();
+                 fileIn.close();
+                 loadCharactersToMap();
+             }
+             catch(IOException i) {
+                 i.printStackTrace();
+                 return;
+             }
+             catch(ClassNotFoundException c) {
+                 System.out.println("Model class not found");
+                 c.printStackTrace();
+                 return;
+             }
+         }
+     }
+
     // MainGame
     private class InventoryListener implements EventHandler<MouseEvent> {
         @Override
@@ -172,7 +214,7 @@ public class Controller {
         @Override
         public void handle(MouseEvent event) {
             mainGame.hide();
-            character.show();
+            characterLayout.show();
         }
     }
 
@@ -192,8 +234,33 @@ public class Controller {
 
              if (fieldsFilled) {
                  Character character = ((CreateCharacter) createCharacter).createCharacter();
-                 model.addCharacter(character);
+                 model.addCharacter(character.getCharacterName(), character);
+
+                 createCharacter.hide();
+
+
+                  ((Map) map).addCharacterToAccordion(character, new MapIconDragged());
+
+
+                 map.setButtonListener("getCharacter", new MapGetCharacterListener());
+
+                 System.out.println("Character created");
              }
+         }
+     }
+
+     /**
+      * You choose a portrait for your character
+      */
+     private class CreateCharacterPortraitListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             FileChooser fileChooser = new FileChooser();
+             fileChooser.setTitle("Open Resource File");
+             File file = (fileChooser.showOpenDialog(new Stage()));
+
+             if (file != null)
+                ((CreateCharacter) createCharacter).setPortrait(file.getPath());
          }
      }
 
@@ -223,7 +290,7 @@ public class Controller {
     private class CharacterBackListener implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent event) {
-            character.hide();
+            characterLayout.hide();
             mainGame.show();
         }
     }
@@ -439,6 +506,87 @@ public class Controller {
          @Override
          public void handle(MouseEvent event) {
              ((DescriptionAdder) descriptionAdder).selectInGrid(event.getSceneX(), event.getSceneY());
+         }
+     }
+
+
+     // Map
+     private class MapAddCharacterListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             createCharacter.show();
+         }
+     }
+
+     private class MapNextMapListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             FileChooser fileChooser = new FileChooser();
+             fileChooser.setTitle("Open Resource File");
+             File file = (fileChooser.showOpenDialog(new Stage()));
+
+             ((Map) map).setImage(file.getPath());
+         }
+     }
+
+     /**
+      * When you load a game this method runs
+      * Basically remakes the accordion with the aporpriate characters
+      */
+     private void loadCharactersToMap() {
+         HashMap<String, Character> hashMap = model.getCharacterHashMap();
+         for (String characterString: hashMap.keySet()) {
+             Character character = hashMap.get(characterString);
+             ((Map) map).addCharacterToAccordion(character, new MapIconDragged());
+         }
+     }
+
+
+     private class MapSaveListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             try {
+                 FileOutputStream fileOut = new FileOutputStream("model.ser");
+                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                 out.writeObject(model);
+                 out.close();
+                 fileOut.close();
+                 System.out.printf("Serialized data is saved in model.ser");
+             }
+             catch(IOException i) {
+                 i.printStackTrace();
+             }
+         }
+     }
+
+     private class MapGetCharacterListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             if (event.getClickCount() == 2) {
+                 String characterName = ((TitledPane) event.getSource()).getText();
+                 System.out.println(characterName);
+                 Character character = model.getCharacterHashMap().get(characterName);
+                 ((CharacterLayout) characterLayout).setCharacter(character);
+                 characterLayout.show();
+             }
+         }
+     }
+
+     private class MapIconDragged implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             ImageView mapIcon = (ImageView) event.getSource();
+
+             double radius = mapIcon.getFitWidth() / 2;
+
+             double x = event.getX() - radius;
+             double y = event.getY() - radius;
+
+             mapIcon.setX(x);
+             mapIcon.setY(y);
+
+             Character character = model.getCorrectCharacter(x, y, radius);
+             character.setPositions(x, y);
          }
      }
 }

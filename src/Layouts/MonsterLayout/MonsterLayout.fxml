@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="1157.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="52.0" layoutY="70.0" text="Name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="154.0" layoutY="70.0" text="Family">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="265.0" layoutY="70.0" text="Size">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="348.0" layoutY="70.0" text="Hit DIce">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="450.0" layoutY="70.0" text="Initiative">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="556.0" layoutY="70.0" text="Speed">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField id="nameTextField" layoutX="24.0" layoutY="96.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="familyTextField" layoutX="125.0" layoutY="96.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="sizeTextField" layoutX="226.0" layoutY="96.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="hitDiceTextField" layoutX="327.0" layoutY="96.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="initiativeTextField" layoutX="428.0" layoutY="96.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="speedTextField" layoutX="529.0" layoutY="96.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="baseAttackTextField" layoutX="726.0" layoutY="96.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="grappleTextField" layoutX="827.0" layoutY="96.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="armorClassTextField" layoutX="625.0" layoutY="96.0" prefHeight="26.0" prefWidth="101.0" />
+      <Label layoutX="19.0" layoutY="22.0" prefHeight="26.0" prefWidth="133.0" text="Item Details">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="210.0" text="Full Text">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label id="fullTextLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="236.0" prefHeight="211.0" prefWidth="911.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="631.0" layoutY="70.0" text="Armor Class">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="736.0" layoutY="70.0" text="Base Attack">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="137.0" text="Attack">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="848.0" layoutY="70.0" text="Grapple">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField id="attackTextField" layoutX="27.0" layoutY="163.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="fullAttackTextField" layoutX="128.0" layoutY="163.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="spaceTextField" layoutX="229.0" layoutY="163.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="reachTextField" layoutX="330.0" layoutY="163.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="specialAttacksTextField" layoutX="431.0" layoutY="163.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="specialQualitiesTextField" layoutX="532.0" layoutY="163.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="skillsTextField" layoutX="729.0" layoutY="163.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="featsTextField" layoutX="830.0" layoutY="163.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="savesTextField" layoutX="631.0" layoutY="163.0" prefHeight="26.0" prefWidth="101.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="137.0" text="Full Attack">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="137.0" text="Space">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="358.0" layoutY="137.0" text="Reach">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="440.0" layoutY="137.0" text="Sp. Attacks">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="536.0" layoutY="137.0" text="Sp. Qualities">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="661.0" layoutY="137.0" text="Saves">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="758.0" layoutY="137.0" text="Skills">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="857.0" layoutY="137.0" text="Feats">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="986.0" layoutY="40.0" text="Str">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="986.0" layoutY="80.0" text="Dex">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="986.0" layoutY="120.0" text="Con">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="986.0" layoutY="200.0" text="Wis">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="986.0" layoutY="160.0" text="Int">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="986.0" layoutY="240.0" text="Cha">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField id="strTextField" layoutX="1033.0" layoutY="40.0" prefHeight="26.0" prefWidth="48.0" />
+      <TextField id="dexTextField" layoutX="1033.0" layoutY="80.0" prefHeight="26.0" prefWidth="48.0" />
+      <TextField id="conTextField" layoutX="1033.0" layoutY="120.0" prefHeight="26.0" prefWidth="48.0" />
+      <TextField id="intTextField" layoutX="1033.0" layoutY="160.0" prefHeight="26.0" prefWidth="48.0" />
+      <TextField id="wisTextField" layoutX="1033.0" layoutY="200.0" prefHeight="26.0" prefWidth="48.0" />
+      <TextField id="chaTextField" layoutX="1033.0" layoutY="240.0" prefHeight="26.0" prefWidth="48.0" />
+   </children>
+</Pane>

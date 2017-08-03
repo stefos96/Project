@@ -1,11 +1,13 @@
 package Character;
 import Size.Size;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class CharacterRace implements Runnable {
+public class CharacterRace implements Runnable, Serializable{
     private String name;
     // Abiltiy Adjustments
     private int raceStr;
@@ -16,7 +18,7 @@ public class CharacterRace implements Runnable {
     private int raceCha;
 
     private Size size;
-    private int speed;
+    private String speed;
 
     private String bonusFeat;
     private String favoredClass;
@@ -85,7 +87,7 @@ public class CharacterRace implements Runnable {
         return size;
     }
 
-    public int getSpeed() {
+    public String getSpeed() {
         return speed;
     }
 
@@ -118,7 +120,7 @@ public class CharacterRace implements Runnable {
             while (rs.next()) {
                 setAbilityAdjustments(rs.getString("ability_adjustments"));
                 size = Size.valueOf(rs.getString("size").toUpperCase());
-                speed = removeFt(rs.getString("speed"));
+                speed = rs.getString("speed");
                 bonusFeat = rs.getString("bonus_feat");
                 favoredClass = rs.getString("favored_class");
             }
@@ -132,6 +134,7 @@ public class CharacterRace implements Runnable {
         }
     }
 
+    // TODO: swim (20) and shit
     private int removeFt(String word) {
         word = word.replaceAll(" ft.", "");
         return Integer.parseInt(word);

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="206.0" layoutY="88.0" text="Name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="296.0" layoutY="88.0" text="Category">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="413.0" layoutY="88.0" text="Aura">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="487.0" layoutY="88.0" text="Caster Level">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="614.0" layoutY="88.0" text="Price">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="706.0" layoutY="88.0" text="Weight">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField id="nameTextField" layoutX="178.0" layoutY="114.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="categoryTextField" layoutX="279.0" layoutY="114.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="auraTextField" layoutX="380.0" layoutY="114.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="casterLevelTextField" layoutX="481.0" layoutY="114.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="priceTextField" layoutX="582.0" layoutY="114.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField id="weightTextField" layoutX="683.0" layoutY="114.0" prefHeight="26.0" prefWidth="101.0" />
+      <Label layoutX="24.0" layoutY="14.0" prefHeight="26.0" prefWidth="133.0" text="Item Details">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="202.0" text="Full Text">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label id="fullTextLabel" alignment="TOP_LEFT" layoutX="25.0" layoutY="228.0" prefHeight="211.0" prefWidth="911.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

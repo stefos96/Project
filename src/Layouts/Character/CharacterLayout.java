@@ -7,14 +7,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import java.io.IOException;
+import Character.Character;
 
 public class CharacterLayout implements ViewInterface{
     private Scene scene;
     private Stage stage;
+
+    private ImageView imageView;
 
     private TextField characterName;
     private TextField player;
@@ -55,6 +60,8 @@ public class CharacterLayout implements ViewInterface{
         stage = new Stage();
         stage.setResizable(false);
         stage.setScene(scene);
+
+        imageView = (ImageView) scene.lookup("#imageView");
 
         // TextFields
         characterName = (TextField) scene.lookup("#characterName");
@@ -113,6 +120,33 @@ public class CharacterLayout implements ViewInterface{
     public void setButtonListener(String comboBox, ChangeListener changeListener) {
 
     }
+
+    public void setCharacter(Character character) {
+//        Image portrait = character.getPortrait();
+//        if (portrait != null) {
+//            imageView = new ImageView(portrait);
+//            imageView.setFitHeight(200);
+//            imageView.setFitWidth(200);
+//        }
+
+        characterName.setText(character.getCharacterName());
+        player.setText(character.getPlayerName());
+        classAndLevel.setText(character.getCharacterClass().getName());
+        race.setText(character.getRace().getName());
+
+        alignment.setText(character.getAlignment() + " " + character.getEthics());
+
+        size.setText(character.getSize());
+        gender.setText(String.valueOf(character.getGender()));
+
+        strLabel.setText(String.valueOf(character.getStrength()));
+        dexLabel.setText(String.valueOf(character.getDexterity()));
+        conLabel.setText(String.valueOf(character.getConstitution()));
+        intLabel.setText(String.valueOf(character.getIntelligence()));
+        wisLabel.setText(String.valueOf(character.getWisdom()));
+        chaLabel.setText(String.valueOf(character.getCharisma()));
+    }
+
 }
 
 

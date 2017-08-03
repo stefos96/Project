@@ -19,7 +19,7 @@ public class Item implements Runnable{
     private int casterLevel;
 
     // in copper pieces
-    private int price;
+    private String price;
 
     private int manifesterLevel;
 
@@ -55,6 +55,7 @@ public class Item implements Runnable{
             conn = dataSource.getConnection();
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM test1.item WHERE name='" + name + "'");
+
             while (rs.next()) {
                 String temp;
 
@@ -70,9 +71,13 @@ public class Item implements Runnable{
                 if (temp != null)
                     casterLevel = Integer.parseInt(temp);
 
+                // TODO: sometimes it's +6 bonus
+                price = rs.getString("price");
+                 /*
                 temp = rs.getString("price");
                 temp = temp.replaceAll(" gp", "");
                 price = Integer.parseInt(temp);
+                */
 
                 temp = rs.getString("manifester_level");
                 if (temp != null)
@@ -102,5 +107,33 @@ public class Item implements Runnable{
 
     private String htmlToText(String html) {
         return Jsoup.parse(html).text();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getAura() {
+        return aura;
+    }
+
+    public int getCasterLevel() {
+        return casterLevel;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public String getFullText() {
+        return fullText;
     }
 }

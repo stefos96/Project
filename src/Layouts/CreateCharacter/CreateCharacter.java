@@ -11,13 +11,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.ArrayList;
 import Character.GenderEnum;
 import Character.CharacterRace;
@@ -33,6 +35,8 @@ public class CreateCharacter implements ViewInterface {
     private SVGPath createCharacterButton;
     private SVGPath cancelButton;
 
+    private SVGPath portraitButton;
+
     private TextField playerNameTextField;
     private TextField characterNameTextField;
 
@@ -47,6 +51,9 @@ public class CreateCharacter implements ViewInterface {
     private Circle genderFemaleCircle;
     private Circle genderFemaleBack;
     private Circle genderMaleBack;
+
+    private Image image;
+    private String imagePath;
 
 
     private CharacterSql characterSql = new CharacterSql();
@@ -65,6 +72,8 @@ public class CreateCharacter implements ViewInterface {
 
         createCharacterButton = (SVGPath) scene.lookup("#createCharacterButton");
         cancelButton = (SVGPath) scene.lookup("#cancelButton");
+
+        portraitButton = (SVGPath) scene.lookup("#portraitButton");
 
         playerNameTextField = (TextField) scene.lookup("#playerNameTextField");
         characterNameTextField = (TextField) scene.lookup("#characterNameTextField");
@@ -92,26 +101,33 @@ public class CreateCharacter implements ViewInterface {
     @Override
     public void show() {
         stage.show();
+        ready();
     }
 
     @Override
     public void hide() {
+//        clearFields();
         stage.hide();
     }
 
     @Override
     public void setButtonListener(String button, EventHandler<? super MouseEvent> listener) {
-        switch (button){
+        switch (button) {
             case "createCharacterButton":
                 createCharacterButton.setOnMouseClicked(listener);
+                break;
             case "cancelButton":
                 cancelButton.setOnMouseClicked(listener);
+                break;
             case "genderButton":
                 genderRectangle.setOnMouseClicked(listener);
                 genderFemaleCircle.setOnMouseClicked(listener);
                 genderMaleCircle.setOnMouseClicked(listener);
                 genderMaleBack.setOnMouseClicked(listener);
                 genderFemaleBack.setOnMouseClicked(listener);
+                break;
+            case "portraitButton":
+                portraitButton.setOnMouseClicked(listener);
                 break;
         }
     }
@@ -184,6 +200,12 @@ public class CreateCharacter implements ViewInterface {
     public Character createCharacter() {
         String playerName = playerNameTextField.getText();
         String characterName = characterNameTextField.getText();
+
+        String alignmentString = alignmentComboBox.getSelectionModel().getSelectedItem().toString();
+        String ethicsString = ethicsComboBox.getSelectionModel().getSelectedItem().toString();
+        Alignment alignment = Alignment.valueOf(alignmentString);
+        Ethics ethics = Ethics.valueOf(ethicsString);
+
         GenderEnum gender;
 
         if (genderMaleCircle.isVisible())
@@ -191,7 +213,27 @@ public class CreateCharacter implements ViewInterface {
         else
             gender = GenderEnum.FEMALE;
 
-        return new Character(playerName, characterName, characterRace, characterClass, gender);
+        return new Character(playerName, characterName, characterRace, characterClass, alignment, ethics, gender, imagePath);
+    }
+
+    public void setPortrait(String imagePath) {
+        this.imagePath = imagePath;
+        try {
+            InputStream is = new BufferedInputStream(new FileInputStream(imagePath));
+            image = (new Image(is));
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void clearFields() {
+        raceComboBox.getSelectionModel().clearSelection();
+        classComboBox.getSelectionModel().clearSelection();
+        characterNameTextField.clear();
+        playerNameTextField.clear();
+        ethicsComboBox.getSelectionModel().clearSelection();
+        alignmentComboBox.getSelectionModel().clearSelection();
     }
 
 
@@ -203,6 +245,7 @@ public class CreateCharacter implements ViewInterface {
     public boolean areFieldsFilled() {
         return !(raceComboBox.getSelectionModel().isEmpty() || classComboBox.getSelectionModel().isEmpty()
                 || characterNameTextField.getText().isEmpty() || playerNameTextField.getText().isEmpty()
-                || ethicsComboBox.getSelectionModel().isEmpty() || alignmentComboBox.getSelectionModel().isEmpty());
+                || ethicsComboBox.getSelectionModel().isEmpty() || alignmentComboBox.getSelectionModel().isEmpty()
+                || imagePath == null);
     }
 }

@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -20,7 +21,8 @@ public class MainGame implements ViewInterface{
     private TextArea resultTextArea;
     private TextField chatTextField;
     private SVGPath inventoryButton;
-    private SVGPath characterButton;
+
+    private Accordion accordion;
 
     public MainGame() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("MainGame.fxml"));
@@ -29,10 +31,12 @@ public class MainGame implements ViewInterface{
         stage.setResizable(false);
         stage.setScene(scene);
 
-        chatTextField = (TextField) scene.lookup("#chatTextField");
+
         resultTextArea = (TextArea) scene.lookup("#resultTextArea");
-        characterButton = (SVGPath) scene.lookup("#characterButton");
-        inventoryButton = (SVGPath) scene.lookup("#inventoryButton");
+
+        accordion = (Accordion) scene.lookup("#accordion");
+
+
 
         /*
         Group dice;
@@ -78,17 +82,16 @@ public class MainGame implements ViewInterface{
     @Override
     public void setButtonListener(String button, javafx.event.EventHandler<? super MouseEvent> listener) {
         switch (button){
-            case "characterButton":
-                characterButton.setOnMouseClicked(listener);
-                break;
-            case "inventoryButton":
-                inventoryButton.setOnMouseClicked(listener);
-                break;
+//            case "characterButton":
+//                characterButton.setOnMouseClicked(listener);
+//                break;
+//            case "inventoryButton":
+//                inventoryButton.setOnMouseClicked(listener);
+//                break;
         }
     }
 
     @Override
     public void setButtonListener(String comboBox, ChangeListener changeListener) {
-
     }
 }

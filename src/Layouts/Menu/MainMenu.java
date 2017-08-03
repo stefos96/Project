@@ -22,6 +22,7 @@ public class MainMenu implements ViewInterface{
     private SVGPath exitButton;
     private TextField nameTextField;
     private Circle helpButton;
+    private Circle loadButton;
 
     public MainMenu() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
@@ -37,6 +38,7 @@ public class MainMenu implements ViewInterface{
         sessionButton = (SVGPath) scene.lookup("#sessionButton");
         exitButton = (SVGPath) scene.lookup("#exitButton");
         helpButton = (Circle) scene.lookup("#helpButton");
+        loadButton = (Circle) scene.lookup("#loadButton");
     }
 
 
@@ -63,6 +65,8 @@ public class MainMenu implements ViewInterface{
                 exitButton.setOnMouseClicked(listener);
             case "helpButton":
                 helpButton.setOnMouseClicked(listener);
+            case "loadButton":
+                loadButton.setOnMouseClicked(listener);
         }
     }
 

@@ -1,12 +1,14 @@
 package Character;
 import SpellStat.SpellStat;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import Dice.Dice;
 
-public class CharacterClass implements Runnable{
+public class CharacterClass implements Runnable, Serializable{
     private int classLevel = 0;
     private String name;
     private String type;
