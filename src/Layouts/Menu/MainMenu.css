@@ -18,7 +18,7 @@
     -fx-fill: #e92633;
 }
 
-#nameTextField:focus {
+#nameTextField:focused {
     -fx-fill: black;
 }
 
@@ -27,5 +27,9 @@
 }
 
 #helpButton:hover {
+    -fx-fill: #e92633;
+}
+
+#loadButton:hover {
     -fx-fill: #e92633;
 }

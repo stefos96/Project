@@ -1,0 +1,19 @@
+#infoButton:hover {
+    -fx-fill: #e92633;
+}
+
+#addItemButton:hover {
+    -fx-fill: #e92633;
+}
+
+#addCharacterButton:hover {
+    -fx-fill: #e92633;
+}
+
+#nextMapButton:hover {
+    -fx-fill: #e92633;
+}
+
+#saveButton:hover {
+    -fx-fill: #e92633;
+}

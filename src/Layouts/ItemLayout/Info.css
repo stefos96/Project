@@ -1,0 +1,38 @@
+#searchButton:hover {
+    -fx-fill: #e92633;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+#searchTextField:focused {
+    -fx-background-color: #e92633;
+    -fx-text-fill: white;
+}
+
+#comboBox {
+    -fx-background-color: #e92633;
+}
+
+#comboBox:hover {
+    -fx-background-color: #D12F2F;
+}
+
+.combo-box .cell{
+    -fx-text-fill: white;
+}
+
+.combo-box-popup .list-view .list-cell{
+    -fx-background-color: #D12F2F;
+    -fx-text-fill: white;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #1D1D1D;
+    -fx-text-fill: white;
+}

@@ -83,6 +83,7 @@ public class Info implements ViewInterface{
     public void setContent() {
         for (String sentence: contentArrayList){
             Label label = new Label(sentence);
+            label.setTooltip(new Tooltip(sentence));
             Separator separator = new Separator();
             contentVBox.getChildren().add(label);
             contentVBox.getChildren().add(separator);
@@ -180,10 +181,6 @@ public class Info implements ViewInterface{
         try {
             conn = dataSource.getConnection();
             stmt = conn.createStatement();
-
-            String a = "SELECT name FROM test1." + table + " WHERE name like '%" + name + "%'";
-
-            System.out.println(a);
 
             ResultSet rs = stmt.executeQuery("SELECT name FROM test1." + table + " WHERE name like '%" + name + "%'");
 
