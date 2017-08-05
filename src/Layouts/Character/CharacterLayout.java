@@ -10,16 +10,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
-import java.io.IOException;
+
+import java.io.*;
+
 import Character.Character;
 
 public class CharacterLayout implements ViewInterface{
     private Scene scene;
     private Stage stage;
 
-    private ImageView imageView;
+    private Pane pane;
 
     private TextField characterName;
     private TextField player;
@@ -61,7 +64,7 @@ public class CharacterLayout implements ViewInterface{
         stage.setResizable(false);
         stage.setScene(scene);
 
-        imageView = (ImageView) scene.lookup("#imageView");
+        pane = (Pane) scene.lookup("#pane");
 
         // TextFields
         characterName = (TextField) scene.lookup("#characterName");
@@ -122,12 +125,18 @@ public class CharacterLayout implements ViewInterface{
     }
 
     public void setCharacter(Character character) {
-//        Image portrait = character.getPortrait();
-//        if (portrait != null) {
-//            imageView = new ImageView(portrait);
-//            imageView.setFitHeight(200);
-//            imageView.setFitWidth(200);
-//        }
+        try {
+            InputStream is = new BufferedInputStream(new FileInputStream(character.getPortrait()));
+            ImageView imageView = new ImageView(new Image(is));
+            imageView.setFitHeight(200);
+            imageView.setFitWidth(200);
+            imageView.setX(5);
+            imageView.setY(5);
+            pane.getChildren().add(imageView);
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         characterName.setText(character.getCharacterName());
         player.setText(character.getPlayerName());

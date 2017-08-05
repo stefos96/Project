@@ -227,13 +227,14 @@ public class CreateCharacter implements ViewInterface {
         }
     }
 
-    private void clearFields() {
+    public void clearFields() {
         raceComboBox.getSelectionModel().clearSelection();
         classComboBox.getSelectionModel().clearSelection();
         characterNameTextField.clear();
         playerNameTextField.clear();
         ethicsComboBox.getSelectionModel().clearSelection();
         alignmentComboBox.getSelectionModel().clearSelection();
+        imagePath = null;
     }
 
 

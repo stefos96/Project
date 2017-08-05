@@ -1,13 +1,11 @@
 package Layouts.Map;
-import Layouts.Controller;
 import Layouts.ViewInterface;
-import Positions.Positions;
-import javafx.beans.Observable;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,9 +20,8 @@ import javafx.scene.shape.SVGPath;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.*;
-import java.util.HashMap;
-
 import Character.Character;
+import javafx.util.Duration;
 
 public class Map implements ViewInterface{
     private Scene scene;
@@ -34,12 +31,19 @@ public class Map implements ViewInterface{
 
     private SVGPath addCharacterButton;
     private SVGPath nextMapButton;
-    private SVGPath charactersButton;
     private SVGPath saveButton;
+    private SVGPath infoButton;
 
     private Accordion accordion;
 
     private ImageView imageView;
+
+    private Group dice;
+
+    private int rotationSpeed = 500;
+    private int cycleCount = 50;
+    private int rate = 5;
+
 
     public Map() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Map.fxml"));
@@ -52,8 +56,8 @@ public class Map implements ViewInterface{
 
         addCharacterButton = (SVGPath) scene.lookup("#addCharacterButton");
         nextMapButton = (SVGPath) scene.lookup("#nextMapButton");
-        charactersButton = (SVGPath) scene.lookup("#charactersButton");
         saveButton = (SVGPath) scene.lookup("#saveButton");
+        infoButton = (SVGPath) scene.lookup("#infoButton");
 
         accordion = (Accordion) scene.lookup("#accordion");
 
@@ -64,6 +68,7 @@ public class Map implements ViewInterface{
 
         GridPane gridPane = (GridPane) scene.lookup("#gridPane");
 
+        dice = (Group) scene.lookup("#dice");
 
         for (int i = 0; i < 20; i++) {
             ColumnConstraints col = new ColumnConstraints(5, 100, Region.USE_COMPUTED_SIZE);
@@ -74,6 +79,52 @@ public class Map implements ViewInterface{
             gridPane.getRowConstraints().add(row);
         }
 
+    }
+
+    public void rotateDice() {
+        //Creating a rotate transition
+        RotateTransition rotateTransition = new RotateTransition();
+
+        //Setting the node for the transition
+        rotateTransition.setNode(dice);
+
+        rotateTransition.setInterpolator(Interpolator.LINEAR);
+
+        //Setting the duration for the transition
+        rotateTransition.setDuration(Duration.millis(rotationSpeed));
+
+        //Setting the angle of the rotation
+        rotateTransition.setByAngle(360);
+
+        //Setting the cycle count for the transition
+        rotateTransition.setCycleCount(cycleCount);
+
+        //Setting auto reverse value to false
+        rotateTransition.setAutoReverse(false);
+
+        rotateTransition.setOnFinished(e -> rotateDice());
+
+        rotateTransition.setRate(rate);
+
+        if (rate == 5)
+            rate = 3;
+        else if (cycleCount == 1) {
+            rotateTransition.setAutoReverse(true);
+            rate = 0;
+        }
+        else if (rate == 3) {
+            rate = 1;
+            cycleCount = 5;
+            rotationSpeed = 800;
+        }
+        else if (rate == 1) {
+            rotationSpeed = 1500;
+            cycleCount = 1;
+        }
+
+
+
+        rotateTransition.play();
     }
 
     public void setImage(String imageString) {
@@ -177,15 +228,15 @@ public class Map implements ViewInterface{
             case "nextMapButton":
                 nextMapButton.setOnMouseClicked(listener);
                 break;
-            case "charactersButton":
-                charactersButton.setOnMouseClicked(listener);
-                break;
             case "saveButton":
                 saveButton.setOnMouseClicked(listener);
                 break;
             case "getCharacter":
                 for (Node titledPane: accordion.getChildrenUnmodifiable())
                     titledPane.setOnMouseClicked(listener);
+                break;
+            case "infoButton":
+                infoButton.setOnMouseClicked(listener);
                 break;
         }
     }

@@ -3,7 +3,6 @@ import Layouts.Controller;
 import Layouts.Model;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import Character.*;
 
 public class Main extends Application{
 

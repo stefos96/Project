@@ -184,13 +184,15 @@ public class Character implements Serializable{
     private int fourThrowsD6(){
         Dice dice = Dice.D6;
 
-        int max = 0;
+        int min = 6;
+        int sum = 0;
         for (int i = 0; i < 4; i++){
             int diceThrow = dice.roll();
-            if (diceThrow > max)
-                max = diceThrow;
+            if (diceThrow < min)
+                min = diceThrow;
+            sum += diceThrow;
         }
-        return max;
+        return sum - min;
     }
 
     public void setPositions(double x, double y) {

@@ -6,6 +6,7 @@ import Layouts.CreateCharacter.CreateCharacter;
 import Layouts.DescriptionAdder.DescriptionAdder;
 import Layouts.Help.HelpLayout;
 import Layouts.Inventory.InventoryLayout;
+import Layouts.ItemLayout.Info;
 import Layouts.Lobby.Lobby;
 import Layouts.MainGame.MainGame;
 import Layouts.Map.Map;
@@ -42,8 +43,9 @@ public class Controller {
     private ViewInterface mapCreation;
     private ViewInterface monsterInsertion;
     private ViewInterface activity;
-     private ViewInterface descriptionAdder;
-     private ViewInterface map;
+    private ViewInterface descriptionAdder;
+    private ViewInterface map;
+    private ViewInterface info;
 
     private Model model;
 
@@ -62,6 +64,7 @@ public class Controller {
         activity = new ActivityLayout();
         descriptionAdder = new DescriptionAdder();
         map = new Map();
+        info = new Info();
 
         menu.show();
 
@@ -137,6 +140,7 @@ public class Controller {
         map.setButtonListener("addCharacterButton", new MapAddCharacterListener());
         map.setButtonListener("nextMapButton", new MapNextMapListener());
         map.setButtonListener("saveButton", new MapSaveListener());
+        map.setButtonListener("infoButton", new MapInfoListener());
     }
 
     // Menu
@@ -188,6 +192,12 @@ public class Controller {
                  in.close();
                  fileIn.close();
                  loadCharactersToMap();
+                 menu.hide();
+                 map.show();
+
+                 map.setButtonListener("getCharacter", new MapGetCharacterListener());
+
+                 System.out.println("model loaded succesfully");
              }
              catch(IOException i) {
                  i.printStackTrace();
@@ -236,8 +246,8 @@ public class Controller {
                  Character character = ((CreateCharacter) createCharacter).createCharacter();
                  model.addCharacter(character.getCharacterName(), character);
 
+                 ((CreateCharacter) createCharacter).clearFields();
                  createCharacter.hide();
-
 
                   ((Map) map).addCharacterToAccordion(character, new MapIconDragged());
 
@@ -291,7 +301,6 @@ public class Controller {
         @Override
         public void handle(MouseEvent event) {
             characterLayout.hide();
-            mainGame.show();
         }
     }
 
@@ -551,7 +560,7 @@ public class Controller {
                  out.writeObject(model);
                  out.close();
                  fileOut.close();
-                 System.out.printf("Serialized data is saved in model.ser");
+                 System.out.println("Serialized data is saved in model.ser");
              }
              catch(IOException i) {
                  i.printStackTrace();
@@ -587,6 +596,13 @@ public class Controller {
 
              Character character = model.getCorrectCharacter(x, y, radius);
              character.setPositions(x, y);
+         }
+     }
+
+     private class MapInfoListener implements EventHandler<MouseEvent> {
+         @Override
+         public void handle(MouseEvent event) {
+             info.show();
          }
      }
 }
